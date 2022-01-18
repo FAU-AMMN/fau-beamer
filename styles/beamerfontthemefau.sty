@@ -1,0 +1,27 @@
+\ProvidesPackage{styles/beamerfontthemefau}  % this style was created by Balthasar Reuter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\mode<presentation>
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Helvetica
+\RequirePackage{lmodern}
+\RequirePackage{textcomp}
+\RequirePackage{fix-cm}
+\RequirePackage[scaled=.92]{helvet}
+
+\setbeamerfont{title}{size=\huge,series=\bfseries}
+\setbeamerfont{subtitle}{size=\Large,series=\mdseries}
+\setbeamerfont{frametitle}{size=\LARGE,series=\bfseries}
+\setbeamerfont{framesubtitle}{size=\Large,series=\mdseries}
+\setbeamerfont{block title}{size=\large,series=\bfseries}
+\setbeamerfont{footline}{size=\scriptsize}
+
+\AtBeginDocument{\fontsize{18}{20}\selectfont}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% equal font sizes for all levels
+\setbeamerfont{itemize/enumerate body}{size=\fontsize{18}{20}}
+\setbeamerfont{itemize/enumerate subbody}{size=\fontsize{18}{20}}
+\setbeamerfont{itemize/enumerate subsubbody}{size=\fontsize{18}{20}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\mode<all>

@@ -1,0 +1,115 @@
+\ProvidesPackage{styles/beamerthemefau-16-9}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{ifthen}
+\RequirePackage{geometry}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newif\iffau@isfau\fau@isfautrue
+\newif\iffau@isphil\fau@isphilfalse
+\newif\iffau@isrewi\fau@isrewifalse
+\newif\iffau@ismed\fau@ismedfalse
+\newif\iffau@isnat\fau@isnatfalse
+\newif\iffau@istech\fau@istechfalse
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\DeclareOptionBeamer{institute}{%
+  \PassOptionsToPackage{institute=#1}{styles/beamercolorthemefau}
+  \def\inst{}
+  \ifthenelse{\equal{#1}{fau}}{\fau@isfautrue\def\inst{fau}}{\fau@isfaufalse}%
+  \ifthenelse{\equal{#1}{phil}}{\fau@isphiltrue\def\inst{phil}}{\fau@isphilfalse}%
+  \ifthenelse{\equal{#1}{rewi}}{\fau@isrewitrue\def\inst{rewi}}{\fau@isrewifalse}%
+  \ifthenelse{\equal{#1}{med}}{\fau@ismedtrue\def\inst{med}}{\fau@ismedfalse}%
+  \ifthenelse{\equal{#1}{nat}}{\fau@isnattrue\def\inst{nat}}{\fau@isnatfalse}%
+  \ifthenelse{\equal{#1}{tech}}{\fau@istechtrue\def\inst{tech}}{\fau@istechfalse}%
+}
+\DeclareOptionBeamer{variant}{%
+  \PassOptionsToPackage{variant=#1}{styles/beamercolorthemefau}
+}
+\DeclareOptionBeamer{logo}{%
+  \PassOptionsToPackage{userlogo=#1}{styles/beamerinnerthemefau}
+  \PassOptionsToPackage{userlogo=#1}{styles/beamerouterthemefau}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ProcessOptionsBeamer
+\selectcolormodel{rgb}
+\mode<presentation>
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+\iffau@isfau
+  \PassOptionsToPackage{logo=art/fau-logo}{styles/beamerinnerthemefau}
+  \PassOptionsToPackage{logo=art/fau-logo}{styles/beamerouterthemefau}
+  \PassOptionsToPackage{logobreite=45.4mm}{styles/beamerinnerthemefau}
+  \PassOptionsToPackage{logohoehe=9.1mm}{styles/beamerinnerthemefau}
+  \PassOptionsToPackage{logobreite=29.2mm}{styles/beamerouterthemefau}
+  \PassOptionsToPackage{logohoehe=5.8mm}{styles/beamerouterthemefau}
+\fi
+\iffau@isphil
+  \PassOptionsToPackage{logo=art/fau-logo-philtheo}{styles/beamerinnerthemefau}
+  \PassOptionsToPackage{logo=art/fau-logo-philtheo}{styles/beamerouterthemefau}
+  \PassOptionsToPackage{logobreite=69.77mm}{styles/beamerinnerthemefau}
+  \PassOptionsToPackage{logohoehe=19.39mm}{styles/beamerinnerthemefau}
+  \PassOptionsToPackage{logobreite=44.63mm}{styles/beamerouterthemefau}
+  \PassOptionsToPackage{logohoehe=12.4mm}{styles/beamerouterthemefau}
+\fi
+\iffau@isrewi
+  \PassOptionsToPackage{logo=art/fau-logo-rechtwirt}{styles/beamerinnerthemefau}
+  \PassOptionsToPackage{logo=art/fau-logo-rechtwirt}{styles/beamerouterthemefau}
+  \PassOptionsToPackage{logobreite=71.04mm}{styles/beamerinnerthemefau}
+  \PassOptionsToPackage{logohoehe=19.39mm}{styles/beamerinnerthemefau}
+  \PassOptionsToPackage{logobreite=45.45mm}{styles/beamerouterthemefau}
+  \PassOptionsToPackage{logohoehe=12.4mm}{styles/beamerouterthemefau}
+\fi
+\iffau@ismed
+  \PassOptionsToPackage{logo=art/fau-logo-med}{styles/beamerinnerthemefau}
+  \PassOptionsToPackage{logo=art/fau-logo-med}{styles/beamerouterthemefau}
+  \PassOptionsToPackage{logobreite=61.97mm}{styles/beamerinnerthemefau}
+  \PassOptionsToPackage{logohoehe=16.77mm}{styles/beamerinnerthemefau}
+  \PassOptionsToPackage{logobreite=39.56mm}{styles/beamerouterthemefau}
+  \PassOptionsToPackage{logohoehe=10.7mm}{styles/beamerouterthemefau}
+\fi
+\iffau@isnat
+  \PassOptionsToPackage{logo=art/fau-logo-nat}{styles/beamerinnerthemefau}
+  \PassOptionsToPackage{logo=art/fau-logo-nat}{styles/beamerouterthemefau}
+  \PassOptionsToPackage{logobreite=50.3mm}{styles/beamerinnerthemefau}
+  \PassOptionsToPackage{logohoehe=14.7mm}{styles/beamerinnerthemefau}
+  \PassOptionsToPackage{logobreite=31.1mm}{styles/beamerouterthemefau}
+  \PassOptionsToPackage{logohoehe=9.1mm}{styles/beamerouterthemefau}
+\fi
+\iffau@istech
+  \PassOptionsToPackage{logo=art/fau-logo-tech}{styles/beamerinnerthemefau}
+  \PassOptionsToPackage{logo=art/fau-logo-tech}{styles/beamerouterthemefau}
+  \PassOptionsToPackage{logobreite=60.44mm}{styles/beamerinnerthemefau}
+  \PassOptionsToPackage{logohoehe=16.77mm}{styles/beamerinnerthemefau}
+  \PassOptionsToPackage{logobreite=38.59mm}{styles/beamerouterthemefau}
+  \PassOptionsToPackage{logohoehe=10.7mm}{styles/beamerouterthemefau}
+\fi
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\PassOptionsToPackage{standx=195.2mm}{styles/beamerinnerthemefau}
+\PassOptionsToPackage{standy=5.1mm}{styles/beamerinnerthemefau}
+\PassOptionsToPackage{logoraum=27.4mm}{styles/beamerinnerthemefau}
+\PassOptionsToPackage{userlogobreite=75mm}{styles/beamerinnerthemefau}
+\PassOptionsToPackage{userlogostandx=0mm}{styles/beamerinnerthemefau}
+\PassOptionsToPackage{userlogostandy=7mm}{styles/beamerinnerthemefau}
+\PassOptionsToPackage{siegelbreite=40.6mm}{styles/beamerinnerthemefau}
+\PassOptionsToPackage{urlraum=5.7mm}{styles/beamerinnerthemefau}
+\PassOptionsToPackage{absenderraum=5.4mm}{styles/beamerinnerthemefau}
+\PassOptionsToPackage{absenderhoehe=27mm}{styles/beamerinnerthemefau}
+\PassOptionsToPackage{linienstaerke=0.5mm}{styles/beamerinnerthemefau}
+\PassOptionsToPackage{skipx=-7.7mm}{styles/beamerinnerthemefau}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\PassOptionsToPackage{standx=217.2mm}{styles/beamerouterthemefau}
+\PassOptionsToPackage{standy=2.6mm}{styles/beamerouterthemefau}
+\PassOptionsToPackage{logoraum=13.7mm}{styles/beamerouterthemefau}
+\PassOptionsToPackage{urlraum=5.7mm}{styles/beamerouterthemefau}
+\PassOptionsToPackage{absenderraum=5.4mm}{styles/beamerouterthemefau}
+\PassOptionsToPackage{absenderhoehe=13.7mm}{styles/beamerouterthemefau}
+\PassOptionsToPackage{absenderskip=13.5mm}{styles/beamerouterthemefau}
+\PassOptionsToPackage{linienstaerke=0.5mm}{styles/beamerouterthemefau}
+\PassOptionsToPackage{outlinestaerke=.7pt}{styles/beamerouterthemefau}
+\PassOptionsToPackage{userlogobreite=75mm}{styles/beamerouterthemefau}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\geometry{paperwidth=254mm,paperheight=142.9mm}
+\usepackage{styles/beamerfontthemefau}
+\usepackage{styles/beamercolorthemefau}
+\usepackage{styles/beamerinnerthemefau}
+\usepackage{styles/beamerouterthemefau}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\mode<all>
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

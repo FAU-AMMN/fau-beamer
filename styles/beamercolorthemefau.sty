@@ -1,0 +1,71 @@
+\ProvidesPackage{styles/beamercolorthemefau}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{ifthen}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\DeclareOptionBeamer{BaseColor}{%
+  \PassOptionsToPackage{#1}{styles/faucolors}%
+}
+\newcount\fau@color@variant
+\DeclareOptionBeamer{variant}{%
+  \ifthenelse{\equal{#1}{outline}}{\fau@color@variant=0}{}
+  \ifthenelse{\equal{#1}{fond1}}{\fau@color@variant=1}{}
+  \ifthenelse{\equal{#1}{fond2}}{\fau@color@variant=2}{}
+}
+\ExecuteOptionsBeamer{variant=outline}
+\ProcessOptionsBeamer
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{styles/fau-colors}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\selectcolormodel{rgb}
+\mode<presentation>
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamercolor{title page}{fg=white,bg=BaseColor}
+\setbeamercolor{title page headline}{bg=white}
+\setbeamercolor{title page block}{fg=white,bg=BaseColor}
+\setbeamercolor{title page logo}{fg=white}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamercolor{section page}{fg=white,bg=BaseColor}
+\setbeamercolor{section page headline}{bg=white}
+\setbeamercolor{section page block}{fg=white,bg=BaseColor}
+\setbeamercolor{section page logo}{fg=white}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% ..............................................................................
+% Color themes for frame sepcification.
+% ------------------------------------------------------------------------------
+\setbeamercolor{headline}{fg=BaseColor,bg=white}
+\setbeamercolor{title separation line}{fg=BaseColor,bg=BaseColor}
+\setbeamercolor{foot separation line}{fg=BaseColor,bg=BaseColor}
+%\setbeamercolor{sidebar}{fg=BaseColor,bg=white}
+%\setbeamercolor{sidebar top}{fg=white,bg=BaseColor}
+%\setbeamercolor{sidebar bot}{fg=white,bg=BaseColor}
+%\setbeamercolor{footline}{fg=BaseColor,bg=white}
+%\setbeamercolor{footline title}{fg=BaseColor}
+%\setbeamercolor{footline date}{fg=BaseColor}
+%\setbeamercolor{footline page}{fg=BaseColor}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifcase\fau@color@variant
+% outline
+  \setbeamercolor{outline}{fg=white,bg=BaseColor}
+  \setbeamercolor{frametitle}{fg=BaseColor,bg=white}
+  \setbeamercolor{normal text}{fg=black,bg=white}
+  \setbeamercolor{block body}{bg=BaseColor}
+\or % fond 1
+  \setbeamercolor{outline}{fg=white,bg=white}
+  \setbeamercolor{frametitle}{fg=white,bg=BaseColor}
+  \setbeamercolor{normal text}{fg=black,bg=BaseColor}
+  \setbeamercolor{block body}{bg=white}
+\or % fond 2
+  \setbeamercolor{outline}{fg=white,bg=white}
+  \setbeamercolor{frametitle}{fg=white,bg=BaseColor}
+  \setbeamercolor{normal text}{fg=black,bg=BaseColor}
+  \setbeamercolor{block body}{bg=white}
+\else
+  \PackageError{beamercolorthemefau}{Option 'variant' must be one of 'outline', 'fond1', or 'fond2'.}{}
+\fi
+\setbeamercolor{block title}{bg=BaseColor,fg=white}
+\setbeamercolor{structure}{fg=BaseColor}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamercolor{outline}{fg=red,bg=red}
+\mode<all>
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

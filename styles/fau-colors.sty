@@ -1,0 +1,121 @@
+% ..............................................................................
+% This file defines the color scheme for the diffferent institutions of the FAU, 
+% accoridng to the corporate style guide 2021, see 
+%
+% https://www.intern.fau.de/kommunikation-marketing-und-corporate-identity/corporate-identity/
+%
+%
+% for use with LaTeX.
+%
+% Copyright 2022 by Tim Roith <tim.roith@fau.de>
+%
+% This program can be redistributed and/or modified under the terms
+% of the GNU Public License, version 2.
+%
+% ------------------------------------------------------------------------------
+
+\ProvidesPackage{styles/fau-colors}
+\RequirePackage{xcolor}
+
+\newcounter{faucolors@institutecounter}\setcounter{faucolors@institutecounter}{-1}
+\newif\iffaucolors@isfau\faucolors@isfautrue
+\newif\iffaucolors@isphil\faucolors@isphilfalse
+\newif\iffaucolors@isrewi\faucolors@isrewifalse
+\newif\iffaucolors@ismed\faucolors@ismedfalse
+\newif\iffaucolors@isnat\faucolors@isnatfalse
+\newif\iffaucolors@istech\faucolors@istechfalse
+
+\DeclareOption{FAU}{%
+  \faucolors@isfautrue
+  \stepcounter{faucolors@institutecounter}
+}
+\DeclareOption{Phil}{%
+  \faucolors@isphiltrue
+  \stepcounter{faucolors@institutecounter}
+}
+\DeclareOption{RW}{%
+  \faucolors@isrewitrue
+  \stepcounter{faucolors@institutecounter}
+}
+\DeclareOption{med}{%
+  \faucolors@ismedtrue
+  \stepcounter{faucolors@institutecounter}
+}
+\DeclareOption{nat}{%
+  \faucolors@isnattrue
+  \stepcounter{faucolors@institutecounter}
+}
+\DeclareOption{tech}{%
+  \faucolors@istechtrue
+  \stepcounter{faucolors@institutecounter}
+}
+\ProcessOptions\relax
+
+\ifnum\value{faucolors@institutecounter}>0
+  \PackageError{fau-colors}{Options 'FAU', 'Phil', 'RW', 'Med', 'Nat', and 'TF' are mutually exclusive. Please only specify one of these options.}{}
+\fi
+
+% ..............................................................................
+% Define the colors and their respective dark versions for each institute.
+% ------------------------------------------------------------------------------
+
+% FAU University colors
+\definecolor{FAUBlue}{RGB}{0,47,108}
+\definecolor{FAUDarkBlue}{RGB}{4,30,66}
+
+% Phil colors
+\definecolor{PhilYellow}{RGB}{255,184,28}
+\definecolor{PhilOrange}{RGB}{255,184,28}
+
+% RW colors
+\definecolor{RWRed}{RGB}{141,20,41}
+\definecolor{RWDarkRed}{RGB}{141,20,41}
+
+% Med colors
+\definecolor{MedBlue}{RGB}{0,177,235}
+\definecolor{MedDarkBlue}{RGB}{0,177,235}
+
+% Nat colors
+\definecolor{NatGreen}{RGB}{0,155,119}
+\definecolor{NatDarkGreen}{RGB}{0,155,119}
+
+% Tech colors
+\definecolor{TFMetallic}{RGB}{152,164,174}
+\definecolor{TFDarkMetallic}{RGB}{152,164,174}
+
+% ..............................................................................
+% Assign the colors 
+% 	- BaseColor
+%	- BaseDarkColor
+% according to the specified institute.
+% ------------------------------------------------------------------------------
+
+\iffaucolors@isfau
+  \colorlet{BaseColor}{FAUBlue}
+  \colorlet{BaseDarkColor}{FAUDarkBlue}
+\fi
+
+\iffaucolors@isphil
+  \colorlet{BaseColor}{FAUBlue}
+  \colorlet{BaseDarkColor}{FAUDarkBlue}
+\fi
+
+\iffaucolors@isrewi
+  \colorlet{BaseColor}{FAUBlue}
+  \colorlet{BaseDarkColor}{FAUDarkBlue}
+\fi
+
+\iffaucolors@ismed
+  \colorlet{BaseColor}{FAUBlue}
+  \colorlet{BaseDarkColor}{FAUDarkBlue}
+\fi
+
+\iffaucolors@isnat
+  \colorlet{BaseColor}{FAUBlue}
+  \colorlet{BaseDarkColor}{FAUDarkBlue}
+\fi
+
+\iffaucolors@istech
+  \colorlet{BaseColor}{TFMetallic}
+  \colorlet{BaseDarkColor}{TFDarkMetallic}
+\fi

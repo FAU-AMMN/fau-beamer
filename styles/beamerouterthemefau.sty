@@ -1,0 +1,205 @@
+\ProvidesPackage{styles/beamerouterthemefau}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newdimen\fau@outer@SideBarWidthLeft % width of the left sidbar
+\newdimen\fau@outer@HeaderHeight % header height without separation line
+\newdimen\fau@outer@LineWidthThick % thick linewidth
+\newdimen\fau@outer@LineWidthThin % thin linewidth
+\newdimen\fau@outer@TitleHeight % title height
+\newdimen\fau@outer@TitleSkip % title height
+\newdimen\fau@outer@FootHeight
+\newdimen\fau@outer@FootLineSkip
+%
+\newif\iffau@outer@InsertTotalFoot\fau@outer@InsertTotalFootfalse
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% ..............................................................................
+% Dimensions
+% -------
+%
+% We define the relevant dimensions for this template.
+% ------------------------------------------------------------------------------
+
+\DeclareOptionBeamer{SideBarWidthLeft}{\fau@outer@SideBarWidthLeft=#1}
+\DeclareOptionBeamer{HeaderHeight}{\fau@outer@HeaderHeight=#1}
+\DeclareOptionBeamer{TitleHeight}{\fau@outer@TitleHeight=#1}
+\DeclareOptionBeamer{TitleSkip}{\fau@outer@TitleSkip=#1}
+\DeclareOptionBeamer{LineWidthThick}{\fau@outer@LineWidthThick=#1}
+\DeclareOptionBeamer{LineWidthThin}{\fau@outer@LineWidthThin=#1}
+\DeclareOptionBeamer{FootHeight}{\fau@outer@FootHeight=#1}
+\DeclareOptionBeamer{FootLineSkip}{\fau@outer@FootLineSkip=#1}
+
+%
+\DeclareOptionBeamer{InsertTotalFoot}{\fau@outer@InsertTotalFoottrue}
+\DeclareOptionBeamer{WordMark}{\def\fau@outer@WordMark{#1}}
+% ------------------------------------------------------------------------------
+
+%\DeclareOptionBeamer{userlogobreite}{\fau@outer@userlogobreite=#1}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ProcessOptionsBeamer
+\mode<presentation>
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{tikz}
+\RequirePackage{graphicx}
+
+% ..............................................................................
+% Headline
+% -------
+%
+% This section specifies the behaviour of the frame headline.
+% ------------------------------------------------------------------------------
+\setbeamertemplate{headline}{%
+\begin{beamercolorbox}[wd=\paperwidth,
+					   ht=\fau@outer@HeaderHeight, dp=0ex]{headline}
+\end{beamercolorbox}
+}
+
+% ..............................................................................
+% Frame title
+% -----------
+%
+% ------------------------------------------------------------------------------
+
+\setbeamertemplate{frametitle}{%
+\begin{beamercolorbox}[dp=0cm, sep=0.0cm,left,
+					   wd=\dimexpr\paperwidth-\fau@outer@SideBarWidthLeft,
+					   ht=\fau@outer@TitleHeight]{frametitle}%
+\usebeamerfont{frametitle}%
+%
+\vbox to\dimexpr\fau@outer@TitleHeight{%
+\nointerlineskip%
+\vskip\dimexpr\fau@outer@TitleSkip%
+\nointerlineskip%
+%
+% hbox for title and logo
+%
+\hbox to \dimexpr\paperwidth-\fau@outer@SideBarWidthLeft{%
+\begin{beamercolorbox}[dp=0cm, sep=0.0cm,left,
+					   wd=\dimexpr.5\paperwidth-\fau@outer@SideBarWidthLeft,
+					   ht=\dimexpr\fau@outer@TitleHeight-\fau@outer@LineWidthThick-\fau@outer@TitleSkip]{}%
+\vbox to\dimexpr\dimexpr\fau@outer@TitleHeight-\fau@outer@LineWidthThick-\fau@outer@TitleSkip{%
+\insertframetitle\\%
+\vfil%
+}%
+\end{beamercolorbox}%
+%
+% insert fau word mark
+%
+\begin{beamercolorbox}[dp=0cm, sep=0.0cm,right,
+					   wd=\dimexpr.5\paperwidth,
+					   ht=\dimexpr\fau@outer@TitleHeight-\fau@outer@LineWidthThick-\fau@outer@TitleSkip]{}%
+\includegraphics[width=100pt, keepaspectratio]{\fau@outer@WordMark}%
+\end{beamercolorbox}%
+}%
+%
+% separation line
+%
+\nointerlineskip%
+\begin{beamercolorbox}[dp=0cm,left,sep=0cm,
+					   wd=\dimexpr\paperwidth-\fau@outer@SideBarWidthLeft, 
+					   ht=\fau@outer@LineWidthThick]{title separation line}%
+\end{beamercolorbox}%
+}%
+\end{beamercolorbox}%
+}%
+% ------------------------------------------------------------------------------
+
+
+
+
+% ..............................................................................
+% Sidebar
+% -------
+%
+% This section specifies the behaviour of the sidbar.
+% ------------------------------------------------------------------------------
+
+\setbeamersize{sidebar width left=\fau@outer@SideBarWidthLeft}
+% ------------------------------------------------------------------------------
+\defbeamertemplate*{sidebar left}{sidebar theme}{}
+
+
+
+% ..............................................................................
+% Footline
+% ------------------------------------------------------------------------------
+
+\setbeamertemplate{footline}{%
+\begin{beamercolorbox}[wd=\paperwidth,ht=\fau@outer@FootHeight]{}%
+\hbox to \paperwidth{%
+\hskip\dimexpr\fau@outer@SideBarWidthLeft%
+\vbox to \fau@outer@FootHeight{%
+\begin{beamercolorbox}[wd=\dimexpr\paperwidth-\fau@outer@SideBarWidthLeft, 
+  					   ht=\fau@outer@LineWidthThin,dp=0pt,sep=0pt]{foot separation line}%
+\end{beamercolorbox}%
+\nointerlineskip%
+\hbox to \dimexpr\paperwidth-\fau@outer@SideBarWidthLeft{%
+%
+% left side of the footer
+%
+\begin{beamercolorbox}[dp=0pt,sep = \fau@outer@FootLineSkip,%
+					   leftskip= -\fau@outer@FootLineSkip,%
+					   wd=\dimexpr.5\paperwidth-\fau@outer@SideBarWidthLeft,%
+  					   ht=\dimexpr\fau@outer@FootHeight-\fau@outer@LineWidthThin]{footline}%
+\ifx\insertshortinstitute\empty\else%
+	\insertshortinstitute\quad%
+\fi%
+\ifx\insertshortauthor\empty\else%
+	\insertshortauthor\quad%
+\fi%
+\ifx\insertshorttitle\empty\else%
+	\insertshorttitle%
+\fi%
+%
+\end{beamercolorbox}%
+%
+% rigth side of the footer
+%
+\begin{beamercolorbox}[dp=0pt,sep = \fau@outer@FootLineSkip,%
+					   rightskip=\dimexpr\fau@outer@SideBarWidthLeft-\fau@outer@FootLineSkip,%
+					   wd=\dimexpr.5\paperwidth,%
+  					   ht=\dimexpr\fau@outer@FootHeight-\fau@outer@LineWidthThin]{footline}%
+\hfill%
+\insertdate\qquad%
+\insertframenumber%
+\iffau@outer@InsertTotalFoot
+/\inserttotalframenumber%
+\fi%
+% this is hacky but somehow 
+%\hphantom{---------}%
+\end{beamercolorbox}%
+}%
+}%
+}%
+\end{beamercolorbox}%
+}%
+% ------------------------------------------------------------------------------
+
+
+
+
+
+% ..............................................................................
+% trueplainframe
+% ---------
+% Actual plain environment
+% This removes the left sidbar of a plain frame
+% ------------------------------------------------------------------------------
+\newenvironment{trueplainframe}[1][]{%
+\hoffset=-\beamer@leftsidebar
+\advance\textwidth\beamer@leftsidebar
+\hsize\textwidth
+\columnwidth\textwidth
+%
+\begin{frame}[plain,#1]%
+}{%
+\end{frame}%
+}
+% ------------------------------------------------------------------------------
+
+
+
+
+
+\mode<all>
