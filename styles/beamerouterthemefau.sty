@@ -86,11 +86,16 @@
 %
 % insert fau word mark
 %
-\begin{beamercolorbox}[dp=0cm, sep=0.0cm,right,
-					   wd=\dimexpr.5\paperwidth,
-					   ht=\dimexpr\fau@outer@TitleHeight-\fau@outer@LineWidthThick-\fau@outer@TitleSkip]{}%
-\includegraphics[width=100pt, keepaspectratio]{\fau@outer@WordMark}%
-\end{beamercolorbox}%
+\vbox to\dimexpr\dimexpr\fau@outer@TitleHeight-\fau@outer@LineWidthThick-\fau@outer@TitleSkip{%
+\nointerlineskip%
+\hbox to\dimexpr.5\paperwidth{%
+\hfil%
+\includegraphics[width=100pt, height=50pt, keepaspectratio]{\fau@outer@WordMark}%
+\hskip\fau@outer@SideBarWidthLeft
+}%
+\nointerlineskip%
+\vfil%
+}%
 }%
 %
 % separation line
