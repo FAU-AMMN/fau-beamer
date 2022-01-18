@@ -1,0 +1,103 @@
+% ----------------------------------------------------------------------------------------
+% The preamble
+\documentclass[final, 12pt]{beamer}
+% ========================================================================================
+% Theme: inner, outer, font and colors
+% ----------------------------------------------------------------------------------------
+\usepackage[institute=tech]{styles/beamerthemefau-4-3}
+% ----------------------------------------------------------------------------------------
+% Input and output encoding
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+% ----------------------------------------------------------------------------------------
+% Language settings
+\usepackage[english]{babel}
+% ========================================================================================
+% Fonts
+% - Helvet is loaded by styles/beamerfonts
+% - We use serif for math environements
+% - isomath is used for upGreek letters
+% ----------------------------------------------------------------------------------------
+\usepackage{isomath}
+\usefonttheme[onlymath]{serif}
+\usepackage{exscale}
+\usepackage{anyfontsize}
+\setbeamercolor{alerted text}{fg=BaseColor}
+% ----------------------------------------------------------------------------------------
+% custom commands for symbols
+\usepackage{styles/symbols}
+% ========================================================================================
+% Setup for Titlepage
+% ----------------------------------------------------------------------------------------
+\title[Short title]{fau-beamer}
+\author[Author in foot]{Tim Roith}
+\institute[Short institute name]{FAU}
+\date{\today}
+% ========================================================================================
+% Bibliography
+% ----------------------------------------------------------------------------------------
+\usepackage{csquotes}
+\usepackage[style=alphabetic, %alternatively: numeric, numeric-comp, and other from biblatex
+			defernumbers=true,
+			useprefix=true,%
+			giveninits=true,%
+			hyperref=true,%
+			autocite=inline,%
+			maxcitenames=5,%
+			maxbibnames=20,%
+			uniquename=init,%
+			sortcites=true,% sort citations when multiple entries are passed to one cite command
+			doi=true,%
+			isbn=false,%
+			url=false,%
+			eprint=false,%
+			backend=biber%
+		   ]{biblatex}
+\addbibresource{bibliography.bib}
+\setbeamertemplate{bibliography item}[text]
+% ========================================================================================
+% Hyperref and setup
+% ----------------------------------------------------------------------------------------
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks = true,
+	final=true, 
+	plainpages=false,
+	pdfstartview=FitV,
+	pdftoolbar=true,
+	pdfmenubar=true,
+	pdfencoding=auto,
+	psdextra,
+	bookmarksopen=true,
+	bookmarksnumbered=true,
+	breaklinks=true,
+	linktocpage=true,
+	urlcolor=BaseColor,
+	citecolor=BaseColor,
+	linkcolor=BaseColor
+}
+
+% ========================================================================================
+% Additional packages
+% ----------------------------------------------------------------------------------------
+%
+%
+%
+%
+% ========================================================================================
+% Various custom commands
+% ----------------------------------------------------------------------------------------
+\pdfsuppresswarningpagegroup=1 %solves the PDF inclusion problem
+% Change color for cite locally
+\newcommand{\colorcite}[3]{{\hypersetup{citecolor=#1}{\cite[#2]{#3}}}} 
+% ----------------------------------------------------------------------------------------
+\begin{document}
+% ----------------------------------------------------------------------------------------
+% ----------------------------------------------------------------------------------------
+% Outline
+\begin{frame}{Outline}
+\tableofcontents
+\end{frame}
+% ----------------------------------------------------------------------------------------
+\input{sections/01_Intro_Landscape}
+\end{document}
