@@ -9,6 +9,10 @@
 \newdimen\fau@outer@TitleSkip % title height
 \newdimen\fau@outer@FootHeight
 \newdimen\fau@outer@FootLineSkip
+\newdimen\fau@outer@WordMarkHeight
+\newdimen\fau@outer@WordMarkWidth
+\newdimen\fau@outer@WordMarkBoxWidth
+\newdimen\fau@outer@TitleSkipLeft
 %
 \newif\iffau@outer@InsertTotalFoot\fau@outer@InsertTotalFootfalse
 
@@ -25,10 +29,14 @@
 \DeclareOptionBeamer{HeaderHeight}{\fau@outer@HeaderHeight=#1}
 \DeclareOptionBeamer{TitleHeight}{\fau@outer@TitleHeight=#1}
 \DeclareOptionBeamer{TitleSkip}{\fau@outer@TitleSkip=#1}
+\DeclareOptionBeamer{TitleSkipLeft}{\fau@outer@TitleSkipLeft=#1}
 \DeclareOptionBeamer{LineWidthThick}{\fau@outer@LineWidthThick=#1}
 \DeclareOptionBeamer{LineWidthThin}{\fau@outer@LineWidthThin=#1}
 \DeclareOptionBeamer{FootHeight}{\fau@outer@FootHeight=#1}
 \DeclareOptionBeamer{FootLineSkip}{\fau@outer@FootLineSkip=#1}
+\DeclareOptionBeamer{WordMarkHeight}{\fau@outer@WordMarkHeight=#1}
+\DeclareOptionBeamer{WordMarkWidth}{\fau@outer@WordMarkWidth=#1}
+\DeclareOptionBeamer{WordMarkBoxWidth}{\fau@outer@WordMarkBoxWidth=#1}
 
 %
 \DeclareOptionBeamer{InsertTotalFoot}{\fau@outer@InsertTotalFoottrue}
@@ -68,34 +76,51 @@
 \usebeamerfont{frametitle}%
 %
 \vbox to\dimexpr\fau@outer@TitleHeight{%
-\nointerlineskip%
-\vskip\dimexpr\fau@outer@TitleSkip%
-\nointerlineskip%
 %
 % hbox for title and logo
 %
 \hbox to \dimexpr\paperwidth-\fau@outer@SideBarWidthLeft{%
 \begin{beamercolorbox}[dp=0cm, sep=0.0cm,left,
 					   wd=\dimexpr.5\paperwidth-\fau@outer@SideBarWidthLeft,
-					   ht=\dimexpr\fau@outer@TitleHeight-\fau@outer@LineWidthThick-\fau@outer@TitleSkip]{}%
+					   ht=\dimexpr\fau@outer@TitleHeight-\fau@outer@LineWidthThick]{}%
 \vbox to\dimexpr\dimexpr\fau@outer@TitleHeight-\fau@outer@LineWidthThick-\fau@outer@TitleSkip{%
 \insertframetitle\\%
+%
+\ifx\insertframesubtitle\empty\else%
+{\usebeamerfont{subtitle}\insertframesubtitle}\\%
+\fi%
+%
 \vfil%
 }%
 \end{beamercolorbox}%
 %
+% insert additional logo
+%
+\begin{beamercolorbox}[dp=0cm, sep=0.0cm,right,%
+					   wd=\dimexpr.5\paperwidth-\fau@outer@WordMarkBoxWidth-\fau@outer@TitleSkipLeft,%
+					   ht=\dimexpr\fau@outer@TitleHeight-\fau@outer@LineWidthThick]{title separation line}%
+					   
+\end{beamercolorbox}%
+%
 % insert fau word mark
 %
-\vbox to\dimexpr\dimexpr\fau@outer@TitleHeight-\fau@outer@LineWidthThick-\fau@outer@TitleSkip{%
-\nointerlineskip%
-\hbox to\dimexpr.5\paperwidth{%
-\hfil%
-\includegraphics[width=100pt, height=50pt, keepaspectratio]{\fau@outer@WordMark}%
-\hskip\fau@outer@SideBarWidthLeft
-}%
-\nointerlineskip%
+\begin{beamercolorbox}[dp=0cm, sep=0.0cm,right,%
+					   wd=\fau@outer@WordMarkBoxWidth,%
+					   ht=\dimexpr\fau@outer@TitleHeight-\fau@outer@LineWidthThick]{outline}%
+\vbox to\dimexpr\dimexpr\fau@outer@TitleHeight-\fau@outer@LineWidthThick{%
+%
+\includegraphics[width=\fau@outer@WordMarkWidth,%
+				 height=\fau@outer@WordMarkHeight,%
+				 keepaspectratio]{\fau@outer@WordMark}%
 \vfil%
 }%
+%
+\end{beamercolorbox}%
+%
+\begin{beamercolorbox}[dp=0cm, sep=0.0cm,right,%
+					   wd=\fau@outer@TitleSkipLeft,%
+					   ht=\dimexpr\fau@outer@TitleHeight-\fau@outer@LineWidthThick]{}%
+\end{beamercolorbox}%
 }%
 %
 % separation line
@@ -171,8 +196,6 @@
 \iffau@outer@InsertTotalFoot
 /\inserttotalframenumber%
 \fi%
-% this is hacky but somehow 
-%\hphantom{---------}%
 \end{beamercolorbox}%
 }%
 }%
