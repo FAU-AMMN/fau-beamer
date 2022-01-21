@@ -13,15 +13,23 @@
 \defcounter {refsection}{0}\relax 
 \headcommand {\beamer@framepages {2}{2}}
 \defcounter {refsection}{0}\relax 
-\headcommand {\slideentry {1}{0}{2}{3/7}{}{0}}
+\headcommand {\slideentry {1}{0}{2}{3/3}{}{0}}
 \defcounter {refsection}{0}\relax 
-\headcommand {\beamer@framepages {3}{7}}
+\headcommand {\beamer@framepages {3}{3}}
 \defcounter {refsection}{0}\relax 
-\headcommand {\slideentry {1}{0}{3}{8/8}{}{0}}
+\headcommand {\slideentry {1}{0}{3}{4/8}{}{0}}
 \defcounter {refsection}{0}\relax 
-\headcommand {\beamer@framepages {8}{8}}
-\headcommand {\beamer@partpages {1}{8}}
-\headcommand {\beamer@subsectionpages {2}{8}}
-\headcommand {\beamer@sectionpages {2}{8}}
-\headcommand {\beamer@documentpages {8}}
-\headcommand {\gdef \inserttotalframenumber {4}}
+\headcommand {\beamer@framepages {4}{8}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {1}{0}{4}{9/9}{}{0}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {9}{9}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {1}{0}{5}{10/10}{}{0}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {10}{10}}
+\headcommand {\beamer@partpages {1}{10}}
+\headcommand {\beamer@subsectionpages {2}{10}}
+\headcommand {\beamer@sectionpages {2}{10}}
+\headcommand {\beamer@documentpages {10}}
+\headcommand {\gdef \inserttotalframenumber {6}}

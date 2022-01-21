@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.20)  21 JAN 2022 13:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.20)  22 JAN 2022 00:37
 entering extended mode
 **./main-landscape.tex
 (main-landscape.tex
@@ -868,8 +868,9 @@ Package: styles/beamercolorthemefau
  (styles/fau-colors.sty
 Package: styles/fau-colors 
 \c@faucolors@institutecounter=\count330
-))
-(styles/beamerinnerthemefau.sty
+
+Teco Cat
+)) (styles/beamerinnerthemefau.sty
 Package: styles/beamerinnerthemefau 
 
 (C:\Users\Tim Roith\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pgf/frontendlay
@@ -1581,6 +1582,19 @@ LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 
 {C:/Users/Tim Roith/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <./logos
 /FAUWortmarkeCMYKblau.pdf>] (sections/01_Intro_Landscape.tex
+<logos/FAUNatFakSRGBwhite.png, id=32, 876.6351pt x 155.01915pt>
+File: logos/FAUNatFakSRGBwhite.png Graphic file (type png)
+<use logos/FAUNatFakSRGBwhite.png>
+Package pdftex.def Info: logos/FAUNatFakSRGBwhite.png  used on input line 2.
+(pdftex.def)             Requested size: 102.42276pt x 18.11185pt.
+<logos/FAUWortmarkeRGBwhite.png, id=34, 603.4545pt x 283.7802pt>
+File: logos/FAUWortmarkeRGBwhite.png Graphic file (type png)
+<use logos/FAUWortmarkeRGBwhite.png>
+Package pdftex.def Info: logos/FAUWortmarkeRGBwhite.png  used on input line 2.
+(pdftex.def)             Requested size: 102.42937pt x 48.16838pt.
+ [2
+
+ <./logos/FAUNatFakSRGBwhite.png> <./logos/FAUWortmarkeRGBwhite.png>]
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 (Font)              scaled to size 13.24796pt on input line 11.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
@@ -1596,7 +1610,7 @@ File: logos/FAUWortmarkeCMYKblau.pdf Graphic file (type pdf)
 Package pdftex.def Info: logos/FAUWortmarkeCMYKblau.pdf  used on input line 11.
 
 (pdftex.def)             Requested size: 102.42393pt x 48.15147pt.
- [2
+ [3
 
 ]
 LaTeX Font Info:    Calculating math sizes for size <18> on input line 24.
@@ -1637,14 +1651,6 @@ File: logos/FAUWortmarkeCMYKblau.pdf Graphic file (type pdf)
 Package pdftex.def Info: logos/FAUWortmarkeCMYKblau.pdf  used on input line 24.
 
 (pdftex.def)             Requested size: 102.42393pt x 48.15147pt.
- [3
-
-]
-File: logos/FAUWortmarkeCMYKblau.pdf Graphic file (type pdf)
-<use logos/FAUWortmarkeCMYKblau.pdf>
-Package pdftex.def Info: logos/FAUWortmarkeCMYKblau.pdf  used on input line 24.
-
-(pdftex.def)             Requested size: 102.42393pt x 48.15147pt.
  [4
 
 ]
@@ -1672,6 +1678,14 @@ Package pdftex.def Info: logos/FAUWortmarkeCMYKblau.pdf  used on input line 24.
  [7
 
 ]
+File: logos/FAUWortmarkeCMYKblau.pdf Graphic file (type pdf)
+<use logos/FAUWortmarkeCMYKblau.pdf>
+Package pdftex.def Info: logos/FAUWortmarkeCMYKblau.pdf  used on input line 24.
+
+(pdftex.def)             Requested size: 102.42393pt x 48.15147pt.
+ [8
+
+]
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 2
 8.
 
@@ -1684,7 +1698,15 @@ Package pdftex.def Info: logos/FAUWortmarkeCMYKblau.pdf  used on input line 28.
 
 (pdftex.def)             Requested size: 102.42393pt x 48.15147pt.
 
-[8
+[9
+
+]
+File: logos/FAUWortmarkeCMYKblau.pdf Graphic file (type pdf)
+<use logos/FAUWortmarkeCMYKblau.pdf>
+Package pdftex.def Info: logos/FAUWortmarkeCMYKblau.pdf  used on input line 37.
+
+(pdftex.def)             Requested size: 102.42393pt x 48.15147pt.
+ [10
 
 ])
 \tf@nav=\write7
@@ -1704,13 +1726,13 @@ Package logreq Info: Writing requests to 'main-landscape.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 34081 strings out of 478893
- 659515 string characters out of 2847055
- 1358456 words of memory out of 3000000
- 51247 multiletter control sequences out of 15000+600000
+ 34152 strings out of 478893
+ 661468 string characters out of 2847055
+ 1360005 words of memory out of 3000000
+ 51311 multiletter control sequences out of 15000+600000
  443165 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,19n,124p,475b,1968s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 128i,19n,124p,474b,2036s stack positions out of 5000i,500n,10000p,200000b,80000s
 {C:/Users/Tim Roith/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-e
 c.enc}{C:/Users/Tim Roith/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/bas
 e/8r.enc}<C:/Users/Tim Roith/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/publ
@@ -1718,9 +1740,9 @@ ic/lm/lmtt12.pfb><C:/Users/Tim Roith/AppData/Local/Programs/MiKTeX 2.9/fonts/ty
 pe1/public/amsfonts/symbols/msam10.pfb><C:/Users/Tim Roith/AppData/Local/Progra
 ms/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/Tim Roith/AppData/L
 ocal/Programs/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on main-landscape.pdf (8 pages, 65748 bytes).
+Output written on main-landscape.pdf (10 pages, 287670 bytes).
 PDF statistics:
- 102 PDF objects out of 1000 (max. 8388607)
- 18 named destinations out of 1000 (max. 500000)
- 56 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 120 PDF objects out of 1000 (max. 8388607)
+ 22 named destinations out of 1000 (max. 500000)
+ 66 words of extra memory for PDF output out of 10000 (max. 10000000)
 

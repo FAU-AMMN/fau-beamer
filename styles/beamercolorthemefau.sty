@@ -2,8 +2,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \RequirePackage{ifthen}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\DeclareOptionBeamer{BaseColor}{%
-  \PassOptionsToPackage{#1}{styles/faucolors}%
+\DeclareOptionBeamer{institute}{%
+  \PassOptionsToPackage{#1}{styles/fau-colors}%
 }
 \newcount\fau@color@variant
 \DeclareOptionBeamer{variant}{%
@@ -34,13 +34,19 @@
 % Color themes for frame sepcification.
 % ------------------------------------------------------------------------------
 \setbeamercolor{headline}{fg=BaseColor,bg=white}
-\setbeamercolor{title separation line}{fg=BaseColor,bg=BaseColor}
-\setbeamercolor{foot separation line}{fg=BaseColor,bg=BaseColor}
+\setbeamercolor{headline title}{fg=white,bg=BaseColor}
+
+\setbeamercolor{separation line}{fg=BaseColor,bg=BaseColor}
+\setbeamercolor{separation line title}{fg=BaseDarkColor,bg=BaseDarkColor}
+
+\setbeamercolor{sidebar title}{fg=BaseColor,bg=BaseColor}
+
+\setbeamercolor{frametitle title}{fg=white,bg=BaseColor}
 %\setbeamercolor{sidebar}{fg=BaseColor,bg=white}
 %\setbeamercolor{sidebar top}{fg=white,bg=BaseColor}
 %\setbeamercolor{sidebar bot}{fg=white,bg=BaseColor}
 %\setbeamercolor{footline}{fg=BaseColor,bg=white}
-%\setbeamercolor{footline title}{fg=BaseColor}
+\setbeamercolor{footline title}{fg=white, bg=BaseColor}
 %\setbeamercolor{footline date}{fg=BaseColor}
 %\setbeamercolor{footline page}{fg=BaseColor}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

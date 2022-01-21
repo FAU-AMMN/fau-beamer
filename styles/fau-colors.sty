@@ -18,35 +18,36 @@
 \RequirePackage{xcolor}
 
 \newcounter{faucolors@institutecounter}\setcounter{faucolors@institutecounter}{-1}
-\newif\iffaucolors@isfau\faucolors@isfautrue
-\newif\iffaucolors@isphil\faucolors@isphilfalse
-\newif\iffaucolors@isrewi\faucolors@isrewifalse
-\newif\iffaucolors@ismed\faucolors@ismedfalse
-\newif\iffaucolors@isnat\faucolors@isnatfalse
-\newif\iffaucolors@istech\faucolors@istechfalse
+\newif\iffaucolors@isFAU\faucolors@isFAUtrue
+\newif\iffaucolors@isPhil\faucolors@isPhilfalse
+\newif\iffaucolors@isRW\faucolors@isRWfalse
+\newif\iffaucolors@isMed\faucolors@isMedfalse
+\newif\iffaucolors@isNat\faucolors@isNatfalse
+\newif\iffaucolors@isTF\faucolors@isTFfalse
 
 \DeclareOption{FAU}{%
-  \faucolors@isfautrue
+  \faucolors@isFAUtrue
   \stepcounter{faucolors@institutecounter}
 }
 \DeclareOption{Phil}{%
-  \faucolors@isphiltrue
+  \faucolors@isPhiltrue
   \stepcounter{faucolors@institutecounter}
 }
 \DeclareOption{RW}{%
-  \faucolors@isrewitrue
+  \faucolors@isRWtrue
   \stepcounter{faucolors@institutecounter}
 }
-\DeclareOption{med}{%
-  \faucolors@ismedtrue
+\DeclareOption{Med}{%
+  \faucolors@isMedtrue
   \stepcounter{faucolors@institutecounter}
 }
-\DeclareOption{nat}{%
-  \faucolors@isnattrue
+\DeclareOption{Nat}{%
+  \typeout{Teco Cat}
+  \faucolors@isNattrue
   \stepcounter{faucolors@institutecounter}
 }
-\DeclareOption{tech}{%
-  \faucolors@istechtrue
+\DeclareOption{TF}{%
+  \faucolors@isTFtrue
   \stepcounter{faucolors@institutecounter}
 }
 \ProcessOptions\relax
@@ -76,8 +77,8 @@
 \definecolor{MedDarkBlue}{RGB}{0,177,235}
 
 % Nat colors
-\definecolor{NatGreen}{RGB}{0,155,119}
-\definecolor{NatDarkGreen}{RGB}{0,155,119}
+\definecolor{NatGreen}{RGB}{67,176,42}
+\definecolor{NatDarkGreen}{RGB}{34,136,72}
 
 % Tech colors
 \definecolor{TFMetallic}{RGB}{152,164,174}
@@ -90,32 +91,38 @@
 % according to the specified institute.
 % ------------------------------------------------------------------------------
 
-\iffaucolors@isfau
+\iffaucolors@isFAU
   \colorlet{BaseColor}{FAUBlue}
   \colorlet{BaseDarkColor}{FAUDarkBlue}
+  \colorlet{SeparationLineColor}{FAUDarkBlue}
 \fi
 
-\iffaucolors@isphil
+\iffaucolors@isPhil
   \colorlet{BaseColor}{FAUBlue}
   \colorlet{BaseDarkColor}{FAUDarkBlue}
+  \colorlet{SeparationLineColor}{FAUDarkBlue}
 \fi
 
-\iffaucolors@isrewi
+\iffaucolors@isRW
   \colorlet{BaseColor}{FAUBlue}
   \colorlet{BaseDarkColor}{FAUDarkBlue}
+  \colorlet{SeparationLineColor}{FAUDarkBlue}
 \fi
 
-\iffaucolors@ismed
+\iffaucolors@isMed
   \colorlet{BaseColor}{FAUBlue}
   \colorlet{BaseDarkColor}{FAUDarkBlue}
+  \colorlet{SeparationLineColor}{FAUDarkBlue}
 \fi
 
-\iffaucolors@isnat
-  \colorlet{BaseColor}{FAUBlue}
-  \colorlet{BaseDarkColor}{FAUDarkBlue}
+\iffaucolors@isNat
+  \colorlet{BaseColor}{NatGreen}
+  \colorlet{BaseDarkColor}{NatDarkGreen}
+  \colorlet{SeparationLineColor}{NatDarkGreen}
 \fi
 
-\iffaucolors@istech
+\iffaucolors@isTF
   \colorlet{BaseColor}{TFMetallic}
   \colorlet{BaseDarkColor}{TFDarkMetallic}
+  \colorlet{SeparationLineColor}{FAUDarkBlue}
 \fi
