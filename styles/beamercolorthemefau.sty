@@ -50,26 +50,9 @@
 %\setbeamercolor{footline date}{fg=BaseColor}
 %\setbeamercolor{footline page}{fg=BaseColor}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\ifcase\fau@color@variant
-% outline
-  \setbeamercolor{outline}{fg=white,bg=BaseColor}
-  \setbeamercolor{frametitle}{fg=BaseColor,bg=white}
-  \setbeamercolor{normal text}{fg=black,bg=white}
-  \setbeamercolor{block body}{bg=BaseColor}
-\or % fond 1
-  \setbeamercolor{outline}{fg=white,bg=white}
-  \setbeamercolor{frametitle}{fg=white,bg=BaseColor}
-  \setbeamercolor{normal text}{fg=black,bg=BaseColor}
-  \setbeamercolor{block body}{bg=white}
-\or % fond 2
-  \setbeamercolor{outline}{fg=white,bg=white}
-  \setbeamercolor{frametitle}{fg=white,bg=BaseColor}
-  \setbeamercolor{normal text}{fg=black,bg=BaseColor}
-  \setbeamercolor{block body}{bg=white}
-\else
-  \PackageError{beamercolorthemefau}{Option 'variant' must be one of 'outline', 'fond1', or 'fond2'.}{}
-\fi
-\setbeamercolor{block title}{bg=BaseColor,fg=white}
+
+\setbeamercolor{block title}{bg=BaseDarkColor,fg=white}
+\setbeamercolor{block body}{bg=BaseColorD,fg=black}
 \setbeamercolor{structure}{fg=BaseColor}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \setbeamercolor{outline}{fg=red,bg=red}

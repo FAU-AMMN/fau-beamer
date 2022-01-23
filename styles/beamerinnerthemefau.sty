@@ -1,5 +1,21 @@
 \ProvidesPackage{styles/beamerinnerthemefau}
+
+\newdimen\fau@inner@WordMarkTitleHeight
+\newdimen\fau@inner@WordMarkTitleWidth
+\newdimen\fau@inner@TitleTitleSkip
+\newdimen\fau@inner@HeaderHeight
+\newdimen\fau@inner@TitleHeight
+
 % ------------------------------------------------------------------------------
+\DeclareOptionBeamer{WordMarkTitleHeight}{\fau@inner@WordMarkTitleHeight=#1}
+\DeclareOptionBeamer{WordMarkTitleWidth}{\fau@inner@WordMarkTitleWidth=#1}
+\DeclareOptionBeamer{TitleTitleSkip}{\fau@inner@TitleTitleSkip=#1}
+\DeclareOptionBeamer{HeaderHeight}{\fau@inner@HeaderHeight=#1}
+\DeclareOptionBeamer{TitleHeight}{\fau@inner@TitleHeight=#1}
+
+\DeclareOptionBeamer{WordMarkTitle}{\def\fau@inner@WordMarkTitle{#1}}
+\DeclareOptionBeamer{TitleArt}{\def\fau@inner@TitleArt{#1}}
+
 
 % ..............................................................................
 \ProcessOptionsBeamer
@@ -8,122 +24,53 @@
 \mode<presentation>
 % ------------------------------------------------------------------------------
 
+% ..............................................................................
+% Title page
+% ------------------------------------------------------------------------------
 
-%% Title page
-%% ########################################################################################
-%\setbeamertemplate{title page}{
-%% ----------------------------------------------------------------------------------------
-%% Head Line
-%% ----------------------------------------------------------------------------------------
-%\begin{beamercolorbox}[wd=\dimexpr\paperwidth,ht=\fau@inner@logoraum,dp=0ex]{title page headline}
-%\vbox to\fau@inner@logoraum{%
-%% If logo is specified by user incorporate it here
-%\iffau@isuserlogo
-%	\vskip\fau@inner@standy
-%	\hskip\dimexpr\fau@inner@urlraum+2\fau@inner@linienstaerke
-%	\begin{beamercolorbox}[wd=\fau@inner@userlogobreite,ht=\fau@inner@logohoehe,dp=0ex]{headline userlogo}%
-%	\vbox to\fau@inner@logohoehe{\vfil
-%	\includegraphics[width=\fau@inner@userlogobreite,height=\fau@inner@logohoehe,
-%	                  keepaspectratio]{\fau@inner@userlogo}}%
-%	\end{beamercolorbox}%
-%	\hskip\dimexpr\fau@inner@standx-\fau@inner@userlogobreite-\fau@inner@urlraum-2\fau@inner@linienstaerke
-%\else
-%	\vskip\fau@inner@standy
-%	\hskip\fau@inner@standx
-%\fi
-%\includegraphics[width=\fau@inner@logobreite,height=\fau@inner@logohoehe]{\fau@inner@logo}%
-%\vfil}%
-%\end{beamercolorbox}%
-%\nointerlineskip
-%% ----------------------------------------------------------------------------------------
-%% Main Body
-%% ----------------------------------------------------------------------------------------
-%\begin{beamercolorbox}[wd=\dimexpr\paperwidth,ht=\dimexpr\paperheight-\fau@inner@logoraum-\fau@inner@urlraum,
-%					   left]{title page}%
-%% ----------------------------------------------------------------------------------------
-%% Sidebar	
-%% ----------------------------------------------------------------------------------------	
-%\begin{beamercolorbox}[wd=\dimexpr\fau@inner@absenderraum+\fau@inner@linienstaerke,
-%             		   ht=\dimexpr\paperheight-\fau@inner@logoraum-\fau@inner@urlraum,dp=0pt]{sidebar}
+\setbeamertemplate{title page}{%
+\vbox to \paperheight{%
+\hbox to \paperwidth{%
 %
-%\vbox to \dimexpr2\fau@inner@absenderhoehe+\fau@inner@linienstaerke{%
-%\begin{beamercolorbox}[wd=\fau@inner@absenderraum,ht=\fau@inner@absenderhoehe]{sidebar top}
-%\end{beamercolorbox}%
-%\vfil
-%\iffau@isfau
-%	\begin{tikzpicture}
-%	\fill[fauphil] (0,0.8\fau@inner@absenderhoehe) rectangle (\fau@inner@absenderraum, 1.0\fau@inner@absenderhoehe);
-%	\fill[faurewi] (0,0.6\fau@inner@absenderhoehe) rectangle (\fau@inner@absenderraum, 0.8\fau@inner@absenderhoehe);
-%	\fill[faumed] (0,0.4\fau@inner@absenderhoehe) rectangle (\fau@inner@absenderraum, 0.6\fau@inner@absenderhoehe);
-%	\fill[faunat] (0,0.2\fau@inner@absenderhoehe) rectangle (\fau@inner@absenderraum, 0.4\fau@inner@absenderhoehe);
-%	\fill[fautech] (0,0.0\fau@inner@absenderhoehe) rectangle (\fau@inner@absenderraum, 0.2\fau@inner@absenderhoehe);
-%	\end{tikzpicture}
-%\else
-%	\begin{beamercolorbox}[wd=\fau@inner@absenderraum,ht=\fau@inner@absenderhoehe]{sidebar bot}
-%	\end{beamercolorbox}%
-%\fi
-%}
-%\vskip\dimexpr\paperheight-\fau@inner@logoraum-\fau@inner@urlraum-2\fau@inner@absenderhoehe-\fau@inner@linienstaerke
-%\end{beamercolorbox}%
-%% ----------------------------------------------------------------------------------------
-%% Author, title and logo	
-%% ----------------------------------------------------------------------------------------
-%\begin{minipage}[b][\dimexpr2\fau@inner@absenderhoehe+\fau@inner@linienstaerke-\fau@inner@absenderraum]
-%				[b]{\dimexpr\paperwidth-2\fau@inner@absenderraum-\fau@inner@linienstaerke}
-%\vbox to\dimexpr2\fau@inner@absenderhoehe+\fau@inner@linienstaerke-\fau@inner@absenderraum{%
-%	\hbox to \dimexpr\paperwidth-2\fau@inner@absenderraum{
-%		\hskip .5\fau@inner@absenderraum
-%		{\usebeamerfont{title}\inserttitle}
-%		\hfill}%
-%	\hbox to \dimexpr\paperwidth-2\fau@inner@absenderraum{
-%		\hskip .5\fau@inner@absenderraum
-%		\ifx\insertsubtitle\empty\else
-%			{\usebeamerfont{subtitle}\insertsubtitle}
-%		\fi\hfill}%
-%	\vfil%
-%	\hbox to \dimexpr\paperwidth-2\fau@inner@absenderraum{
-%		\hskip .5\fau@inner@absenderraum
-%		\ifx\insertauthor\empty\else
-%			\begin{large}\textbf{\insertauthor}\end{large}\newline
-%		\fi\hfill}%
-%	\hbox to \dimexpr\paperwidth-2\fau@inner@absenderraum{
-%		\hskip .5\fau@inner@absenderraum
-%		\ifx\insertinstitute\empty\else
-%			\begin{large}\insertinstitute\end{large}\newline
-%		\fi\hfill}%
-%	\hbox to \dimexpr\paperwidth-2\fau@inner@absenderraum{
-%		\hskip .5\fau@inner@absenderraum
-%		\ifx\insertdate\empty\else
-%			\begin{large}\insertdate\end{large}
-%		\fi\hfill}%
-%	\vskip\fau@inner@absenderraum%
-%}%
-%% ----------------------------------------------------------------------------------------	
-%% Seperation line
-%% ----------------------------------------------------------------------------------------
-%\hrule width\dimexpr\paperwidth-\fau@inner@absenderraum-%
-%			\fau@inner@linienstaerke height\fau@inner@linienstaerke
-%% ----------------------------------------------------------------------------------------	
-%% Insert the logo on the bottom right side
-%% ----------------------------------------------------------------------------------------	
-%\vbox to \dimexpr\paperheight-\fau@inner@logoraum-\fau@inner@urlraum-
-%				2\fau@inner@linienstaerke-2\fau@inner@absenderhoehe{
-%	\vfil
-%	\hbox to \dimexpr\paperwidth-\fau@inner@absenderraum-\fau@inner@linienstaerke{
-%		\hfil
-%		\includegraphics[width=\fau@inner@siegelbreite,height=\fau@inner@siegelbreite,
-%				 keepaspectratio,trim=0 3.1mm 4mm 0,clip]{art/siegel-\inst}%
-%	}%
-%}%
-%\end{minipage}%
-%\end{beamercolorbox}%
-%% ----------------------------------------------------------------------------------------	
-% Footer
-%% ----------------------------------------------------------------------------------------	
-%\nointerlineskip
-%\begin{beamercolorbox}[wd=\paperwidth,ht=\fau@inner@urlraum]{footline}
-%\end{beamercolorbox}%
-%}
+% Sidebar
+%
+\begin{beamercolorbox}[dp=0pt,sep=0pt,%
+					   wd=\beamer@leftsidebar,%
+					   ht=\dimexpr\fau@inner@HeaderHeight+\fau@inner@TitleHeight]{sidebar title}%
+%
+\end{beamercolorbox}%
+%
+\vbox to \dimexpr\fau@inner@HeaderHeight+\fau@inner@TitleHeight{%
+%
+% Headline
+%
+\begin{beamercolorbox}[dp=0pt,sep=0pt,%
+					   wd=\dimexpr\paperwidth-\beamer@leftsidebar,%
+					   ht=\fau@inner@HeaderHeight]{headline title}%
+%
+\end{beamercolorbox}%
+%
+% Frametitle
+%
+\nointerlineskip%
+\frametitlewrapper{frametitle title}{separation line title}{\fau@inner@WordMarkTitle}{1}{\fau@inner@WordMarkTitleWidth}{\fau@inner@WordMarkTitleHeight}{\fau@inner@TitleTitleSkip}%
+}%
+}%
+\nointerlineskip%
+%
+% Main Body
+%
+\begin{beamercolorbox}[dp=0pt,sep=0pt,%
+					   wd=\dimexpr\paperwidth,%
+					   ht=\dimexpr\paperheight-\fau@inner@HeaderHeight-\fau@inner@TitleHeight]{}%
+\includegraphics[width=\dimexpr\paperwidth,%
+				 height=\dimexpr\paperheight-\fau@inner@HeaderHeight-\fau@inner@TitleHeight]{\fau@inner@TitleArt}%
+\end{beamercolorbox}%
+}%
+}%
+
+
+
 
 
 % ..............................................................................
@@ -132,124 +79,20 @@
 
 \AtBeginSection{%
 {%
-\setbeamertemplate{sidebar left}[sidebar title theme]
 \setbeamertemplate{headline}[headline title]
-\setbeamertemplate{footline}[footline title]
+\setbeamertemplate{sidebar left}[sidebar title theme]
 \setbeamertemplate{frametitle}[frametitle title]
+\setbeamertemplate{footline}[footline title]
 \setbeamercolor{background canvas}{bg=BaseColor}
-\begin{frame}{Freidrich}
-
+\setbeamercolor{normal text}{fg=white}
+\usebeamercolor[fg]{normal text}
+\begin{frame}{-}
+\usebeamerfont{title}%
+\thesection~~{\hypersetup{linkcolor=white}\insertsectionhead}
 \end{frame}
 }%
 }%
-%% ----------------------------------------------------------------------------------------
-%% Head Line
-%% ----------------------------------------------------------------------------------------
-%\begin{beamercolorbox}[wd=\paperwidth,ht=\fau@inner@logoraum,dp=0ex]{section page headline}
-%\vbox to\fau@inner@logoraum{%
-%	\iffau@isuserlogo
-%    \vskip\fau@inner@standy
-%	\hskip\dimexpr\fau@inner@urlraum+2\fau@inner@linienstaerke
-%	\begin{beamercolorbox}[wd=\fau@inner@userlogobreite,ht=\fau@inner@logohoehe,dp=0ex]{headline userlogo}%
-%	\vbox to\fau@inner@logohoehe{\vfil
-%		\includegraphics[width=\fau@inner@userlogobreite,height=\fau@inner@logohoehe,
-%		keepaspectratio]{\fau@inner@userlogo}
-%	}%
-%	\end{beamercolorbox}%
-%	\hskip\dimexpr\fau@inner@standx-\fau@inner@userlogobreite-\fau@inner@urlraum-2\fau@inner@linienstaerke
-%	\else
-%	\vskip\fau@inner@standy
-%	\hskip\fau@inner@standx
-%	\fi
-%	\includegraphics[width=\fau@inner@logobreite,height=\fau@inner@logohoehe]{\fau@inner@logo}%
-%	\vfil
-%}%
-%\end{beamercolorbox}%
-%\nointerlineskip
-%% ----------------------------------------------------------------------------------------
-%% Main Body
-%% ----------------------------------------------------------------------------------------
-%\begin{beamercolorbox}[wd=\paperwidth,ht=\dimexpr\paperheight-\fau@inner@logoraum-
-%										 \fau@inner@urlraum, left]{section page}%
-%% ----------------------------------------------------------------------------------------
-%% Sidebar	
-%% ----------------------------------------------------------------------------------------
-%\begin{beamercolorbox}[wd=\dimexpr\fau@inner@absenderraum+\fau@inner@linienstaerke,
-%					   ht=\dimexpr\paperheight-\fau@inner@logoraum-\fau@inner@urlraum,
-%					   dp=0pt]{sidebar}
-%\vbox to\dimexpr2\fau@inner@absenderhoehe+\fau@inner@linienstaerke{%
-%	\begin{beamercolorbox}[wd=\fau@inner@absenderraum,ht=\fau@inner@absenderhoehe]{sidebar top}
-%	\end{beamercolorbox}
-%	\vfil
-%	\iffau@isfau
-%	\begin{tikzpicture}
-%	\fill[fauphil] (0,0.8\fau@inner@absenderhoehe) rectangle (\fau@inner@absenderraum, 1.0\fau@inner@absenderhoehe);
-%	\fill[faurewi] (0,0.6\fau@inner@absenderhoehe) rectangle (\fau@inner@absenderraum, 0.8\fau@inner@absenderhoehe);
-%	\fill[faumed] (0,0.4\fau@inner@absenderhoehe) rectangle (\fau@inner@absenderraum, 0.6\fau@inner@absenderhoehe);
-%	\fill[faunat] (0,0.2\fau@inner@absenderhoehe) rectangle (\fau@inner@absenderraum, 0.4\fau@inner@absenderhoehe);
-%	\fill[fautech] (0,0.0\fau@inner@absenderhoehe) rectangle (\fau@inner@absenderraum, 0.2\fau@inner@absenderhoehe);
-%	\end{tikzpicture}
-%	\else
-%	\begin{beamercolorbox}[wd=\fau@inner@absenderraum,ht=\fau@inner@absenderhoehe]{sidebar bot}
-%	\end{beamercolorbox}
-%	\fi
-%}
-%\vskip\dimexpr\paperheight-\fau@inner@logoraum-\fau@inner@urlraum-2\fau@inner@absenderhoehe-\fau@inner@linienstaerke
-%\end{beamercolorbox}%
-%% ----------------------------------------------------------------------------------------
-%% Section title and logo	
-%% ----------------------------------------------------------------------------------------
-%\begin{minipage}[b][\dimexpr2\fau@inner@absenderhoehe+\fau@inner@linienstaerke-\fau@inner@absenderraum]
-%				[b]{\dimexpr\paperwidth-2\fau@inner@absenderraum-\fau@inner@linienstaerke}
-%\vbox to\dimexpr\fau@inner@absenderhoehe-\fau@inner@absenderraum-\fau@inner@linienstaerke{%
-%	\hbox to \dimexpr\paperwidth-2\fau@inner@absenderraum{
-%		\hskip .5\fau@inner@absenderraum
-%		{\usebeamerfont{title}\thesection~~{\hypersetup{linkcolor=white}\insertsectionhead}}
-%		\hfill}
-%	\vfil
-%}%
-%% ----------------------------------------------------------------------------------------	
-%% Seperation line
-%% ----------------------------------------------------------------------------------------
-%\hrule width\dimexpr\paperwidth-\fau@inner@absenderraum-%
-%			\fau@inner@linienstaerke height\fau@inner@linienstaerke
-%% ----------------------------------------------------------------------------------------	
-%% Insert the logo on the bottom right side
-%% ----------------------------------------------------------------------------------------	
-%\vbox to \dimexpr\paperheight-\fau@inner@logoraum-\fau@inner@urlraum-
-%				\fau@inner@linienstaerke-\fau@inner@absenderhoehe{
-%	\vfil
-%	\hbox to \dimexpr\paperwidth-\fau@inner@absenderraum-\fau@inner@linienstaerke{
-%		\hfil
-%		\includegraphics[width=\fau@inner@siegelbreite,height=\fau@inner@siegelbreite,
-%				 keepaspectratio,trim=0 3.1mm 4mm 0,clip]{art/siegel-\inst}%
-%	}%
-%}%
-%\end{minipage}%
-%\end{beamercolorbox}%
-%% ----------------------------------------------------------------------------------------	
-%% Footer
-%% ----------------------------------------------------------------------------------------	
-%\nointerlineskip
-%\begin{beamercolorbox}[wd=\paperwidth,ht=\fau@inner@urlraum]{footline}
-%\end{beamercolorbox}%
-%\end{lplainframe}
-%}
-
-
-
-
-%% ########################################################################################
-%% ########################################################################################
-%% SubSection page
-%% ########################################################################################
-%\AtBeginSubsection{
-%\begin{frame}{Outline}
-%	\hypersetup{linkcolor=faublue}
-%	\tableofcontents[currentsection,currentsubsection]
-%\end{frame}
-%}
-%% ########################################################################################
+% --------------------------------------------------------------------------
 
 % ..............................................................................
 % Boxes and list

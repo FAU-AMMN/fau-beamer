@@ -3,14 +3,21 @@
 
 \newdimen\fau@outer@SideBarWidthLeft % width of the left sidbar
 \newdimen\fau@outer@HeaderHeight % header height without separation line
+\newdimen\fau@outer@HeaderTitleHeight
 \newdimen\fau@outer@LineWidthThick % thick linewidth
 \newdimen\fau@outer@LineWidthThin % thin linewidth
 \newdimen\fau@outer@TitleHeight % title height
-\newdimen\fau@outer@TitleSkip % title height
+\newdimen\fau@outer@TitleSkip
+\newdimen\fau@outer@TitleLineHeight
+\newdimen\fau@outer@TitleTitleSkip 
 \newdimen\fau@outer@FootHeight
 \newdimen\fau@outer@FootLineSkip
 \newdimen\fau@outer@WordMarkHeight
 \newdimen\fau@outer@WordMarkWidth
+\newdimen\fau@outer@WordMarkTitleHeight
+\newdimen\fau@outer@WordMarkTitleWidth
+\newdimen\fau@outer@WordMarkLeftHeight
+\newdimen\fau@outer@WordMarkLeftWidth
 \newdimen\fau@outer@WordMarkBoxWidth
 \newdimen\fau@outer@TitleSkipLeft
 %
@@ -27,8 +34,11 @@
 
 \DeclareOptionBeamer{SideBarWidthLeft}{\fau@outer@SideBarWidthLeft=#1}
 \DeclareOptionBeamer{HeaderHeight}{\fau@outer@HeaderHeight=#1}
+\DeclareOptionBeamer{HeaderTitleHeight}{\fau@outer@HeaderTitleHeight=#1}
 \DeclareOptionBeamer{TitleHeight}{\fau@outer@TitleHeight=#1}
+\DeclareOptionBeamer{TitleLineHeight}{\fau@outer@TitleLineHeight=#1}
 \DeclareOptionBeamer{TitleSkip}{\fau@outer@TitleSkip=#1}
+\DeclareOptionBeamer{TitleTitleSkip}{\fau@outer@TitleTitleSkip=#1}
 \DeclareOptionBeamer{TitleSkipLeft}{\fau@outer@TitleSkipLeft=#1}
 \DeclareOptionBeamer{LineWidthThick}{\fau@outer@LineWidthThick=#1}
 \DeclareOptionBeamer{LineWidthThin}{\fau@outer@LineWidthThin=#1}
@@ -36,6 +46,10 @@
 \DeclareOptionBeamer{FootLineSkip}{\fau@outer@FootLineSkip=#1}
 \DeclareOptionBeamer{WordMarkHeight}{\fau@outer@WordMarkHeight=#1}
 \DeclareOptionBeamer{WordMarkWidth}{\fau@outer@WordMarkWidth=#1}
+\DeclareOptionBeamer{WordMarkTitleHeight}{\fau@outer@WordMarkTitleHeight=#1}
+\DeclareOptionBeamer{WordMarkTitleWidth}{\fau@outer@WordMarkTitleWidth=#1}
+\DeclareOptionBeamer{WordMarkLeftHeight}{\fau@outer@WordMarkLeftHeight=#1}
+\DeclareOptionBeamer{WordMarkLeftWidth}{\fau@outer@WordMarkLeftWidth=#1}
 \DeclareOptionBeamer{WordMarkBoxWidth}{\fau@outer@WordMarkBoxWidth=#1}
 
 %
@@ -61,14 +75,15 @@
 % ------------------------------------------------------------------------------
 \setbeamertemplate{headline}{%
 \begin{beamercolorbox}[wd=\paperwidth,
-					   ht=\fau@outer@HeaderHeight, dp=0ex]{headline}%
+					   ht=\fau@outer@HeaderHeight, dp=0ex,sep=0pt]{headline}%
 \end{beamercolorbox}%
 }%
 
 \defbeamertemplate{headline}{headline title}{%
-\begin{beamercolorbox}[wd=\paperwidth,%
-					   ht=\fau@outer@HeaderHeight, dp=0pt,sep=0pt]{headline title}%
+\begin{beamercolorbox}[wd=\paperwidth,
+					   ht=\fau@outer@HeaderHeight, dp=0ex,sep=0pt]{headline title}%
 \end{beamercolorbox}%
+%
 }%
 
 % ..............................................................................
@@ -77,7 +92,7 @@
 %
 % ------------------------------------------------------------------------------
 
-\newcommand{\frametitlewrapper}[4]{%
+\newcommand{\frametitlewrapper}[7]{%
 \nointerlineskip%
 \begin{beamercolorbox}[dp=0cm, sep=0.0cm,left,
 					   wd=\dimexpr\paperwidth-\fau@outer@SideBarWidthLeft,
@@ -91,21 +106,22 @@
 \hbox to \dimexpr\paperwidth-\fau@outer@SideBarWidthLeft{%
 \begin{beamercolorbox}[dp=0cm, sep=0.0cm,left,
 					   wd=\dimexpr.5\paperwidth-\fau@outer@SideBarWidthLeft,
-					   ht=\dimexpr\fau@outer@TitleHeight-\fau@outer@LineWidthThick]{#1}%
-\vbox to\dimexpr\dimexpr\fau@outer@TitleHeight-\fau@outer@LineWidthThick-\fau@outer@TitleSkip{%
+					   ht=\dimexpr\fau@outer@TitleHeight-\fau@outer@LineWidthThick-\fau@outer@TitleLineHeight]{#1}%
+\vbox to\dimexpr\dimexpr\fau@outer@TitleHeight-\fau@outer@LineWidthThick-\fau@outer@TitleLineHeight-#7{%
 \ifnum#4=0%
-\insertframetitle\\%
-%
-\ifx\insertframesubtitle\empty\else%
-{\usebeamerfont{subtitle}\insertframesubtitle}\\%
-\fi%
+	\insertframetitle\\%
+	%
+	\ifx\insertframesubtitle\empty\else%
+	{\usebeamerfont{subtitle}\insertframesubtitle}\\%
+	\fi%
+	\vfil%
 \else%
-\includegraphics[width=\fau@outer@WordMarkWidth,%
-				 height=\fau@outer@WordMarkHeight,%
-				 keepaspectratio]{\fau@outer@WordMarkTitleLeft}%
+	\includegraphics[width=\fau@outer@WordMarkLeftWidth,%
+					 height=\fau@outer@WordMarkLeftHeight,%
+					 keepaspectratio]{\fau@outer@WordMarkTitleLeft}%
+	\vfil%
 \fi%
 %
-\vfil%
 }%
 \end{beamercolorbox}%
 %
@@ -113,19 +129,19 @@
 %
 \begin{beamercolorbox}[dp=0cm, sep=0.0cm,right,%
 					   wd=\dimexpr.5\paperwidth-\fau@outer@WordMarkBoxWidth-\fau@outer@TitleSkipLeft,%
-					   ht=\dimexpr\fau@outer@TitleHeight-\fau@outer@LineWidthThick]{#1}%
-					   
+					   ht=\dimexpr\fau@outer@TitleHeight-\fau@outer@LineWidthThick-\fau@outer@TitleLineHeight]{#1}%
+%  
 \end{beamercolorbox}%
 %
 % insert fau word mark
 %
 \begin{beamercolorbox}[dp=0cm, sep=0.0cm,right,%
 					   wd=\fau@outer@WordMarkBoxWidth,%
-					   ht=\dimexpr\fau@outer@TitleHeight-\fau@outer@LineWidthThick]{#1}%
-\vbox to\dimexpr\dimexpr\fau@outer@TitleHeight-\fau@outer@LineWidthThick{%
+					   ht=\dimexpr\fau@outer@TitleHeight-\fau@outer@LineWidthThick-\fau@outer@TitleLineHeight]{#1}%
+\vbox to\dimexpr\dimexpr\fau@outer@TitleHeight-\fau@outer@LineWidthThick-\fau@outer@TitleLineHeight{%
 %
-\includegraphics[width=\fau@outer@WordMarkWidth,%
-				 height=\fau@outer@WordMarkHeight,%
+\includegraphics[width=#5,%
+				 height=#6,%
 				 keepaspectratio]{#3}%
 \vfil%
 }%
@@ -134,7 +150,7 @@
 %
 \begin{beamercolorbox}[dp=0cm, sep=0.0cm,right,%
 					   wd=\fau@outer@TitleSkipLeft,%
-					   ht=\dimexpr\fau@outer@TitleHeight-\fau@outer@LineWidthThick]{#1}%
+					   ht=\dimexpr\fau@outer@TitleHeight-\fau@outer@LineWidthThick-\fau@outer@TitleLineHeight]{#1}%
 \end{beamercolorbox}%
 }%
 %
@@ -145,16 +161,24 @@
 					   wd=\dimexpr\paperwidth-\fau@outer@SideBarWidthLeft, 
 					   ht=\fau@outer@LineWidthThick]{#2}%
 \end{beamercolorbox}%
+%
+% Line height offset
+%
+\nointerlineskip%
+\begin{beamercolorbox}[dp=0cm, sep=0.0cm,right,%
+					   wd=\dimexpr\paperwidth-\fau@outer@SideBarWidthLeft,%
+					   ht=\fau@outer@TitleLineHeight]{#1}%
+\end{beamercolorbox}%
 }%
 \end{beamercolorbox}%
 }%
 
 \setbeamertemplate{frametitle}{%
-\frametitlewrapper{}{separation line}{\fau@outer@WordMark}{0}%
+\frametitlewrapper{}{separation line}{\fau@outer@WordMark}{0}{\fau@outer@WordMarkWidth}{\fau@outer@WordMarkHeight}{\fau@outer@TitleSkip}%
 }%
 
 \defbeamertemplate{frametitle}{frametitle title}{%
-\frametitlewrapper{frametitle title}{separation line title}{\fau@outer@WordMarkTitle}{1}%
+\frametitlewrapper{frametitle title}{separation line title}{\fau@outer@WordMarkTitle}{1}{\fau@outer@WordMarkTitleWidth}{\fau@outer@WordMarkTitleHeight}{\fau@outer@TitleTitleSkip}%
 }%
 % ------------------------------------------------------------------------------
 
@@ -174,7 +198,7 @@
 \begin{beamercolorbox}[dp=0pt,sep=0pt,%
 					   wd=\fau@outer@SideBarWidthLeft,%
 					   ht=\dimexpr\paperheight-\fau@outer@FootHeight-\fau@outer@HeaderHeight]{sidebar title}%
-
+%
 \end{beamercolorbox}%
 }%
 
@@ -255,15 +279,17 @@
 % This removes the left sidbar of a plain frame
 % ------------------------------------------------------------------------------
 \newenvironment{trueplainframe}[1][]{%
-\hoffset=-\beamer@LeftSideBarWidth
-\advance\textwidth\beamer@LeftSideBarWidth
-\hsize\textwidth
-\columnwidth\textwidth
+\setlength{\hoffset}{-\beamer@leftsidebar}
+%
+\addtolength{\textwidth}{\beamer@leftsidebar}
+\addtolength{\textwidth}{\beamer@rightmargin}
+\setlength{\hsize}{\textwidth}
+\setlength{\columnwidth}{\textwidth}
 %
 \begin{frame}[plain,#1]%
 }{%
 \end{frame}%
-}
+}%
 % ------------------------------------------------------------------------------
 
 
