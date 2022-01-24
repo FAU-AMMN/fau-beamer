@@ -5,6 +5,7 @@
 \newdimen\fau@inner@TitleTitleSkip
 \newdimen\fau@inner@HeaderHeight
 \newdimen\fau@inner@TitleHeight
+\newdimen\fau@inner@TitleLineHeight
 
 % ------------------------------------------------------------------------------
 \DeclareOptionBeamer{WordMarkTitleHeight}{\fau@inner@WordMarkTitleHeight=#1}
@@ -12,6 +13,7 @@
 \DeclareOptionBeamer{TitleTitleSkip}{\fau@inner@TitleTitleSkip=#1}
 \DeclareOptionBeamer{HeaderHeight}{\fau@inner@HeaderHeight=#1}
 \DeclareOptionBeamer{TitleHeight}{\fau@inner@TitleHeight=#1}
+\DeclareOptionBeamer{TitleLineHeight}{\fau@inner@TitleLineHeight=#1}
 
 \DeclareOptionBeamer{WordMarkTitle}{\def\fau@inner@WordMarkTitle{#1}}
 \DeclareOptionBeamer{TitleArt}{\def\fau@inner@TitleArt{#1}}
@@ -53,7 +55,7 @@
 % Frametitle
 %
 \nointerlineskip%
-\frametitlewrapper{frametitle title}{separation line title}{\fau@inner@WordMarkTitle}{1}{\fau@inner@WordMarkTitleWidth}{\fau@inner@WordMarkTitleHeight}{\fau@inner@TitleTitleSkip}%
+\frametitlewrapper{frametitle title}{separation line title}{\fau@inner@WordMarkTitle}{1}{\fau@inner@WordMarkTitleWidth}{\fau@inner@WordMarkTitleHeight}{\fau@inner@TitleTitleSkip}{\fau@inner@TitleLineHeight}%
 }%
 }%
 \nointerlineskip%
@@ -102,8 +104,8 @@
 % ------------------------------------------------------------------------------
 
 \setbeamertemplate{itemize items}[triangle] % adapt height of itemize rectangles
-\setbeamertemplate{itemize item}{\raisebox{0.12ex}{$\blacktriangleright$}\hskip0.1em}
-\setbeamertemplate{itemize subitem}{\raisebox{0.12ex}{$\triangleright$}\hskip0.1em}
+\setbeamertemplate{itemize item}{\raisebox{0.22ex}{$\bullet$}\hskip0.1em}
+\setbeamertemplate{itemize subitem}{\raisebox{0.22ex}{$\circ$}\hskip0.1em}
 \setbeamertemplate{navigation symbols}{}  % no navigation symbols
 % ------------------------------------------------------------------------------
 

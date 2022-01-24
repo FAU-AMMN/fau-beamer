@@ -1,15 +1,99 @@
-% ----------------------------------------------------------------------------------------
+% ------------------------------------------------------------------------------
 \section{Example Section}
-%=========================================================================================
+% ..............................................................................
 \begin{frame}[t]{An Example Slide}{With a subtitle}
-
-This is just text.\hfill
-
-\begin{block}{Framed Text}
-Text in a box.
-\end{block}
+This is how a normal slide looks like, where plain text is put within the \texttt{frame} environment.
 \end{frame}
-%=========================================================================================
+%
+%
+%
+%
+%
+% ..............................................................................
+\begin{frame}[t]{Blocks}{}
+You can use blocks with this template.
+% ----------------
+\begin{block}{Block headline}
+This block spans all the way from the left to the right margin.
+\end{block}
+% ..............................................................................
+Using minipages one can use blocks of certain fixed sizes.\\
+%
+\noindent%
+\begin{minipage}[t]{0.45\textwidth}
+\begin{block}{Headline A}
+Some text.
+\end{block}
+\end{minipage}
+\hfill%
+% --------
+\begin{minipage}[t]{0.2\textwidth}
+\begin{block}{Headline B}
+Some other text\\
+that spans\\
+over multiple lines.
+\end{block}
+\end{minipage}
+\hfill%
+% --------
+\begin{minipage}[t]{0.2\textwidth}
+\begin{block}{Headline C}
+Even more text\\
+that spans\\
+over multiple lines.
+\end{block}
+\end{minipage}
+%
+\end{frame}
+%
+%
+%
+%
+%
+% ..............................................................................
+\begin{frame}[t]{Top aligned}
+In this frame everything is aligned on top.
+\end{frame}
+%
+%
+%
+%
+%
+% ..............................................................................
+\begin{frame}[b]{Bottom aligned}
+In this frame everything is aligned on the bottom.
+\end{frame}
+%
+%
+%
+%
+%
+% ..............................................................................
+\begin{frame}{Lists}{Itemize and enumerate}
+You can use the itemize environment that looks as follows.
+% --------------------------------------
+\begin{itemize}
+\item An item.
+\item Another one.
+\begin{itemize}
+\item A subitem.
+\item Another subitem.
+\end{itemize}
+\item And another item.
+\end{itemize}
+%
+\vfill%
+You can also use the enumerate environment.
+% --------------------------------------
+\begin{enumerate}
+\item The first item.
+\item The second one.
+\item The third one.
+\end{enumerate}
+% --------------------------------------
+\end{frame}
+
+% ..............................................................................
 \begin{frame}{Using Overlay Specifications}
 \begin{itemize}[<+(1)->]
 \item The first item.
@@ -22,16 +106,136 @@ This should be displayed after the list.
 This should be displayed last.
 \end{block}
 \end{frame}
-%=========================================================================================
-\begin{frame}{The Colour Scheme}
-Use \texttt{\textbackslash alert} to highlight \alert{text}.
-\end{frame}
-
-% ------------------------------------
-\begin{frame}{Institutes}
+%
+%
+%
+%
+%
+% ------------------------------------------------------------------------------
+\section{The Color Scheme}
+%
+%
+%
+%
+%
+% ..............................................................................
+\begin{frame}[fragile]{Choosing the Institution}
+You can specify the institute template by passing it to package, i.e.,
+%
+\begin{center}
+\begin{verbatim}
+\usepackage[institute=<option>]{styles/beamerthemefau},
+\end{verbatim}
+\end{center}
+%
+where you have the following options,
 \begin{itemize}
+\item FAU
+\item RW
 \item Med
 \item Nat
 \item TF
 \end{itemize}
 \end{frame}
+%
+%
+%
+%
+%
+% ..............................................................................
+\begin{frame}{The Colors}{Base and Dark scheme}
+For each institute the color scheme consists of two main colors, which are named 
+\texttt{BaseColor} and \texttt{BaseDarkColor}. They can be used throughout the document. For each of theses colors, adding a letter from A to D will create a lighter shade as displayed below.
+%
+%
+%
+%
+%
+\vspace{1em}%
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\setbeamercolor{colordemo}{bg=BaseColor}
+\begin{beamercolorbox}[dp=0pt,sep=0em,wd=15cm,ht=10cm]{}
+%
+\begin{beamercolorbox}[sep=0em,wd=2cm,ht=2cm]{colordemo}%
+\end{beamercolorbox}\quad\texttt{BaseColor}\newline%
+\setbeamercolor{colordemo}{bg=BaseColorA}%
+\begin{beamercolorbox}[sep=0em,wd=2cm,ht=2cm]{colordemo}
+\end{beamercolorbox}\quad\texttt{BaseColorA}\hfill\newline%
+\setbeamercolor{colordemo}{bg=BaseColorB}%
+\begin{beamercolorbox}[sep=0em,wd=2cm,ht=2cm]{colordemo}%
+\end{beamercolorbox}\quad\texttt{BaseColorB}\hfill\newline%
+\setbeamercolor{colordemo}{bg=BaseColorC}%
+\begin{beamercolorbox}[sep=0em,wd=2cm,ht=2cm]{colordemo}%
+\end{beamercolorbox}\quad\texttt{BaseColorC}\hfill\newline%
+\setbeamercolor{colordemo}{bg=BaseColorD}%
+\begin{beamercolorbox}[sep=0em,wd=2cm,ht=2cm]{colordemo}%
+\end{beamercolorbox}\quad\texttt{BaseColorD}%
+\end{beamercolorbox}%
+\end{column}
+%
+% 
+%
+\begin{column}{0.5\textwidth}
+\setbeamercolor{colordemo}{bg=BaseDarkColor}
+\begin{beamercolorbox}[dp=0pt,sep=0em,wd=15cm,ht=10cm]{}
+%
+\begin{beamercolorbox}[sep=0em,wd=2cm,ht=2cm]{colordemo}%
+\end{beamercolorbox}\quad\texttt{BaseDarkColor}\newline%
+\setbeamercolor{colordemo}{bg=BaseDarkColorA}%
+\begin{beamercolorbox}[sep=0em,wd=2cm,ht=2cm]{colordemo}
+\end{beamercolorbox}\quad\texttt{BaseDarkColorA}\hfill\newline%
+\setbeamercolor{colordemo}{bg=BaseDarkColorB}%
+\begin{beamercolorbox}[sep=0em,wd=2cm,ht=2cm]{colordemo}%
+\end{beamercolorbox}\quad\texttt{BaseDarkColorB}\hfill\newline%
+\setbeamercolor{colordemo}{bg=BaseDarkColorC}%
+\begin{beamercolorbox}[sep=0em,wd=2cm,ht=2cm]{colordemo}%
+\end{beamercolorbox}\quad\texttt{BaseDarkColorC}\hfill\newline%
+\setbeamercolor{colordemo}{bg=BaseDarkColorD}%
+\begin{beamercolorbox}[sep=0em,wd=2cm,ht=2cm]{colordemo}%
+\end{beamercolorbox}\quad\texttt{BaseDarkColorD}%
+\end{beamercolorbox}%
+\end{column}
+\end{columns}
+\end{frame}
+%
+%
+%
+%
+%
+% ------------------------------------------------------------------------------
+\section{The Frame Dimensions}
+%
+\setbeamercolor{colordemo}{fg=black,bg=BaseDarkColorC}
+%
+%
+%
+\begin{frame}[t]{Text Area}{The area you can fill in a normal frame}
+
+\begin{beamercolorbox}[dp=0pt,sep=0em,wd=\textwidth,ht=\FrameHeight,center]{colordemo}%
+This area can be filled on a normal frame.
+\vspace{5cm}%
+\end{beamercolorbox}%
+\end{frame}
+%
+%
+%
+%
+%
+\begin{frame}[plain]
+\begin{beamercolorbox}[dp=0pt,sep=0em,wd=\textwidth,ht=\paperheight,center]{colordemo}%
+This area can be filled on a plain frame.
+\vspace{5cm}%
+\end{beamercolorbox}%
+\end{frame}
+%
+%
+%
+%
+%
+\begin{trueplainframe}
+\begin{beamercolorbox}[dp=0pt,sep=0em,wd=\textwidth,ht=\paperheight,center]{colordemo}%
+This area can be filled on a true plain frame with removed margins.
+\vspace{5cm}%
+\end{beamercolorbox}%
+\end{trueplainframe}

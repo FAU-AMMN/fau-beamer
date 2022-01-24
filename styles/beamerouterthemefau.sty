@@ -21,6 +21,8 @@
 \newdimen\fau@outer@WordMarkBoxWidth
 \newdimen\fau@outer@TitleSkipLeft
 %
+\newdimen\FrameHeight
+%
 \newif\iffau@outer@InsertTotalFoot\fau@outer@InsertTotalFootfalse
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -63,6 +65,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \ProcessOptionsBeamer
 \mode<presentation>
+
+\setlength{\FrameHeight}{\dimexpr\paperheight-\fau@outer@HeaderHeight-\fau@outer@TitleHeight-\fau@outer@FootHeight-6mm}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \RequirePackage{tikz}
 \RequirePackage{graphicx}
@@ -92,7 +96,7 @@
 %
 % ------------------------------------------------------------------------------
 
-\newcommand{\frametitlewrapper}[7]{%
+\newcommand{\frametitlewrapper}[8]{%
 \nointerlineskip%
 \begin{beamercolorbox}[dp=0cm, sep=0.0cm,left,
 					   wd=\dimexpr\paperwidth-\fau@outer@SideBarWidthLeft,
@@ -106,8 +110,8 @@
 \hbox to \dimexpr\paperwidth-\fau@outer@SideBarWidthLeft{%
 \begin{beamercolorbox}[dp=0cm, sep=0.0cm,left,
 					   wd=\dimexpr.5\paperwidth-\fau@outer@SideBarWidthLeft,
-					   ht=\dimexpr\fau@outer@TitleHeight-\fau@outer@LineWidthThick-\fau@outer@TitleLineHeight]{#1}%
-\vbox to\dimexpr\dimexpr\fau@outer@TitleHeight-\fau@outer@LineWidthThick-\fau@outer@TitleLineHeight-#7{%
+					   ht=\dimexpr\fau@outer@TitleHeight-\fau@outer@LineWidthThick-#8]{#1}%
+\vbox to\dimexpr\dimexpr\fau@outer@TitleHeight-\fau@outer@LineWidthThick-#8-#7{%
 \ifnum#4=0%
 	\insertframetitle\\%
 	%
@@ -129,7 +133,7 @@
 %
 \begin{beamercolorbox}[dp=0cm, sep=0.0cm,right,%
 					   wd=\dimexpr.5\paperwidth-\fau@outer@WordMarkBoxWidth-\fau@outer@TitleSkipLeft,%
-					   ht=\dimexpr\fau@outer@TitleHeight-\fau@outer@LineWidthThick-\fau@outer@TitleLineHeight]{#1}%
+					   ht=\dimexpr\fau@outer@TitleHeight-\fau@outer@LineWidthThick-#8]{#1}%
 %  
 \end{beamercolorbox}%
 %
@@ -137,8 +141,8 @@
 %
 \begin{beamercolorbox}[dp=0cm, sep=0.0cm,right,%
 					   wd=\fau@outer@WordMarkBoxWidth,%
-					   ht=\dimexpr\fau@outer@TitleHeight-\fau@outer@LineWidthThick-\fau@outer@TitleLineHeight]{#1}%
-\vbox to\dimexpr\dimexpr\fau@outer@TitleHeight-\fau@outer@LineWidthThick-\fau@outer@TitleLineHeight{%
+					   ht=\dimexpr\fau@outer@TitleHeight-\fau@outer@LineWidthThick-#8]{#1}%
+\vbox to\dimexpr\dimexpr\fau@outer@TitleHeight-\fau@outer@LineWidthThick-#8{%
 %
 \includegraphics[width=#5,%
 				 height=#6,%
@@ -150,7 +154,7 @@
 %
 \begin{beamercolorbox}[dp=0cm, sep=0.0cm,right,%
 					   wd=\fau@outer@TitleSkipLeft,%
-					   ht=\dimexpr\fau@outer@TitleHeight-\fau@outer@LineWidthThick-\fau@outer@TitleLineHeight]{#1}%
+					   ht=\dimexpr\fau@outer@TitleHeight-\fau@outer@LineWidthThick-#8]{#1}%
 \end{beamercolorbox}%
 }%
 %
@@ -167,18 +171,18 @@
 \nointerlineskip%
 \begin{beamercolorbox}[dp=0cm, sep=0.0cm,right,%
 					   wd=\dimexpr\paperwidth-\fau@outer@SideBarWidthLeft,%
-					   ht=\fau@outer@TitleLineHeight]{#1}%
+					   ht=#8]{#1}%
 \end{beamercolorbox}%
 }%
 \end{beamercolorbox}%
 }%
 
 \setbeamertemplate{frametitle}{%
-\frametitlewrapper{}{separation line}{\fau@outer@WordMark}{0}{\fau@outer@WordMarkWidth}{\fau@outer@WordMarkHeight}{\fau@outer@TitleSkip}%
+\frametitlewrapper{}{separation line}{\fau@outer@WordMark}{0}{\fau@outer@WordMarkWidth}{\fau@outer@WordMarkHeight}{\fau@outer@TitleSkip}{0pt}%
 }%
 
 \defbeamertemplate{frametitle}{frametitle title}{%
-\frametitlewrapper{frametitle title}{separation line title}{\fau@outer@WordMarkTitle}{1}{\fau@outer@WordMarkTitleWidth}{\fau@outer@WordMarkTitleHeight}{\fau@outer@TitleTitleSkip}%
+\frametitlewrapper{frametitle title}{separation line title}{\fau@outer@WordMarkTitle}{1}{\fau@outer@WordMarkTitleWidth}{\fau@outer@WordMarkTitleHeight}{\fau@outer@TitleTitleSkip}{\fau@outer@TitleLineHeight}%
 }%
 % ------------------------------------------------------------------------------
 
@@ -291,9 +295,4 @@
 \end{frame}%
 }%
 % ------------------------------------------------------------------------------
-
-
-
-
-
 \mode<all>
