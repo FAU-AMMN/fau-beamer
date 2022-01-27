@@ -275,4 +275,4 @@ TSWLatexianTemp*
 # Makeindex log files
 *.lpz
 
-./template-art
+./template-art/*
