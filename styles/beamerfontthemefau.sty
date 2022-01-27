@@ -1,7 +1,18 @@
-\ProvidesPackage{styles/beamerfontthemefau}  % this style was created by Balthasar Reuter
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ..............................................................................
+% The font theme for the fau-beamer template. Parts of the following code were 
+% copied from a template designed by Balthasar Reuther.
+%
+% Copyright 2022 by Tim Roith <tim.roith@fau.de>
+%
+% This program can be redistributed and/or modified under the terms
+% of the GNU Public License, version 2.
+%
+% ------------------------------------------------------------------------------
+
+\ProvidesPackage{styles/beamerfontthemefau}
+% ..............................................................................
 \mode<presentation>
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ..............................................................................
 % Helvetica
 \RequirePackage{lmodern}
 \RequirePackage{textcomp}
@@ -18,11 +29,11 @@
 
 \AtBeginDocument{\fontsize{18}{20}\selectfont}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ..............................................................................
 % equal font sizes for all levels
 \setbeamerfont{itemize/enumerate body}{size=\fontsize{18}{20}}
 \setbeamerfont{itemize/enumerate subbody}{size=\fontsize{18}{20}}
 \setbeamerfont{itemize/enumerate subsubbody}{size=\fontsize{18}{20}}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ..............................................................................
 
 \mode<all>
