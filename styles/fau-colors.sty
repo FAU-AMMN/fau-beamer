@@ -66,23 +66,23 @@
 
 % Phil colors
 \definecolor{PhilYellow}{RGB}{255,184,28}
-\definecolor{PhilOrange}{RGB}{255,184,28}
+\definecolor{PhilOrange}{RGB}{232,119,34}
 
 % RW colors
-\definecolor{RWRed}{RGB}{141,20,41}
-\definecolor{RWDarkRed}{RGB}{141,20,41}
+\definecolor{RWRed}{RGB}{200,15,46}
+\definecolor{RWDarkRed}{RGB}{151,27,47}
 
 % Med colors
-\definecolor{MedBlue}{RGB}{0,177,235}
-\definecolor{MedDarkBlue}{RGB}{0,177,235}
+\definecolor{MedBlue}{RGB}{0,163,224}
+\definecolor{MedDarkBlue}{RGB}{0,97,160}
 
 % Nat colors
 \definecolor{NatGreen}{RGB}{67,176,42}
 \definecolor{NatDarkGreen}{RGB}{34,136,72}
 
 % Tech colors
-\definecolor{TFMetallic}{RGB}{152,164,174}
-\definecolor{TFDarkMetallic}{RGB}{152,164,174}
+\definecolor{TFMetallic}{RGB}{119,159,181}
+\definecolor{TFDarkMetallic}{RGB}{65,116,141}
 
 % ..............................................................................
 % Assign the colors 
@@ -90,29 +90,31 @@
 %	- BaseDarkColor
 % according to the specified institute.
 % ------------------------------------------------------------------------------
+\colorlet{TitleFont}{white}
 
 \iffaucolors@isFAU
   \colorlet{BaseColor}{FAUBlue}
   \colorlet{BaseDarkColor}{FAUDarkBlue}
-  \colorlet{SeparationLineColor}{FAUDarkBlue}
+  \colorlet{SeparationLineColor}{BaseColor!62.5}
 \fi
 
 \iffaucolors@isPhil
-  \colorlet{BaseColor}{FAUBlue}
-  \colorlet{BaseDarkColor}{FAUDarkBlue}
-  \colorlet{SeparationLineColor}{FAUDarkBlue}
+  \colorlet{BaseColor}{PhilYellow}
+  \colorlet{BaseDarkColor}{PhilOrange}
+  \colorlet{SeparationLineColor}{PhilOrange}
+  \colorlet{TitleFont}{black}
 \fi
 
 \iffaucolors@isRW
-  \colorlet{BaseColor}{FAUBlue}
-  \colorlet{BaseDarkColor}{FAUDarkBlue}
-  \colorlet{SeparationLineColor}{FAUDarkBlue}
+  \colorlet{BaseColor}{RWRed}
+  \colorlet{BaseDarkColor}{RWDarkRed}
+  \colorlet{SeparationLineColor}{RWDarkRed}
 \fi
 
 \iffaucolors@isMed
-  \colorlet{BaseColor}{FAUBlue}
-  \colorlet{BaseDarkColor}{FAUDarkBlue}
-  \colorlet{SeparationLineColor}{FAUDarkBlue}
+  \colorlet{BaseColor}{MedBlue}
+  \colorlet{BaseDarkColor}{MedDarkBlue}
+  \colorlet{SeparationLineColor}{MedDarkBlue}
 \fi
 
 \iffaucolors@isNat
@@ -124,7 +126,7 @@
 \iffaucolors@isTF
   \colorlet{BaseColor}{TFMetallic}
   \colorlet{BaseDarkColor}{TFDarkMetallic}
-  \colorlet{SeparationLineColor}{FAUDarkBlue}
+  \colorlet{SeparationLineColor}{TFDarkMetallic}
 \fi
 
 % ..............................................................................

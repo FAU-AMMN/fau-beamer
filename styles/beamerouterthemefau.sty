@@ -21,7 +21,10 @@
 \newdimen\fau@outer@WordMarkBoxWidth
 \newdimen\fau@outer@TitleSkipLeft
 %
+% dimesnions for lobal use
+%
 \newdimen\FrameHeight
+\newdimen\TitleHeight
 %
 \newif\iffau@outer@InsertTotalFoot\fau@outer@InsertTotalFootfalse
 
@@ -61,13 +64,16 @@
 \DeclareOptionBeamer{WordMarkTitleLeft}{\def\fau@outer@WordMarkTitleLeft{#1}}
 % ------------------------------------------------------------------------------
 
-%\DeclareOptionBeamer{userlogobreite}{\fau@outer@userlogobreite=#1}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ..............................................................................
 \ProcessOptionsBeamer
 \mode<presentation>
-
+% ..............................................................................
+%
+%
+%
 \setlength{\FrameHeight}{\dimexpr\paperheight-\fau@outer@HeaderHeight-\fau@outer@TitleHeight-\fau@outer@FootHeight-6mm}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setlength{\TitleHeight}{\fau@outer@TitleHeight}
+% ..............................................................................
 \RequirePackage{tikz}
 \RequirePackage{graphicx}
 
@@ -100,18 +106,18 @@
 \nointerlineskip%
 \begin{beamercolorbox}[dp=0cm, sep=0.0cm,left,
 					   wd=\dimexpr\paperwidth-\fau@outer@SideBarWidthLeft,
-					   ht=\fau@outer@TitleHeight]{frametitle}%
+					   ht=\dimexpr\fau@outer@TitleHeight+#8]{frametitle}%
 \usebeamerfont{frametitle}%
 %
-\vbox to\dimexpr\fau@outer@TitleHeight{%
+\vbox to\dimexpr\fau@outer@TitleHeight+#8{%
 %
 % hbox for title
 %
 \hbox to \dimexpr\paperwidth-\fau@outer@SideBarWidthLeft{%
 \begin{beamercolorbox}[dp=0cm, sep=0.0cm,left,
 					   wd=\dimexpr.5\paperwidth-\fau@outer@SideBarWidthLeft,
-					   ht=\dimexpr\fau@outer@TitleHeight-\fau@outer@LineWidthThick-#8]{#1}%
-\vbox to\dimexpr\dimexpr\fau@outer@TitleHeight-\fau@outer@LineWidthThick-#8-#7{%
+					   ht=\dimexpr\fau@outer@TitleHeight-\fau@outer@LineWidthThick]{#1}%
+\vbox to\dimexpr\dimexpr\fau@outer@TitleHeight-\fau@outer@LineWidthThick-#7{%
 \ifnum#4=0%
 	\insertframetitle\\%
 	%
@@ -133,7 +139,7 @@
 %
 \begin{beamercolorbox}[dp=0cm, sep=0.0cm,right,%
 					   wd=\dimexpr.5\paperwidth-\fau@outer@WordMarkBoxWidth-\fau@outer@TitleSkipLeft,%
-					   ht=\dimexpr\fau@outer@TitleHeight-\fau@outer@LineWidthThick-#8]{#1}%
+					   ht=\dimexpr\fau@outer@TitleHeight-\fau@outer@LineWidthThick]{#1}%
 %  
 \end{beamercolorbox}%
 %
@@ -141,8 +147,8 @@
 %
 \begin{beamercolorbox}[dp=0cm, sep=0.0cm,right,%
 					   wd=\fau@outer@WordMarkBoxWidth,%
-					   ht=\dimexpr\fau@outer@TitleHeight-\fau@outer@LineWidthThick-#8]{#1}%
-\vbox to\dimexpr\dimexpr\fau@outer@TitleHeight-\fau@outer@LineWidthThick-#8{%
+					   ht=\dimexpr\fau@outer@TitleHeight-\fau@outer@LineWidthThick]{#1}%
+\vbox to\dimexpr\dimexpr\fau@outer@TitleHeight-\fau@outer@LineWidthThick{%
 %
 \includegraphics[width=#5,%
 				 height=#6,%
@@ -154,7 +160,7 @@
 %
 \begin{beamercolorbox}[dp=0cm, sep=0.0cm,right,%
 					   wd=\fau@outer@TitleSkipLeft,%
-					   ht=\dimexpr\fau@outer@TitleHeight-\fau@outer@LineWidthThick-#8]{#1}%
+					   ht=\dimexpr\fau@outer@TitleHeight-\fau@outer@LineWidthThick]{#1}%
 \end{beamercolorbox}%
 }%
 %

@@ -111,6 +111,26 @@ This should be displayed last.
 %
 %
 %
+% ..............................................................................
+\subsection{Subsection A}
+\begin{frame}{\mbox{}}
+We can also have subsections
+\end{frame}
+%
+%
+%
+%
+%
+% ..............................................................................
+\subsection{Subsection B}
+\begin{frame}{\mbox{}}
+When there is one subsection, there probably should be another.
+\end{frame}
+%
+%
+%
+%
+%
 % ------------------------------------------------------------------------------
 \section{The Color Scheme}
 %
@@ -220,6 +240,18 @@ This area can be filled on a normal frame.
 %
 %
 %
+\begin{frame}
+
+\begin{beamercolorbox}[dp=0pt,sep=0em,
+					   wd=\textwidth,
+					   ht=\dimexpr\FrameHeight+\TitleHeight+4mm,center]{colordemo}%
+This area can be filled on a frame without a title.
+\vspace{5cm}%
+\end{beamercolorbox}%
+\end{frame}
+%
+%
+%
 %
 %
 \begin{frame}[plain]
@@ -239,3 +271,43 @@ This area can be filled on a true plain frame with removed margins.
 \vspace{5cm}%
 \end{beamercolorbox}%
 \end{trueplainframe}
+%
+%
+%
+%
+%
+% ------------------------------------------------------------------------------
+\section{Citing and bibliography}
+%
+%
+%
+%
+%
+\begin{frame}{Citing}
+Since we use \texttt{biblatex} we can easily cite our favourite articles, like
+\cite{bungert2021bregman, bungert2021neural}. For presentation the \texttt{footnote} command is useful to have citation at the bottom\footnote{\cite{bungert2021bregman}}.
+\end{frame}
+%
+%
+%
+%
+%
+\begin{frame}{References}
+To show the references used within this presentation we can use the \texttt{printbibliography} command from \texttt{biblatex}. For beamer documents it is important to give the additional option \texttt{[heading=none]}.
+%
+%
+%
+%
+%
+\begin{block}{Refernces}
+\printbibliography[heading=none]
+\end{block}
+\end{frame}
+%
+%
+%
+%
+%
+\begin{frame}{fau-beamer}
+%
+\end{frame}

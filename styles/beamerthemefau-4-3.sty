@@ -28,10 +28,32 @@
 }
 
 % ..............................................................................
+% File paths for template art
+% -------
+%
+% We define the pathe to the logos and pictures taking into account the 
+% institute.
+% ------------------------------------------------------------------------------
+% defaults
+\def\WordMark{template-art/logos/FAUWortmarkeCMYKblau}
+\def\WordMarkTitle{template-art/logos/FAUWortmarkeRGBwhite}
+
+% The following are dependent on the institute
+\def\WordMarkTitleLeft{template-art/logos/FAU\inst SRGBwhite}
+\def\TitleArt{template-art/title/FAU\inst Title}
+
+% Declare options for user specification
+\DeclareOptionBeamer{WordMark}{\def\WordMark{#1}}
+\DeclareOptionBeamer{WordMarkTitle}{\def\WordMarkTitle{#1}}
+\DeclareOptionBeamer{WordMarkTitleLeft}{\def\WordMarkTitleLeft{#1}}
+\DeclareOptionBeamer{TitleArt}{\def\TitleArt{#1}}
+
+% ..............................................................................
 \ProcessOptionsBeamer
 \selectcolormodel{rgb}
 \mode<presentation>
 % ------------------------------------------------------------------------------
+
 
 
 
@@ -44,7 +66,7 @@
 \PassOptionsToPackage{SideBarWidthLeft=14.4mm}{styles/beamerouterthemefau}
 \PassOptionsToPackage{HeaderHeight=5mm}{styles/beamerouterthemefau}
 \PassOptionsToPackage{HeaderTitleHeight=4mm}{styles/beamerouterthemefau}
-\PassOptionsToPackage{TitleHeight=40mm}{styles/beamerouterthemefau}
+\PassOptionsToPackage{TitleHeight=30mm}{styles/beamerouterthemefau}
 \PassOptionsToPackage{TitleLineHeight=10mm}{styles/beamerouterthemefau}
 \PassOptionsToPackage{TitleTitleSkip=3.5mm}{styles/beamerouterthemefau}
 \PassOptionsToPackage{TitleSkip=5mm}{styles/beamerouterthemefau}
@@ -63,9 +85,9 @@
 \PassOptionsToPackage{WordMarkSkip=12mm}{styles/beamerouterthemefau}
 
 \PassOptionsToPackage{InsertTotalFoot}{styles/beamerouterthemefau}
-\PassOptionsToPackage{WordMark=art/logos/FAUWortmarkeCMYKblau}{styles/beamerouterthemefau}
-\PassOptionsToPackage{WordMarkTitle=art/logos/FAUWortmarkeRGBwhite}{styles/beamerouterthemefau}
-\PassOptionsToPackage{WordMarkTitleLeft=art/logos/FAUNatFakSRGBwhite}{styles/beamerouterthemefau}
+\PassOptionsToPackage{WordMark=\WordMark}{styles/beamerouterthemefau}
+\PassOptionsToPackage{WordMarkTitle=\WordMarkTitle}{styles/beamerouterthemefau}
+\PassOptionsToPackage{WordMarkTitleLeft=\WordMarkTitleLeft}{styles/beamerouterthemefau}
 % ------------------------------------------------------------------------------
 
 
@@ -81,12 +103,12 @@
 \PassOptionsToPackage{WordMarkTitleHeight=25.4mm}{styles/beamerinnerthemefau}
 \PassOptionsToPackage{WordMarkTitleWidth=55.2mm}{styles/beamerinnerthemefau}
 \PassOptionsToPackage{HeaderHeight=5mm}{styles/beamerinnerthemefau}
-\PassOptionsToPackage{TitleHeight=40mm}{styles/beamerinnerthemefau}
+\PassOptionsToPackage{TitleHeight=30mm}{styles/beamerinnerthemefau}
 \PassOptionsToPackage{TitleLineHeight=10mm}{styles/beamerinnerthemefau}
 
-\PassOptionsToPackage{WordMarkTitle=art/logos/FAUWortmarkeRGBwhite}{styles/beamerinnerthemefau}
+\PassOptionsToPackage{WordMarkTitle=\WordMarkTitle}{styles/beamerinnerthemefau}
 
-\PassOptionsToPackage{TitleArt=art/title/FAUNatTitleGreenGradient}{styles/beamerinnerthemefau}
+\PassOptionsToPackage{TitleArt=\TitleArt}{styles/beamerinnerthemefau}
 % ------------------------------------------------------------------------------
 
 %\geometry{paperwidth=254mm,paperheight=190.5mm}

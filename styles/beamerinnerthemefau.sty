@@ -1,5 +1,7 @@
 \ProvidesPackage{styles/beamerinnerthemefau}
 
+\RequirePackage[percent]{overpic}
+
 \newdimen\fau@inner@WordMarkTitleHeight
 \newdimen\fau@inner@WordMarkTitleWidth
 \newdimen\fau@inner@TitleTitleSkip
@@ -38,11 +40,11 @@
 %
 \begin{beamercolorbox}[dp=0pt,sep=0pt,%
 					   wd=\beamer@leftsidebar,%
-					   ht=\dimexpr\fau@inner@HeaderHeight+\fau@inner@TitleHeight]{sidebar title}%
+					   ht=\dimexpr\fau@inner@HeaderHeight+\fau@inner@TitleHeight+\fau@inner@TitleLineHeight]{sidebar title}%
 %
 \end{beamercolorbox}%
 %
-\vbox to \dimexpr\fau@inner@HeaderHeight+\fau@inner@TitleHeight{%
+\vbox to \dimexpr\fau@inner@HeaderHeight+\fau@inner@TitleHeight+\fau@inner@TitleLineHeight{%
 %
 % Headline
 %
@@ -64,9 +66,30 @@
 %
 \begin{beamercolorbox}[dp=0pt,sep=0pt,%
 					   wd=\dimexpr\paperwidth,%
-					   ht=\dimexpr\paperheight-\fau@inner@HeaderHeight-\fau@inner@TitleHeight]{}%
-\includegraphics[width=\dimexpr\paperwidth,%
-				 height=\dimexpr\paperheight-\fau@inner@HeaderHeight-\fau@inner@TitleHeight]{\fau@inner@TitleArt}%
+					   ht=\dimexpr\paperheight-\fau@inner@HeaderHeight-\fau@inner@TitleHeight-\fau@inner@TitleLineHeight]{}%
+%\includegraphics[width=\dimexpr\paperwidth,%
+%				 height=\dimexpr\paperheight-\fau@inner@HeaderHeight-\fau@inner@TitleHeight-\fau@inner@TitleLineHeight]{\fau@inner@TitleArt}%
+% 
+\begin{overpic}[width=\dimexpr\paperwidth,%
+				height=\dimexpr\paperheight-\fau@inner@HeaderHeight-\fau@inner@TitleHeight-\fau@inner@TitleLineHeight]{\fau@inner@TitleArt}%
+\put (5,35) {\usebeamerfont{title}\inserttitle}
+% if a subtitle is given insert it here
+\ifx\insertsubtitle\empty\else
+	\put (5,32) {\usebeamerfont{subtitle}\insertsubtitle}
+\fi
+% insert authors
+\ifx\insertauthor\empty\else
+	\put (5,24) {\usebeamerfont{subtitle}\textbf{\insertauthor}}
+\fi\hfill
+% insert institute name
+\ifx\insertinstitute\empty\else
+	\put (5,22) {\usebeamerfont{subtitle}\insertinstitute}
+\fi
+% insert institute name
+\ifx\insertdate\empty\else
+	\put (5,20) {\usebeamerfont{subtitle}\insertdate}
+\fi
+\end{overpic}
 \end{beamercolorbox}%
 }%
 }%
@@ -86,11 +109,14 @@
 \setbeamertemplate{frametitle}[frametitle title]
 \setbeamertemplate{footline}[footline title]
 \setbeamercolor{background canvas}{bg=BaseColor}
-\setbeamercolor{normal text}{fg=white}
-\usebeamercolor[fg]{normal text}
+\setbeamercolor{section in toc}{fg=TitleFont}
+\setbeamercolor{subsection in toc}{fg=TitleFont}
+%\usebeamercolor[fg]{normal text}
 \begin{frame}{-}
 \usebeamerfont{title}%
-\thesection~~{\hypersetup{linkcolor=white}\insertsectionhead}
+\hypersetup{linkcolor=TitleFont}
+
+\tableofcontents[currentsection]
 \end{frame}
 }%
 }%
@@ -123,6 +149,31 @@
 }
 % ------------------------------------------------------------------------------
 
+
+
+
+% ..............................................................................
+% ToC
+% -------
+%
+% We want numbered sections in Toc. Additionally we specify of shaded toc.
+% ------------------------------------------------------------------------------
+\setbeamertemplate{section in toc}[sections numbered]
+\setbeamertemplate{subsection in toc}[subsections numbered]
+
+\setbeamertemplate{section in toc shaded}{%
+\begin{colormixin}{0!BaseColorA}%
+\usebeamertemplate{section in toc}%
+\end{colormixin}%
+\unskip%
+}
+
+\setbeamertemplate{subsection in toc shaded}{%
+\begin{colormixin}{0!BaseColorA}%
+\usebeamertemplate{subsection in toc}%
+\end{colormixin}%
+\unskip%
+}
 % ..............................................................................
 % Reset mode to all
 \mode<all>
