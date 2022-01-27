@@ -5,4 +5,4 @@
 
 # Credit
 
-This template was designed by Tim Roith using he given style from the FAU corporate style guide 2021. 
+This template was designed by [Tim Roith](https://timroith.github.io/) using he given style from the FAU corporate style guide 2021. 
