@@ -275,7 +275,7 @@ TSWLatexianTemp*
 # Makeindex log files
 *.lpz
 
-/template-art/logos/*
-/template-art/title/*
-!/template-art/title/
-!/template-art/title/.gitkeep
+/template-art/logos/**
+/template-art/title/**
+!/template-art/title/**/
+!/template-art/title/**/.gitkeep
