@@ -137,7 +137,7 @@
 	\fi%
 	\vfil%
 \else%
-	\includegraphics[width=\fau@outer@WordMarkLeftWidth,%
+	\includegraphicsdefault[width=\fau@outer@WordMarkLeftWidth,%
 					 height=\fau@outer@WordMarkLeftHeight,%
 					 keepaspectratio]{\fau@outer@WordMarkTitleLeft}%
 	\vfil%
@@ -161,9 +161,9 @@
 					   ht=\dimexpr\fau@outer@TitleHeight-\fau@outer@LineWidthThick]{#1}%
 \vbox to\dimexpr\dimexpr\fau@outer@TitleHeight-\fau@outer@LineWidthThick{%
 %
-\includegraphics[width=#5,%
-				 height=#6,%
-				 keepaspectratio]{#3}%
+\includegraphicsdefault[width=#5,%
+				        height=#6,%
+				        keepaspectratio]{#3}%
 \vfil%
 }%
 %

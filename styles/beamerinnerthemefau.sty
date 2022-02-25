@@ -83,7 +83,7 @@
 %\includegraphics[width=\dimexpr\paperwidth,%
 %				 height=\dimexpr\paperheight-\fau@inner@HeaderHeight-\fau@inner@TitleHeight-\fau@inner@TitleLineHeight]{\fau@inner@TitleArt}%
 % 
-\begin{overpic}[width=\dimexpr\paperwidth,%
+\begin{overpicdefault}[width=\dimexpr\paperwidth,%
 				height=\dimexpr\paperheight-\fau@inner@HeaderHeight-\fau@inner@TitleHeight-\fau@inner@TitleLineHeight]{\fau@inner@TitleArt}%
 \put (5,35) {\usebeamerfont{title}\inserttitle}
 % if a subtitle is given insert it here
@@ -102,7 +102,7 @@
 \ifx\insertdate\empty\else
 	\put (5,20) {\usebeamerfont{subtitle}\insertdate}
 \fi
-\end{overpic}
+\end{overpicdefault}
 \end{beamercolorbox}%
 }%
 }%

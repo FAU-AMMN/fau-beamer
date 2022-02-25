@@ -52,18 +52,35 @@
 % institute.
 % ------------------------------------------------------------------------------
 % defaults
-\def\WordMark{template-art/logos/FAUWortmarkeCMYKblau}
-\def\WordMarkTitle{template-art/logos/FAUWortmarkeRGBwhite}
+
+\def\WordMark{template-art/logos/FAUWortmarkeCMYKblau.pdf}
+\def\WordMarkTitle{template-art/logos/FAUWortmarkeRGBwhite.png}
 
 % The following are dependent on the institute
-\def\WordMarkTitleLeft{template-art/logos/FAU\inst SRGBwhite}
-\def\TitleArt{template-art/title/FAU\inst Title}
+\def\WordMarkTitleLeft{template-art/logos/FAU\inst SRGBwhite.png}
+\def\TitleArt{template-art/title/FAU\inst Title.png}
 
 % Declare options for user specification
-\DeclareOptionBeamer{WordMark}{\def\WordMark{#1}}
+\DeclareOptionBeamer{WordMark}{\def\WordMark{#1}}%
 \DeclareOptionBeamer{WordMarkTitle}{\def\WordMarkTitle{#1}}
 \DeclareOptionBeamer{WordMarkTitleLeft}{\def\WordMarkTitleLeft{#1}}
 \DeclareOptionBeamer{TitleArt}{\def\TitleArt{#1}}
+
+% fall back to default image, if the images are not in the folder
+\newcommand{\includegraphicsdefault}[2][width=\linewidth]{%
+\IfFileExists{#2}%
+{\includegraphics[#1]{#2}}%
+{\includegraphics[#1]{template-art/default-image}}%
+}%
+
+\newenvironment{overpicdefault}[2][width=\linewidth]{%
+\IfFileExists{#2}%
+{\begin{overpic}[#1]{#2}}%
+{\begin{overpic}[#1]{template-art/default-image}}%
+}%
+{%			
+\end{overpic}%
+}%
 
 % ..............................................................................
 \ProcessOptionsBeamer
