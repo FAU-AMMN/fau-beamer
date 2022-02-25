@@ -277,3 +277,4 @@ TSWLatexianTemp*
 
 /template-art/logos/*
 /template-art/title/*
+!/template-art/title/
