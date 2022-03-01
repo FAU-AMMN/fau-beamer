@@ -181,11 +181,13 @@ For each institute the color scheme consists of two main colors, which are named
 %
 %
 %
+\newdimen\bwidth
+\setlength{\bwidth}{0.35\textwidth}
 \vspace{1em}%
 \begin{columns}
-\begin{column}{0.5\textwidth}
+\begin{column}{0.45\textwidth}
 \setbeamercolor{colordemo}{bg=BaseColor}
-\begin{beamercolorbox}[dp=0pt,sep=0em,wd=15cm,ht=10cm]{}
+\begin{beamercolorbox}[dp=0pt,sep=0em,wd=\bwidth,ht=10cm]{}
 %
 \begin{beamercolorbox}[sep=0em,wd=2cm,ht=2cm]{colordemo}%
 \end{beamercolorbox}\quad\texttt{BaseColor}\newline%
@@ -206,9 +208,9 @@ For each institute the color scheme consists of two main colors, which are named
 %
 % 
 %
-\begin{column}{0.5\textwidth}
+\begin{column}{0.45\textwidth}
 \setbeamercolor{colordemo}{bg=BaseDarkColor}
-\begin{beamercolorbox}[dp=0pt,sep=0em,wd=15cm,ht=10cm]{}
+\begin{beamercolorbox}[dp=0pt,sep=0em,wd=\bwidth,ht=10cm]{}
 %
 \begin{beamercolorbox}[sep=0em,wd=2cm,ht=2cm]{colordemo}%
 \end{beamercolorbox}\quad\texttt{BaseDarkColor}\newline%

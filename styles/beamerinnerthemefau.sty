@@ -29,6 +29,7 @@
 \DeclareOptionBeamer{HeaderHeight}{\fau@inner@HeaderHeight=#1}
 \DeclareOptionBeamer{TitleHeight}{\fau@inner@TitleHeight=#1}
 \DeclareOptionBeamer{TitleLineHeight}{\fau@inner@TitleLineHeight=#1}
+\DeclareOptionBeamer{TitleOverPicStart}{\def\fau@inner@TitleOverPicStart{#1}}
 
 \DeclareOptionBeamer{WordMarkTitle}{\def\fau@inner@WordMarkTitle{#1}}
 \DeclareOptionBeamer{TitleArt}{\def\fau@inner@TitleArt{#1}}
@@ -80,27 +81,25 @@
 \begin{beamercolorbox}[dp=0pt,sep=0pt,%
 					   wd=\dimexpr\paperwidth,%
 					   ht=\dimexpr\paperheight-\fau@inner@HeaderHeight-\fau@inner@TitleHeight-\fau@inner@TitleLineHeight]{}%
-%\includegraphics[width=\dimexpr\paperwidth,%
-%				 height=\dimexpr\paperheight-\fau@inner@HeaderHeight-\fau@inner@TitleHeight-\fau@inner@TitleLineHeight]{\fau@inner@TitleArt}%
 % 
 \begin{overpicdefault}[width=\dimexpr\paperwidth,%
 				height=\dimexpr\paperheight-\fau@inner@HeaderHeight-\fau@inner@TitleHeight-\fau@inner@TitleLineHeight]{\fau@inner@TitleArt}%
-\put (5,35) {\usebeamerfont{title}\inserttitle}
+\put (5,\fau@inner@TitleOverPicStart) {\usebeamerfont{title}\inserttitle}
 % if a subtitle is given insert it here
 \ifx\insertsubtitle\empty\else
-	\put (5,32) {\usebeamerfont{subtitle}\insertsubtitle}
+	\put (5,\numexpr\fau@inner@TitleOverPicStart-3) {\usebeamerfont{subtitle}\insertsubtitle}
 \fi
 % insert authors
 \ifx\insertauthor\empty\else
-	\put (5,24) {\usebeamerfont{subtitle}\textbf{\insertauthor}}
+	\put (5,\numexpr\fau@inner@TitleOverPicStart-11) {\usebeamerfont{subtitle}\textbf{\insertauthor}}
 \fi\hfill
 % insert institute name
 \ifx\insertinstitute\empty\else
-	\put (5,22) {\usebeamerfont{subtitle}\insertinstitute}
+	\put (5,\numexpr\fau@inner@TitleOverPicStart-13) {\usebeamerfont{subtitle}\insertinstitute}
 \fi
 % insert institute name
 \ifx\insertdate\empty\else
-	\put (5,20) {\usebeamerfont{subtitle}\insertdate}
+	\put (5,\numexpr\fau@inner@TitleOverPicStart-15) {\usebeamerfont{subtitle}\insertdate}
 \fi
 \end{overpicdefault}
 \end{beamercolorbox}%
