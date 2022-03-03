@@ -1,0 +1,200 @@
+\ProvidesPackage{styles/beamerposterthemefau}
+% ..............................................................................
+\RequirePackage{xifthen}
+\RequirePackage{geometry}
+
+% ..............................................................................
+\newif\iffau@isfau\fau@isfautrue
+\newif\iffau@isphil\fau@isphilfalse
+\newif\iffau@isrewi\fau@isrewifalse
+\newif\iffau@ismed\fau@ismedfalse
+\newif\iffau@isnat\fau@isnatfalse
+\newif\iffau@istech\fau@istechfalse
+\newcount\fau@dina
+
+% ..............................................................................
+% Institute
+% -------
+%
+% Define which insitute template should be used.
+% ------------------------------------------------------------------------------
+\def\inst{FAU}
+\DeclareOptionBeamer{institute}{%
+  \PassOptionsToPackage{institute=#1}{styles/beamercolorthemefau}
+  \ifthenelse{\equal{#1}{FAU}}{\fau@isfautrue\def\inst{FAU}}{\fau@isfaufalse}%
+  \ifthenelse{\equal{#1}{Phil}}{\fau@isphiltrue\def\inst{Phil}}{\fau@isphilfalse}%
+  \ifthenelse{\equal{#1}{RW}}{\fau@isrewitrue\def\inst{RW}}{\fau@isrewifalse}%
+  \ifthenelse{\equal{#1}{Med}}{\fau@ismedtrue\def\inst{Med}}{\fau@ismedfalse}%
+  \ifthenelse{\equal{#1}{Nat}}{\fau@isnattrue\def\inst{Nat}}{\fau@isnatfalse}%
+  \ifthenelse{\equal{#1}{Tech}}{\fau@istechtrue\def\inst{Tech}}{\fau@istechfalse}%
+}
+
+
+% ..............................................................................
+% Poster Size
+% -------
+%
+% Declare the poster size, which is later passed to the beamerposter package.
+% Addionally we pass the portrait option. 
+% ------------------------------------------------------------------------------
+\DeclareOptionBeamer{size}{%
+  \PassOptionsToPackage{size=#1}{beamerposter}%
+  \ifthenelse{\equal{#1}{a0}}{\fau@dina=0}{}%
+  \ifthenelse{\equal{#1}{a1}}{\fau@dina=1}{}%
+  \ifthenelse{\equal{#1}{a2}}{\fau@dina=2}{}%
+  \ifthenelse{\equal{#1}{a3}}{\fau@dina=3}{}%
+  \ifthenelse{\equal{#1}{a4}}{\fau@dina=4}{}%
+}
+
+\PassOptionsToPackage{orientation=portrait}{beamerposter}
+
+
+\def\WordMark{template-art/FAUWortmarkeBlau.pdf}
+\def\WordMarkTitle{template-art/FAUWortmarkeWhite.pdf}
+
+% The following are dependent on the institute
+\def\WordMarkTitleLeft{template-art/\inst KennungWhite.pdf}
+
+% fall back to default image, if the images are not in the folder
+\newcommand{\includegraphicsdefault}[2][width=\linewidth]{%
+\IfFileExists{#2}%
+{\includegraphics[#1]{#2}}%
+{\includegraphics[#1]{template-art/default-image}}%
+}%
+
+
+% ..............................................................................
+% Url and Signature for footer.
+% ------------------------------------------------------------------------------
+\DeclareOptionBeamer{url}{%
+  \def\fau@url{#1}
+}
+
+\DeclareOptionBeamer{signature}{%
+  \def\fau@signature{#1}
+}
+
+\DeclareOptionBeamer{logo}{%
+  \PassOptionsToPackage{userlogo=#1}{styles/beamerinnerthemefau}
+  \PassOptionsToPackage{userlogo=#1}{styles/beamerouterthemefau}
+}
+% ------------------------------------------------------------------------------
+
+% ..............................................................................
+% Process options.
+% ------------------------------------------------------------------------------
+\ExecuteOptionsBeamer{url=www.fau.de}
+\ExecuteOptionsBeamer{signature=}
+\ProcessOptionsBeamer
+\selectcolormodel{rgb}
+\mode<presentation>
+% ------------------------------------------------------------------------------
+\RequirePackage{beamerposter}
+
+
+\ifcase\fau@dina %a0
+	\PassOptionsToPackage{SideBarWidthLeft=14.4mm}{styles/beamerouterthemefau}
+	\PassOptionsToPackage{HeaderHeight=5mm}{styles/beamerouterthemefau}
+	\PassOptionsToPackage{HeaderTitleHeight=4mm}{styles/beamerouterthemefau}
+	\PassOptionsToPackage{TitleHeight=30mm}{styles/beamerouterthemefau}
+	\PassOptionsToPackage{TitleLineHeight=10mm}{styles/beamerouterthemefau}
+	\PassOptionsToPackage{TitleTitleSkip=3.5mm}{styles/beamerouterthemefau}
+	\PassOptionsToPackage{TitleSkip=5mm}{styles/beamerouterthemefau}
+	\PassOptionsToPackage{TitleSkipLeft=11.5mm}{styles/beamerouterthemefau}
+	\PassOptionsToPackage{LineWidthThick=2mm}{styles/beamerouterthemefau}
+	\PassOptionsToPackage{LineWidthThin=.5mm}{styles/beamerouterthemefau}
+	\PassOptionsToPackage{FootHeight=9mm}{styles/beamerouterthemefau}
+	\PassOptionsToPackage{FootLineSkip=3mm}{styles/beamerouterthemefau}
+	\PassOptionsToPackage{WordMarkHeight=17mm}{styles/beamerouterthemefau}
+	\PassOptionsToPackage{WordMarkWidth=36mm}{styles/beamerouterthemefau}
+	\PassOptionsToPackage{WordMarkTitleHeight=25.4mm}{styles/beamerouterthemefau}
+	\PassOptionsToPackage{WordMarkTitleWidth=55.2mm}{styles/beamerouterthemefau}
+	\PassOptionsToPackage{WordMarkLeftHeight=12mm}{styles/beamerouterthemefau}
+	\PassOptionsToPackage{WordMarkLeftWidth=74mm}{styles/beamerouterthemefau}
+	\PassOptionsToPackage{WordMarkBoxWidth=60mm}{styles/beamerouterthemefau}
+	\PassOptionsToPackage{WordMarkSkip=12mm}{styles/beamerouterthemefau}
+\else
+  \PackageError{beamerposterthemefau}{Option 'size' must be one of 'a0', 'a1', 'a2', 'a3', or 'a4'.}{}
+\fi
+
+\PassOptionsToPackage{WordMark=\WordMark}{styles/beamerouterthemefau}
+\PassOptionsToPackage{WordMarkTitle=\WordMarkTitle}{styles/beamerouterthemefau}
+\PassOptionsToPackage{WordMarkTitleLeft=\WordMarkTitleLeft}{styles/beamerouterthemefau}
+
+
+% ------------------------------------------------------------------------------
+\usepackage{styles/beamerfontthemefau}
+\usepackage{styles/beamercolorthemefau}
+\usepackage{styles/beamerinnerthemefau}
+\usepackage{styles/beamerouterthemefau}
+% ------------------------------------------------------------------------------
+
+%%%% Frametitle %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\setbeamertemplate{frametitle}
+%{%
+%\nointerlineskip%
+%\begin{beamercolorbox}[wd=\dimexpr\paperwidth-\fau@outer@absenderraum-\fau@outer@linienstaerke,
+%					   ht=\dimexpr\fau@outer@absenderhoehe,
+%					   dp=0pt]{frametitle}%
+%\begin{minipage}[b][\dimexpr\fau@outer@absenderhoehe-\fau@outer@linienstaerke]%-\fau@outer@absenderraum]
+%				[b]{\dimexpr\paperwidth-2\fau@outer@absenderraum-\fau@outer@linienstaerke}
+%\vbox to\dimexpr\fau@outer@absenderhoehe-\fau@outer@linienstaerke{%
+%\vskip\beamer@leftmargin%
+%\hbox to \dimexpr\paperwidth-2\fau@outer@absenderraum{
+%	\hskip\beamer@leftmargin
+%	\ifx\insertauthor\empty\else
+%		\Large\textbf{\insertauthor}%\newline
+%	\fi\hfill}%
+%\hbox to \dimexpr\paperwidth-2\fau@outer@absenderraum{
+%	\hskip\beamer@leftmargin
+%	\ifx\insertinstitute\empty\else
+%		\Large\textmd\insertinstitute%\newline
+%	\fi\hfill}%
+%\vfil%
+%\hbox to \dimexpr\paperwidth-2\fau@outer@absenderraum{
+%	\hskip\beamer@leftmargin
+%	{\usebeamerfont{title}\inserttitle}
+%	\hfill}%
+%\hbox to \dimexpr\paperwidth-2\fau@outer@absenderraum{
+%	\hskip\beamer@leftmargin
+%	\ifx\insertsubtitle\empty\else
+%		{\usebeamerfont{subtitle}\insertsubtitle}
+%	\fi\hfill}%
+%\vfil%
+%\vskip\beamer@leftmargin%
+%}%
+%\end{minipage}%
+%\end{beamercolorbox}%
+%\nointerlineskip
+%% ----------------------------------------------------------------------------------------	
+%% Seperation line
+%% ----------------------------------------------------------------------------------------
+%\begin{beamercolorbox}[wd=\dimexpr\paperwidth-\fau@outer@absenderraum-\fau@outer@linienstaerke,
+%					   ht=\fau@outer@linienstaerke,
+%					   dp=0pt]{headline}%
+%\end{beamercolorbox}%
+%}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Footline %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\setbeamertemplate{footline}
+%{%
+%\nointerlineskip%
+%\begin{beamercolorbox}[wd=\paperwidth,ht=\fau@outer@urlraum,dp=0pt]{footline}
+%%{\normalsize\textbf{\fau@url}}%
+%\vbox to\dimexpr\fau@outer@urlraum{%
+%\vfil%
+%\hbox to \dimexpr\paperwidth{
+%    \hskip \dimexpr\fau@outer@absenderraum+\fau@outer@linienstaerke
+%	{\normalsize\textbf{\fau@url}}%
+%	\hfill%
+%    {\normalsize\textbf{\fau@signature}}
+%    \hspace{\beamer@rightmargin}
+%}%
+%\vfil%
+%}%
+%\end{beamercolorbox}%
+%}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\mode<all>
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
