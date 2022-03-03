@@ -41,7 +41,7 @@
   \ifthenelse{\equal{#1}{RW}}{\fau@isrewitrue\def\inst{RW}}{\fau@isrewifalse}%
   \ifthenelse{\equal{#1}{Med}}{\fau@ismedtrue\def\inst{Med}}{\fau@ismedfalse}%
   \ifthenelse{\equal{#1}{Nat}}{\fau@isnattrue\def\inst{Nat}}{\fau@isnatfalse}%
-  \ifthenelse{\equal{#1}{TF}}{\fau@istechtrue\def\inst{TF}}{\fau@istechfalse}%
+  \ifthenelse{\equal{#1}{Tech}}{\fau@istechtrue\def\inst{Tech}}{\fau@istechfalse}%
 }
 
 % ..............................................................................
@@ -62,12 +62,12 @@
 % ------------------------------------------------------------------------------
 % defaults
 
-\def\WordMark{template-art/FAUWortmarkeCMYKblau.pdf}
-\def\WordMarkTitle{template-art/FAUWortmarkeCMYKwhite.pdf}
+\def\WordMark{template-art/FAUWortmarkeBlau.pdf}
+\def\WordMarkTitle{template-art/FAUWortmarkeWhite.pdf}
 
 % The following are dependent on the institute
-\def\WordMarkTitleLeft{template-art/FAU\inst SRGBwhite.png}
-\def\TitleArt{template-art/FAU\inst Title.png}
+\def\WordMarkTitleLeft{template-art/\inst KennungWhite.pdf}
+\def\TitleArt{template-art/\inst Title.jpg}
 
 % Declare options for user specification
 \DeclareOptionBeamer{WordMark}{\def\WordMark{#1}}%

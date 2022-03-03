@@ -23,7 +23,7 @@
 \newif\iffaucolors@isRW\faucolors@isRWfalse
 \newif\iffaucolors@isMed\faucolors@isMedfalse
 \newif\iffaucolors@isNat\faucolors@isNatfalse
-\newif\iffaucolors@isTF\faucolors@isTFfalse
+\newif\iffaucolors@isTech\faucolors@isTechfalse
 
 \DeclareOption{FAU}{%
   \faucolors@isFAUtrue
@@ -42,18 +42,17 @@
   \stepcounter{faucolors@institutecounter}
 }
 \DeclareOption{Nat}{%
-  \typeout{Teco Cat}
   \faucolors@isNattrue
   \stepcounter{faucolors@institutecounter}
 }
-\DeclareOption{TF}{%
-  \faucolors@isTFtrue
+\DeclareOption{Tech}{%
+  \faucolors@isTechtrue
   \stepcounter{faucolors@institutecounter}
 }
 \ProcessOptions\relax
 
 \ifnum\value{faucolors@institutecounter}>0
-  \PackageError{fau-colors}{Options 'FAU', 'Phil', 'RW', 'Med', 'Nat', and 'TF' are mutually exclusive. Please only specify one of these options.}{}
+  \PackageError{fau-colors}{Options 'FAU', 'Phil', 'RW', 'Med', 'Nat', and 'Tech' are mutually exclusive. Please only specify one of these options.}{}
 \fi
 
 % ..............................................................................
@@ -81,8 +80,8 @@
 \definecolor{NatDarkGreen}{RGB}{38,97,65}
 
 % Tech colors
-\definecolor{TFMetallic}{RGB}{140,159,177}
-\definecolor{TFDarkMetallic}{RGB}{47,88,110}
+\definecolor{TechMetallic}{RGB}{140,159,177}
+\definecolor{TechDarkMetallic}{RGB}{47,88,110}
 
 % ..............................................................................
 % Assign the colors 
@@ -123,10 +122,10 @@
   \colorlet{SeparationLineColor}{NatDarkGreen}
 \fi
 
-\iffaucolors@isTF
-  \colorlet{BaseColor}{TFMetallic}
-  \colorlet{BaseDarkColor}{TFDarkMetallic}
-  \colorlet{SeparationLineColor}{TFDarkMetallic}
+\iffaucolors@isTech
+  \colorlet{BaseColor}{TechMetallic}
+  \colorlet{BaseDarkColor}{TechDarkMetallic}
+  \colorlet{SeparationLineColor}{TechDarkMetallic}
 \fi
 
 % ..............................................................................
