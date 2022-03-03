@@ -309,55 +309,25 @@
 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Footline %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\setbeamertemplate{footline}
-{%
-\nointerlineskip%
-\begin{beamercolorbox}[wd=\paperwidth,ht=\fau@outer@urlraum,dp=0pt]{footline}
-%{\normalsize\textbf{\fau@url}}%
-\vbox to\dimexpr\fau@outer@urlraum{%
-\vfil%
-\hbox to \dimexpr\paperwidth{
-    \hskip \dimexpr\fau@outer@absenderraum+\fau@outer@linienstaerke
-	{\normalsize\textbf{\fau@url}}%
-	\hfill%
-    {\normalsize\textbf{\fau@signature}}
-    \hspace{\beamer@rightmargin}
-}%
-\vfil%
-}%
-\end{beamercolorbox}%
-}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% Sidebar %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\setbeamersize{sidebar width left=\dimexpr\fau@outer@absenderraum+\fau@outer@linienstaerke}
-%\defbeamertemplate*{sidebar left}{sidebar theme}
+%\setbeamertemplate{footline}
 %{%
-%\begin{beamercolorbox}[wd=\dimexpr\fau@outer@absenderraum,
-%					   ht=\dimexpr\paperheight-\fau@outer@logoraum-\fau@outer@urlraum,
-%					   dp=0pt]{sidebar outer}%
-%\vbox to\dimexpr2\fau@outer@absenderhoehe+\fau@outer@linienstaerke{%
-%\begin{beamercolorbox}[wd=\fau@outer@absenderraum,ht=\fau@outer@absenderhoehe,dp=0pt]{sidebar top}
-%\end{beamercolorbox}%
 %\nointerlineskip%
-%\vskip\fau@outer@linienstaerke
-%\iffau@isfau
-%	\begin{tikzpicture}
-%	\fill[fauphil] (0,0.8\fau@outer@absenderhoehe) rectangle (\fau@outer@absenderraum, 1.0\fau@outer@absenderhoehe);
-%	\fill[faurewi] (0,0.6\fau@outer@absenderhoehe) rectangle (\fau@outer@absenderraum, 0.8\fau@outer@absenderhoehe);
-%	\fill[faumed] (0,0.4\fau@outer@absenderhoehe) rectangle (\fau@outer@absenderraum, 0.6\fau@outer@absenderhoehe);
-%	\fill[faunat] (0,0.2\fau@outer@absenderhoehe) rectangle (\fau@outer@absenderraum, 0.4\fau@outer@absenderhoehe);
-%	\fill[fautech] (0,0.0\fau@outer@absenderhoehe) rectangle (\fau@outer@absenderraum, 0.2\fau@outer@absenderhoehe);
-%	\end{tikzpicture}
-%\else
-%	\begin{beamercolorbox}[wd=\fau@outer@absenderraum,ht=\fau@outer@absenderhoehe,dp=0pt]{sidebar bot}
-%	\end{beamercolorbox}%
-%\fi
+%\begin{beamercolorbox}[wd=\paperwidth,ht=\fau@outer@urlraum,dp=0pt]{footline}
+%%{\normalsize\textbf{\fau@url}}%
+%\vbox to\dimexpr\fau@outer@urlraum{%
+%\vfil%
+%\hbox to \dimexpr\paperwidth{
+%    \hskip \dimexpr\fau@outer@absenderraum+\fau@outer@linienstaerke
+%	{\normalsize\textbf{\fau@url}}%
+%	\hfill%
+%    {\normalsize\textbf{\fau@signature}}
+%    \hspace{\beamer@rightmargin}
 %}%
-%\vskip\dimexpr\paperheight-\fau@outer@logoraum-\fau@outer@urlraum-
-%	   2\fau@outer@absenderhoehe-\fau@outer@linienstaerke%
+%\vfil%
+%}%
 %\end{beamercolorbox}%
 %}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \mode<all>
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
