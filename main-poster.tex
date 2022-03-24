@@ -1,13 +1,15 @@
 % ------------------------------------------------------------------------------
-\documentclass[final, 12pt]{beamer}
+\documentclass[final, 10pt]{beamer}
 
 
 % ========================================================================================
 % Theme: inner, outer, font and colors
 % ----------------------------------------------------------------------------------------
-\usepackage[institute=FAU,
+\usepackage[institute=Nat,
 			%WordMark=None
+			%ExtraLogo = template-art/DepartMath.pdf,
 			size=a0,
+			signature=tim.roith@fau.de
 		   ]{styles/beamerposterthemefau}
 % ----------------------------------------------------------------------------------------
 % Input and output encoding
@@ -104,7 +106,10 @@
 % Change color for cite locally
 \newcommand{\colorcite}[3]{{\hypersetup{citecolor=#1}{\cite[#2]{#3}}}} 
 % ----------------------------------------------------------------------------------------
-\setbeamercolor{normal text}{fg=black,bg=red}
+\setbeamercolor{normal text}{fg=black,bg=BaseColorC}
+\setbeamertemplate{frametitle}[frametitle title]
+\setbeamertemplate{sidebar left}[sidebar title theme]
+\setbeamertemplate{headline}[headline title]
 % ========================================================================================
 % The main document
 % ----------------------------------------------------------------------------------------

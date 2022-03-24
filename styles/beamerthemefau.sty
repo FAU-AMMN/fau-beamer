@@ -74,6 +74,7 @@
 \DeclareOptionBeamer{WordMarkTitle}{\def\WordMarkTitle{#1}}
 \DeclareOptionBeamer{WordMarkTitleLeft}{\def\WordMarkTitleLeft{#1}}
 \DeclareOptionBeamer{TitleArt}{\def\TitleArt{#1}}
+\DeclareOptionBeamer{ExtraLogo}{\PassOptionsToPackage{ExtraLogo=#1}{styles/beamerouterthemefau}}
 
 % fall back to default image, if the images are not in the folder
 \newcommand{\includegraphicsdefault}[2][width=\linewidth]{%

@@ -1,16 +1,16 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.20)  3 MAR 2022 23:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.20)  7 MAR 2022 16:55
 entering extended mode
-**fau-colors.tex
+**beamerposterthemefau.tex
 
 ! Emergency stop.
-<*> fau-colors.tex
-                  
+<*> beamerposterthemefau.tex
+                            
 *** (job aborted, file error in nonstop mode)
 
  
 Here is how much of TeX's memory you used:
  2 strings out of 478893
- 20 string characters out of 2847055
+ 30 string characters out of 2847055
  290412 words of memory out of 3000000
  17983 multiletter control sequences out of 15000+600000
  403430 words of font info for 27 fonts, out of 8000000 for 9000

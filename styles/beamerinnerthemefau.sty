@@ -84,10 +84,10 @@
 % 
 \begin{overpicdefault}[width=\dimexpr\paperwidth,%
 				height=\dimexpr\paperheight-\fau@inner@HeaderHeight-\fau@inner@TitleHeight-\fau@inner@TitleLineHeight]{\fau@inner@TitleArt}%
-\put (5,\fau@inner@TitleOverPicStart) {\usebeamerfont{title}\inserttitle}
+\put (5,\fau@inner@TitleOverPicStart) {\usebeamerfont{title}\parbox{0.9\textwidth}{\inserttitle}}
 % if a subtitle is given insert it here
 \ifx\insertsubtitle\empty\else
-	\put (5,\numexpr\fau@inner@TitleOverPicStart-3) {\usebeamerfont{subtitle}\insertsubtitle}
+	\put (5,\numexpr\fau@inner@TitleOverPicStart-4) {\usebeamerfont{subtitle}\parbox{0.9\textwidth}{\insertsubtitle}}
 \fi
 % insert authors
 \ifx\insertauthor\empty\else
@@ -95,11 +95,11 @@
 \fi\hfill
 % insert institute name
 \ifx\insertinstitute\empty\else
-	\put (5,\numexpr\fau@inner@TitleOverPicStart-13) {\usebeamerfont{subtitle}\insertinstitute}
+	\put (5,\numexpr\fau@inner@TitleOverPicStart-14) {\usebeamerfont{subtitle}\insertinstitute}
 \fi
 % insert institute name
 \ifx\insertdate\empty\else
-	\put (5,\numexpr\fau@inner@TitleOverPicStart-15) {\usebeamerfont{subtitle}\insertdate}
+	\put (5,\numexpr\fau@inner@TitleOverPicStart-17) {\usebeamerfont{subtitle}\insertdate}
 \fi
 \end{overpicdefault}
 \end{beamercolorbox}%
@@ -160,6 +160,24 @@
     text margin right=1.5cm
 }
 % ------------------------------------------------------------------------------
+
+
+\setbeamertemplate{block begin}{%
+	\vspace*{1ex}%
+	\begin{beamercolorbox}[sep=5pt]{block title}
+	\usebeamerfont*{block title}\insertblocktitle%
+	\end{beamercolorbox}%
+	\nointerlineskip%
+	\usebeamerfont{block body}%
+	\begin{beamercolorbox}[%
+	sep=5pt
+	]{block body}%
+}%
+
+\setbeamertemplate{block end}{%
+\end{beamercolorbox}
+\vspace*{0.2ex}
+}
 
 
 

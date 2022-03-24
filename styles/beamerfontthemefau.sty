@@ -10,9 +10,20 @@
 % ------------------------------------------------------------------------------
 
 \ProvidesPackage{styles/beamerfontthemefau}
+
 % ..............................................................................
+% Font sizes.
+% ------------------------------------------------------------------------------
+\def\fau@font@size{18}
+\def\fau@font@baselineskip{20}
+\DeclareOptionBeamer{Size}{\def\fau@font@size{#1}}
+\DeclareOptionBeamer{BaseLineSkip}{\def\fau@font@baselineskip{#1}}
+
+% ..............................................................................
+\ProcessOptionsBeamer
 \mode<presentation>
 % ..............................................................................
+
 % Helvetica
 \RequirePackage{lmodern}
 \RequirePackage{textcomp}
@@ -27,13 +38,13 @@
 \setbeamerfont{footline}{size=\scriptsize}
 \setbeamerfont{subsection in toc}{size=\Large,series=\mdseries}
 
-\AtBeginDocument{\fontsize{18}{20}\selectfont}
+\AtBeginDocument{\fontsize{\fau@font@size}{20}\selectfont}
 
 % ..............................................................................
 % equal font sizes for all levels
-\setbeamerfont{itemize/enumerate body}{size=\fontsize{18}{20}}
-\setbeamerfont{itemize/enumerate subbody}{size=\fontsize{18}{20}}
-\setbeamerfont{itemize/enumerate subsubbody}{size=\fontsize{18}{20}}
+\setbeamerfont{itemize/enumerate body}{size=\fontsize{\fau@font@size}{\fau@font@baselineskip}}
+\setbeamerfont{itemize/enumerate subbody}{size=\fontsize{\fau@font@size}{\fau@font@baselineskip}}
+\setbeamerfont{itemize/enumerate subsubbody}{size=\fontsize{\fau@font@size}{\fau@font@baselineskip}}
 % ..............................................................................
 
 \mode<all>

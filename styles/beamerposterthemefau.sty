@@ -12,6 +12,9 @@
 \newif\iffau@istech\fau@istechfalse
 \newcount\fau@dina
 
+\newdimen\pageheight
+\newdimen\pagewidth
+
 % ..............................................................................
 % Institute
 % -------
@@ -38,7 +41,7 @@
 % Addionally we pass the portrait option. 
 % ------------------------------------------------------------------------------
 \DeclareOptionBeamer{size}{%
-  \PassOptionsToPackage{size=#1}{beamerposter}%
+  \PassOptionsToPackage{size=#1,scale=1.4}{beamerposter}%
   \ifthenelse{\equal{#1}{a0}}{\fau@dina=0}{}%
   \ifthenelse{\equal{#1}{a1}}{\fau@dina=1}{}%
   \ifthenelse{\equal{#1}{a2}}{\fau@dina=2}{}%
@@ -61,15 +64,17 @@
 {\includegraphics[#1]{#2}}%
 {\includegraphics[#1]{template-art/default-image}}%
 }%
-
+\DeclareOptionBeamer{ExtraLogo}{\PassOptionsToPackage{ExtraLogo=#1}{styles/beamerouterthemefau}}
 
 % ..............................................................................
 % Url and Signature for footer.
 % ------------------------------------------------------------------------------
+\def\fau@url{}
 \DeclareOptionBeamer{url}{%
   \def\fau@url{#1}
 }
 
+\def\fau@signature{}
 \DeclareOptionBeamer{signature}{%
   \def\fau@signature{#1}
 }
@@ -93,29 +98,40 @@
 
 
 \ifcase\fau@dina %a0
-	\PassOptionsToPackage{SideBarWidthLeft=14.4mm}{styles/beamerouterthemefau}
-	\PassOptionsToPackage{HeaderHeight=5mm}{styles/beamerouterthemefau}
-	\PassOptionsToPackage{HeaderTitleHeight=4mm}{styles/beamerouterthemefau}
-	\PassOptionsToPackage{TitleHeight=30mm}{styles/beamerouterthemefau}
-	\PassOptionsToPackage{TitleLineHeight=10mm}{styles/beamerouterthemefau}
-	\PassOptionsToPackage{TitleTitleSkip=3.5mm}{styles/beamerouterthemefau}
-	\PassOptionsToPackage{TitleSkip=5mm}{styles/beamerouterthemefau}
-	\PassOptionsToPackage{TitleSkipLeft=11.5mm}{styles/beamerouterthemefau}
-	\PassOptionsToPackage{LineWidthThick=2mm}{styles/beamerouterthemefau}
-	\PassOptionsToPackage{LineWidthThin=.5mm}{styles/beamerouterthemefau}
-	\PassOptionsToPackage{FootHeight=9mm}{styles/beamerouterthemefau}
-	\PassOptionsToPackage{FootLineSkip=3mm}{styles/beamerouterthemefau}
-	\PassOptionsToPackage{WordMarkHeight=17mm}{styles/beamerouterthemefau}
-	\PassOptionsToPackage{WordMarkWidth=36mm}{styles/beamerouterthemefau}
-	\PassOptionsToPackage{WordMarkTitleHeight=25.4mm}{styles/beamerouterthemefau}
-	\PassOptionsToPackage{WordMarkTitleWidth=55.2mm}{styles/beamerouterthemefau}
-	\PassOptionsToPackage{WordMarkLeftHeight=12mm}{styles/beamerouterthemefau}
-	\PassOptionsToPackage{WordMarkLeftWidth=74mm}{styles/beamerouterthemefau}
-	\PassOptionsToPackage{WordMarkBoxWidth=60mm}{styles/beamerouterthemefau}
-	\PassOptionsToPackage{WordMarkSkip=12mm}{styles/beamerouterthemefau}
+	\setlength{\pageheight}{3367.5pt}
+	\setlength{\pagewidth}{2383.9pt}
+	
+	\def\factor{3.31}
+	
+	% ..............................................................................
+	% Font size.
+	% ------------------------------------------------------------------------------
+	\PassOptionsToPackage{Size=24}{styles/beamerfontthemefau}
+	\PassOptionsToPackage{BaseLineSkip=29}{styles/beamerfontthemefau}
 \else
   \PackageError{beamerposterthemefau}{Option 'size' must be one of 'a0', 'a1', 'a2', 'a3', or 'a4'.}{}
 \fi
+
+% ..............................................................................
+% Dimensions for page layout
+% ------------------------------------------------------------------------------
+\PassOptionsToPackage{SideBarWidthLeft=\factor\dimexpr30.6pt\relax}{styles/beamerouterthemefau}
+\PassOptionsToPackage{HeaderHeight=\factor\dimexpr14.1pt\relax}{styles/beamerouterthemefau}
+\PassOptionsToPackage{HeaderTitleHeight=\factor\dimexpr11.3pt\relax}{styles/beamerouterthemefau}
+\PassOptionsToPackage{TitleHeight=\factor\dimexpr85.0pt\relax}{styles/beamerouterthemefau}
+\PassOptionsToPackage{TitleLineHeight=\factor\dimexpr28.3pt\relax}{styles/beamerouterthemefau}
+\PassOptionsToPackage{TitleSkip=\factor\dimexpr14.2pt\relax}{styles/beamerouterthemefau}
+\PassOptionsToPackage{TitleSkipLeft=\factor\dimexpr32.6pt\relax}{styles/beamerouterthemefau}
+\PassOptionsToPackage{LineWidthThick=\factor\dimexpr5.6pt\relax}{styles/beamerouterthemefau}
+\PassOptionsToPackage{LineWidthThin=\factor\dimexpr1.4pt\relax}{styles/beamerouterthemefau}
+\PassOptionsToPackage{FootHeight=\factor\dimexpr25.5pt\relax}{styles/beamerouterthemefau}
+\PassOptionsToPackage{FootLineSkip=\factor\dimexpr8.5pt\relax}{styles/beamerouterthemefau}
+\PassOptionsToPackage{WordMarkTitleHeight=\factor\dimexpr62.0pt\relax}{styles/beamerouterthemefau}
+\PassOptionsToPackage{WordMarkTitleWidth=\factor\dimexpr130.4pt\relax}{styles/beamerouterthemefau}
+\PassOptionsToPackage{WordMarkLeftHeight=\factor\dimexpr34pt\relax}{styles/beamerouterthemefau}
+\PassOptionsToPackage{WordMarkLeftWidth=\factor\dimexpr209.8pt\relax}{styles/beamerouterthemefau}
+\PassOptionsToPackage{WordMarkBoxWidth=\factor\dimexpr170pt\relax}{styles/beamerouterthemefau}
+\PassOptionsToPackage{WordMarkSkip=\factor\dimexpr34pt\relax}{styles/beamerouterthemefau}
 
 \PassOptionsToPackage{WordMark=\WordMark}{styles/beamerouterthemefau}
 \PassOptionsToPackage{WordMarkTitle=\WordMarkTitle}{styles/beamerouterthemefau}
@@ -174,26 +190,47 @@
 %					   dp=0pt]{headline}%
 %\end{beamercolorbox}%
 %}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% Footline %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\setbeamertemplate{footline}
-%{%
-%\nointerlineskip%
-%\begin{beamercolorbox}[wd=\paperwidth,ht=\fau@outer@urlraum,dp=0pt]{footline}
-%%{\normalsize\textbf{\fau@url}}%
-%\vbox to\dimexpr\fau@outer@urlraum{%
-%\vfil%
-%\hbox to \dimexpr\paperwidth{
-%    \hskip \dimexpr\fau@outer@absenderraum+\fau@outer@linienstaerke
-%	{\normalsize\textbf{\fau@url}}%
-%	\hfill%
-%    {\normalsize\textbf{\fau@signature}}
-%    \hspace{\beamer@rightmargin}
-%}%
-%\vfil%
-%}%
-%\end{beamercolorbox}%
-%}
+
+% ..............................................................................
+% Footline
+% ------------------------------------------------------------------------------
+
+\setbeamertemplate{footline}{%
+\begin{beamercolorbox}[wd=\paperwidth,ht=\fau@outer@FootHeight]{footline title}%
+\hbox to \paperwidth{%
+\hskip\dimexpr\fau@outer@SideBarWidthLeft%
+\vbox to \fau@outer@FootHeight{%
+\begin{beamercolorbox}[wd=\dimexpr\paperwidth-\fau@outer@SideBarWidthLeft, 
+  					   ht=\fau@outer@LineWidthThin,dp=0pt,sep=0pt]{separation line title}%
+\end{beamercolorbox}%
+\nointerlineskip%
+\hbox to \dimexpr\paperwidth-\fau@outer@SideBarWidthLeft{%
+%
+% left side of the footer
+%
+\begin{beamercolorbox}[dp=0pt,sep = \fau@outer@FootLineSkip,%
+					   leftskip= -\fau@outer@FootLineSkip,%
+					   wd=\dimexpr.5\paperwidth-\fau@outer@SideBarWidthLeft,%
+  					   ht=\dimexpr\fau@outer@FootHeight-\fau@outer@LineWidthThin]{footline}%
+\normalsize\textbf{\fau@url}%
+%
+\end{beamercolorbox}%
+\hfil%
+%
+% rigth side of the footer
+%
+\begin{beamercolorbox}[dp=0pt,sep = \fau@outer@FootLineSkip,%
+					   rightskip=\dimexpr\fau@outer@SideBarWidthLeft-\fau@outer@FootLineSkip,%
+					   wd=\dimexpr.5\paperwidth,%
+  					   ht=\dimexpr\fau@outer@FootHeight-\fau@outer@LineWidthThin]{footline}%
+\hfill%
+\normalsize\textbf{\fau@signature}%
+\end{beamercolorbox}%
+}%
+}%
+}%
+\end{beamercolorbox}%
+}%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \mode<all>

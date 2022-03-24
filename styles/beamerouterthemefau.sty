@@ -34,12 +34,13 @@
 \newdimen\fau@outer@WordMarkBoxWidth
 \newdimen\fau@outer@TitleSkipLeft
 %
-% dimesnions for lobal use
+% dimensions for lobal use
 %
 \newdimen\FrameHeight
 \newdimen\TitleHeight
 %
 \newif\iffau@outer@InsertTotalFoot\fau@outer@InsertTotalFootfalse
+\newif\iffau@outer@InsertExtraLogo\fau@outer@InsertExtraLogofalse
 
 % ..............................................................................
 % Dimensions
@@ -73,6 +74,11 @@
 \DeclareOptionBeamer{WordMark}{\def\fau@outer@WordMark{#1}}
 \DeclareOptionBeamer{WordMarkTitle}{\def\fau@outer@WordMarkTitle{#1}}
 \DeclareOptionBeamer{WordMarkTitleLeft}{\def\fau@outer@WordMarkTitleLeft{#1}}
+\DeclareOptionBeamer{ExtraLogo}{%
+	\def\fau@outer@ExtraLogo{#1}%
+	\fau@outer@InsertExtraLogotrue%
+	\typeout{Teco Cat}
+}
 % ------------------------------------------------------------------------------
 
 % ..............................................................................
@@ -145,13 +151,26 @@
 %
 }%
 \end{beamercolorbox}%
+\hfil%
 %
 % insert additional logo
 %
 \begin{beamercolorbox}[dp=0cm, sep=0.0cm,right,%
 					   wd=\dimexpr.5\paperwidth-\fau@outer@WordMarkBoxWidth-\fau@outer@TitleSkipLeft,%
 					   ht=\dimexpr\fau@outer@TitleHeight-\fau@outer@LineWidthThick]{#1}%
-%  
+%
+\vbox to\dimexpr\fau@outer@TitleHeight-\fau@outer@LineWidthThick{%
+\iffau@outer@InsertExtraLogo%
+	\ifnum#4=0%
+	\else%
+	\includegraphicsdefault[width=0.9\dimexpr.5\paperwidth-
+								  \fau@outer@WordMarkBoxWidth-\fau@outer@TitleSkipLeft,%
+				 			height=0.9\dimexpr\fau@outer@TitleHeight-\fau@outer@LineWidthThick,%
+				 			keepaspectratio]{\fau@outer@ExtraLogo}%
+	\fi%
+\fi%
+\vfil%
+}%	 
 \end{beamercolorbox}%
 %
 % insert fau word mark
@@ -259,6 +278,7 @@
 \fi%
 %
 \end{beamercolorbox}%
+\hfil%
 %
 % rigth side of the footer
 %
