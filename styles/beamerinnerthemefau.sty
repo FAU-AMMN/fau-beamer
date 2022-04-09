@@ -84,11 +84,23 @@
 % 
 \begin{overpicdefault}[width=\dimexpr\paperwidth,%
 				height=\dimexpr\paperheight-\fau@inner@HeaderHeight-\fau@inner@TitleHeight-\fau@inner@TitleLineHeight]{\fau@inner@TitleArt}%
-\put (5,\fau@inner@TitleOverPicStart) {\usebeamerfont{title}\parbox{0.9\textwidth}{\inserttitle}}
+\newsavebox{\TitleBox}%
+\savebox{\TitleBox}{\usebeamerfont{title}\parbox{0.9\textwidth}{\inserttitle}}%
+\put (5,\fau@inner@TitleOverPicStart) {%
+\usebox{\TitleBox}}%
+%
+% check height of title
+\ifdim \ht\TitleBox > 25.0pt
+	\def\SubTitleOffSet{6}
+\else
+	\def\SubTitleOffSet{4}
+\fi
+%
 % if a subtitle is given insert it here
 \ifx\insertsubtitle\empty\else
-	\put (5,\numexpr\fau@inner@TitleOverPicStart-4) {\usebeamerfont{subtitle}\parbox{0.9\textwidth}{\insertsubtitle}}
+	\put (5,\numexpr\fau@inner@TitleOverPicStart-\SubTitleOffSet) {\usebeamerfont{subtitle}\parbox{0.9\textwidth}{\insertsubtitle}}
 \fi
+%
 % insert authors
 \ifx\insertauthor\empty\else
 	\put (5,\numexpr\fau@inner@TitleOverPicStart-11) {\usebeamerfont{subtitle}\textbf{\insertauthor}}
