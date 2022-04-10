@@ -14,6 +14,8 @@
 
 \newdimen\pageheight
 \newdimen\pagewidth
+\newdimen\fau@outer@SideBarWidthRight
+
 
 % ..............................................................................
 % Institute
@@ -137,6 +139,8 @@
 \PassOptionsToPackage{WordMarkTitle=\WordMarkTitle}{styles/beamerouterthemefau}
 \PassOptionsToPackage{WordMarkTitleLeft=\WordMarkTitleLeft}{styles/beamerouterthemefau}
 
+\setlength{\fau@outer@SideBarWidthRight}{\factor\dimexpr 15pt\relax}
+
 
 % ------------------------------------------------------------------------------
 \usepackage{styles/beamerfontthemefau}
@@ -145,73 +149,61 @@
 \usepackage{styles/beamerouterthemefau}
 % ------------------------------------------------------------------------------
 
-%%%% Frametitle %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\setbeamertemplate{frametitle}
-%{%
-%\nointerlineskip%
-%\begin{beamercolorbox}[wd=\dimexpr\paperwidth-\fau@outer@absenderraum-\fau@outer@linienstaerke,
-%					   ht=\dimexpr\fau@outer@absenderhoehe,
-%					   dp=0pt]{frametitle}%
-%\begin{minipage}[b][\dimexpr\fau@outer@absenderhoehe-\fau@outer@linienstaerke]%-\fau@outer@absenderraum]
-%				[b]{\dimexpr\paperwidth-2\fau@outer@absenderraum-\fau@outer@linienstaerke}
-%\vbox to\dimexpr\fau@outer@absenderhoehe-\fau@outer@linienstaerke{%
-%\vskip\beamer@leftmargin%
-%\hbox to \dimexpr\paperwidth-2\fau@outer@absenderraum{
-%	\hskip\beamer@leftmargin
-%	\ifx\insertauthor\empty\else
-%		\Large\textbf{\insertauthor}%\newline
-%	\fi\hfill}%
-%\hbox to \dimexpr\paperwidth-2\fau@outer@absenderraum{
-%	\hskip\beamer@leftmargin
-%	\ifx\insertinstitute\empty\else
-%		\Large\textmd\insertinstitute%\newline
-%	\fi\hfill}%
-%\vfil%
-%\hbox to \dimexpr\paperwidth-2\fau@outer@absenderraum{
-%	\hskip\beamer@leftmargin
-%	{\usebeamerfont{title}\inserttitle}
-%	\hfill}%
-%\hbox to \dimexpr\paperwidth-2\fau@outer@absenderraum{
-%	\hskip\beamer@leftmargin
-%	\ifx\insertsubtitle\empty\else
-%		{\usebeamerfont{subtitle}\insertsubtitle}
-%	\fi\hfill}%
-%\vfil%
-%\vskip\beamer@leftmargin%
-%}%
-%\end{minipage}%
-%\end{beamercolorbox}%
-%\nointerlineskip
-%% ----------------------------------------------------------------------------------------	
-%% Seperation line
-%% ----------------------------------------------------------------------------------------
-%\begin{beamercolorbox}[wd=\dimexpr\paperwidth-\fau@outer@absenderraum-\fau@outer@linienstaerke,
-%					   ht=\fau@outer@linienstaerke,
-%					   dp=0pt]{headline}%
-%\end{beamercolorbox}%
-%}
+% ..............................................................................
+% Frame title
+% -----------
+%
+% ------------------------------------------------------------------------------
+
+\setbeamertemplate{frametitle}{%
+\nointerlineskip%
+\begin{beamercolorbox}[dp=0cm, sep=0.0cm,left,
+					   wd=\dimexpr\paperwidth-\fau@outer@SideBarWidthLeft-\fau@outer@SideBarWidthRight,
+					   ht=\dimexpr\fau@outer@TitleHeight]{}%
+\usebeamerfont{frametitle}%
+%
+\vbox to\dimexpr\fau@outer@TitleHeight{%
+%
+\vfill%
+}%
+\end{beamercolorbox}%
+}%
+
+% ..............................................................................
+% Sidebar
+% -------
+%
+% This section specifies the behaviour of the sidbar.
+% ------------------------------------------------------------------------------
+
+\setbeamersize{sidebar width left=\fau@outer@SideBarWidthLeft}
+\setbeamersize{sidebar width right=\fau@outer@SideBarWidthRight}
+%
+\setbeamertemplate{sidebar right}{%
+\begin{beamercolorbox}[dp=0pt,sep=0pt,%
+					   wd=\fau@outer@SideBarWidthRight,%
+					   ht=\dimexpr\paperheight-\fau@outer@FootHeight]{sidebar title}%
+%
+\end{beamercolorbox}%
+}%
+
+\setbeamertemplate{sidebar left}{}%
 
 % ..............................................................................
 % Footline
 % ------------------------------------------------------------------------------
 
 \setbeamertemplate{footline}{%
-\begin{beamercolorbox}[wd=\paperwidth,ht=\fau@outer@FootHeight]{footline title}%
+\begin{beamercolorbox}[wd=\paperwidth,ht=\fau@outer@FootHeight]{}%
 \hbox to \paperwidth{%
 \hskip\dimexpr\fau@outer@SideBarWidthLeft%
-\vbox to \fau@outer@FootHeight{%
-\begin{beamercolorbox}[wd=\dimexpr\paperwidth-\fau@outer@SideBarWidthLeft, 
-  					   ht=\fau@outer@LineWidthThin,dp=0pt,sep=0pt]{separation line title}%
-\end{beamercolorbox}%
-\nointerlineskip%
-\hbox to \dimexpr\paperwidth-\fau@outer@SideBarWidthLeft{%
 %
 % left side of the footer
 %
 \begin{beamercolorbox}[dp=0pt,sep = \fau@outer@FootLineSkip,%
 					   leftskip= -\fau@outer@FootLineSkip,%
 					   wd=\dimexpr.5\paperwidth-\fau@outer@SideBarWidthLeft,%
-  					   ht=\dimexpr\fau@outer@FootHeight-\fau@outer@LineWidthThin]{footline}%
+  					   ht=\dimexpr\fau@outer@FootHeight]{}%
 \normalsize\textbf{\fau@url}%
 %
 \end{beamercolorbox}%
@@ -221,16 +213,21 @@
 %
 \begin{beamercolorbox}[dp=0pt,sep = \fau@outer@FootLineSkip,%
 					   rightskip=\dimexpr\fau@outer@SideBarWidthLeft-\fau@outer@FootLineSkip,%
-					   wd=\dimexpr.5\paperwidth,%
-  					   ht=\dimexpr\fau@outer@FootHeight-\fau@outer@LineWidthThin]{footline}%
+					   wd=\dimexpr.5\paperwidth-\fau@outer@SideBarWidthRight,%
+  					   ht=\dimexpr\fau@outer@FootHeight]{}%
 \hfill%
 \normalsize\textbf{\fau@signature}%
 \end{beamercolorbox}%
-}%
-}%
+\hfil%
+\begin{beamercolorbox}[dp=0pt, sep = 0pt,
+					   wd=\fau@outer@SideBarWidthRight,%
+  					   ht=\dimexpr\fau@outer@FootHeight]{sidebar title}%
+\end{beamercolorbox}%
 }%
 \end{beamercolorbox}%
 }%
+
+\setbeamertemplate{headline}{}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \mode<all>
