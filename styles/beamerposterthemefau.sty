@@ -126,16 +126,12 @@
 
 
 \ifcase\fau@dina %a0
-	\setlength{\pageheight}{3367.5pt}
-	\setlength{\pagewidth}{2383.9pt}
-	
 	\def\factor{3.31}
-	
 	% ..............................................................................
 	% Font size.
 	% ------------------------------------------------------------------------------
-	\PassOptionsToPackage{Size=24}{styles/beamerfontthemefau}
-	\PassOptionsToPackage{BaseLineSkip=29}{styles/beamerfontthemefau}
+	\PassOptionsToPackage{Size=38}{styles/beamerfontthemefau}
+	\PassOptionsToPackage{BaseLineSkip=45}{styles/beamerfontthemefau}
 \else
   \PackageError{beamerposterthemefau}{Option 'size' must be one of 'a0', 'a1', 'a2', 'a3', or 'a4'.}{}
 \fi
@@ -231,37 +227,41 @@
 \end{beamercolorbox}%
 \end{beamercolorbox}%
 %
-% Insert uthor and title
+% Insert author and title
 %
 \nointerlineskip%
 \begin{beamercolorbox}[dp=0cm, sep=0.0cm,left,%
 					   wd=\dimexpr\titlewidth,%
 					   ht=\dimexpr\fau@poster@TitleHeight-\fau@poster@WordMarkHeight]{}%
-\vbox to \dimexpr\fau@poster@TitleHeight-\fau@poster@WordMarkHeight {%
+\vbox to \dimexpr\fau@poster@TitleHeight-\fau@poster@WordMarkHeight{%
 %
 % Title
 %
-{\usebeamerfont{title}
-\color{BaseDarkColor}{\inserttitle}}\\
+\hbox to \titlewidth {%
+{\usebeamerfont{title}%
+\color{BaseDarkColor}\parbox{\titlewidth}{\inserttitle}\hfill}%
+}%
+%
+%
+%
+\hbox to \titlewidth {%
 %
 % subtitle
 %
-\ifx\insertsubtitle\empty\else
-	{\usebeamerfont{subtitle}\parbox{0.9\textwidth}{\insertsubtitle}}\\
+\ifx\insertsubtitle\empty\else%
+	{\usebeamerfont{subtitle}\parbox{\titlewidth}{\insertsubtitle}\hfill}%
 \fi%
+}%
+\hbox to \titlewidth {%
 %
 % authors
 %
 \ifx\insertauthor\empty\else
-	{\usebeamerfont{subtitle}\textbf{\insertauthor}}\\
+	{\usebeamerfont{subtitle}\parbox{\titlewidth}{\textbf{\insertauthor}}\hfill}%
 \fi
-%
-% institute
-%
-\ifx\insertinstitute\empty\else
-	{\usebeamerfont{subtitle}\insertinstitute}
-\fi
-\vfill}%
+}%
+\vfill%
+}%
 \end{beamercolorbox}%
 }%
 }%
@@ -324,6 +324,40 @@
 }%
 \end{beamercolorbox}%
 }%
+
+% ..............................................................................
+% Blocks
+% -------
+% Modifications for Blocks
+% ------------------------------------------------------------------------------
+
+\newdimen\BoxHeight%
+\newsavebox{\AgBox}%
+\savebox{\AgBox}{\usebeamerfont{block title} Ag}%
+\setlength{\BoxHeight}{1.8\ht\AgBox}%
+
+\setbeamertemplate{block begin}{%
+	\vspace*{1ex}%
+	\begin{beamercolorbox}[dp=0pt, ht=\BoxHeight,
+	 					   rightskip=-0.2\BoxHeight, 
+	 					   leftskip=0.2\BoxHeight,]{block poster title}%
+	\vbox to \BoxHeight {%
+	\vfil%
+	\usebeamerfont*{block title}\insertblocktitle%
+	\vfil%
+	}%
+	\end{beamercolorbox}%
+	\nointerlineskip%
+	\usebeamerfont{block body}%
+	\begin{beamercolorbox}[%
+	sep=5pt%
+	]{block body}%
+}%
+
+\setbeamertemplate{block end}{%
+\end{beamercolorbox}%
+\vspace*{0.2ex}%
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \mode<all>

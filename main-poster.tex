@@ -1,5 +1,5 @@
 % ------------------------------------------------------------------------------
-\documentclass[final, 10pt]{beamer}
+\documentclass[final, 12pt]{beamer}
 
 
 % ========================================================================================
@@ -111,6 +111,37 @@
 % ----------------------------------------------------------------------------------------
 \begin{document}
 \begin{frame}{-}{}
-Hello :)
+%
+%
+%
+\begin{block}{Example Block}
+This is an example block with example text.\\
+It spans over multiple lines.
+\end{block}
+%
+%
+%
+\hbox to \textwidth{%
+\begin{minipage}{0.45\textwidth}
+\begin{block}{Use minipages}
+Use minipages to make smaller blocks.
+\end{block}
+\end{minipage}
+%
+\hfill%
+%
+\begin{minipage}{0.45\textwidth}
+\begin{block}{Itemize}
+\begin{itemize}
+\item Item A.
+\item Item B.
+\item Item C.
+\end{itemize}
+\end{block}
+\end{minipage}}
+%
+%
+%
+This is just text in the middle of nowhere.
 \end{frame}
 \end{document}
