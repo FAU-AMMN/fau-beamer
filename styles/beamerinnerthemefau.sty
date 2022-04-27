@@ -95,18 +95,22 @@
 %
 %
 %
+\put (5,\numexpr\fau@inner@TitleOverPicStart-18) {%
+\parbox[b]{0.9\textwidth}{%
 % insert authors
 \ifx\insertauthor\empty\else
-	\put (5,\numexpr\fau@inner@TitleOverPicStart-11) {\usebeamerfont{subtitle}\textbf{\insertauthor}}
-\fi\hfill
+	{\usebeamerfont{subtitle}\textbf{\insertauthor}}\\[1em]%
+\fi%
 % insert institute name
-\ifx\insertinstitute\empty\else
-	\put (5,\numexpr\fau@inner@TitleOverPicStart-14) {\usebeamerfont{subtitle}\insertinstitute}
+\ifx\insertinstitute\empty\else%
+    {\usebeamerfont{subtitle}\insertinstitute}\\[1em]%
 \fi
 % insert date
-\ifx\insertdate\empty\else
-	\put (5,\numexpr\fau@inner@TitleOverPicStart-17) {\usebeamerfont{subtitle}\insertdate}
-\fi
+\ifx\insertdate\empty\else%
+	{\usebeamerfont{subtitle}\insertdate}%
+\fi%
+}%
+}%
 \end{overpicdefault}
 \end{beamercolorbox}%
 }%
