@@ -55,13 +55,12 @@ The template employs the color scheme as specified by the FAU style guide. Each 
 
 | Institute | ```\BaseColor``` | RGB | ```\BaseDarkColor``` | RGB |
 | --------- | ---------------- | --- | ----------------- | --- |
-| FAU       | <img src="[https://via.placeholder.com/15/002f6c/000000?text=+](https://user-images.githubusercontent.com/44805883/169272361-71da6b14-2b6d-454c-ae73-f581dd75640b.png)" width="100" height="100"> | 0,47,108 | <img src="https://via.placeholder.com/15/041e42/000000?text=+" width="100" height="100"> | 4,30,66 |
-| Med       | <img src="https://via.placeholder.com/15/0061a0/000000?text=+" width="100" height="100"> | 0, 163, 224 | <img src="https://via.placeholder.com/15/0060a0/000000?text=+" width="100" height="100"> | 0, 97, 160 |
-| Nat       | <img src="https://via.placeholder.com/15/43b02a/000000?text=+" width="100" height="100"> | 67, 176, 42 | <img src="https://via.placeholder.com/15/228848/000000?text=+" width="100" height="100"> | 34, 136, 72 |
-| Phil      | <img src="https://via.placeholder.com/15/ffb81c/000000?text=+" width="100" height="100"> | 255, 184, 28 | <img src="https://via.placeholder.com/15/e87722/000000?text=+" width="100" height="100"> | 232, 119, 34 |
+| FAU       | <img src="https://user-images.githubusercontent.com/44805883/169272361-71da6b14-2b6d-454c-ae73-f581dd75640b.png" width="100" height="100"> | 0,47,108 | <img src="https://user-images.githubusercontent.com/44805883/169272896-3e2e90bf-5465-4f9a-afc4-4c0f952a7ce3.png" width="100" height="100"> | 4,30,66 |
+| Med       | <img src="https://user-images.githubusercontent.com/44805883/169272998-e59a7048-a57a-4569-a181-fca27023d4ff.png" width="100" height="100"> | 0, 163, 224 | <img src="https://user-images.githubusercontent.com/44805883/169273182-326a694e-0511-4e3c-a8d3-523b5b5a72aa.png" width="100" height="100"> | 0, 97, 160 |
+| Nat       | <img src="https://user-images.githubusercontent.com/44805883/169273312-2f7d0130-1dd4-44e5-a920-497cbc8a4374.png" width="100" height="100"> | 67, 176, 42 | <img src="https://user-images.githubusercontent.com/44805883/169273381-0f8fcaed-54b1-4fb4-9c60-4b47af35af25.png" width="100" height="100"> | 34, 136, 72 |
+| Phil      | <img src="https://user-images.githubusercontent.com/44805883/169273473-6008ad50-2d7f-4ada-b01f-39325940c8bd.png" width="100" height="100"> | 255, 184, 28 | <img src="https://user-images.githubusercontent.com/44805883/169273551-f059d603-75c9-49ed-91cc-610fd83a4a58.png" width="100" height="100"> | 232, 119, 34 |
 | RW        | <img src="https://via.placeholder.com/15/c8102e/000000?text=+" width="100" height="100"> | 200, 16, 46 | <img src="https://via.placeholder.com/15/971b2f/000000?text=+" width="100" height="100"> | 151,27,47 |
 | Tech      | <img src="https://via.placeholder.com/15/779fb5/000000?text=+" width="100" height="100"> | 119, 159, 181 | <img src="https://via.placeholder.com/15/41748d/000000?text=+" width="100" height="100"> | 65, 116, 141 |
-
 
 ## Logos
 
