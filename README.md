@@ -63,11 +63,25 @@ The template employs the color scheme as specified by the FAU style guide. Each 
 | Tech      | <img src="https://user-images.githubusercontent.com/44805883/169273976-d9cd9890-883f-4a1a-9994-b6eae1333492.png" width="100" height="100"> | 119, 159, 181 | <img src="https://user-images.githubusercontent.com/44805883/169274039-0e0f4f96-8f2d-4191-96cd-641332769acb.png" width="100" height="100"> | 65, 116, 141 |
 
 
-## Logos
+## 🖼️ Logos
+
+The logo files for the title page are **not** provided in this repo, since we do not have the rights to distribute them. In order to download the logo files please visit the website of [FAU corporate](https://www.intern.fau.de/kommunikation-marketing-und-corporate-identity/corporate-identity/fau-logo/#collapse_58) and download the neccessary files there. This is only possible if you are connected to the university network.
+
+Ther you find different .zip files for each insititute, containing the files
+
+* ```FAUWortmarkeBlau.pdf```
+* ```FAUWortmarkeWhite.pdf```
+* ```<Institute>Kennung.pdf```
+* ```<Institute>KennungWhite.pdf```
+* ```<Institute>Title.jpg```
+
+After you downloaded these files you simply put them in the folder ```/template-art``` where the package expects to find them.
 
 ## :paperclip: Questions or Remarks
 
-## Credit
+If you have questions about specific features or found an error you can either write an email to the author (see below) or raise an issue here.
+
+## :beer: Credit
 
 This template was designed by [Tim Roith](https://timroith.github.io/) using the given style from the FAU corporate style guide 2021.
 
