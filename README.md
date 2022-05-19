@@ -1,6 +1,6 @@
 ![TitleColor](https://user-images.githubusercontent.com/44805883/151393444-20ba6577-121c-44b9-bf77-6bf8682fd6e8.gif)
 
-# fau-beamer
+# :film_projector: fau-beamer
 
 A LaTeX beamer template according to the 2021 [style guide](https://www.intern.fau.de/kommunikation-marketing-und-corporate-identity/corporate-identity/) of [Friedrich-Alexander-Universität Erlangen-Nürnberg](https://www.fau.de/).
 
