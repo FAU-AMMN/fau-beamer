@@ -55,7 +55,7 @@ The template employs the color scheme as specified by the FAU style guide. Each 
 
 | Institute | ```\BaseColor``` | RGB | ```\BaseDarkColor``` | RGB |
 | --------- | ---------------- | --- | ----------------- | --- |
-| FAU       | <img src="https://via.placeholder.com/15/002f6c/000000?text=+" width="100" height="100"> | 0,47,108 | <img src="https://via.placeholder.com/15/041e42/000000?text=+" width="100" height="100"> | 4,30,66 |
+| FAU       | <img src="[https://via.placeholder.com/15/002f6c/000000?text=+](https://user-images.githubusercontent.com/44805883/169272361-71da6b14-2b6d-454c-ae73-f581dd75640b.png)" width="100" height="100"> | 0,47,108 | <img src="https://via.placeholder.com/15/041e42/000000?text=+" width="100" height="100"> | 4,30,66 |
 | Med       | <img src="https://via.placeholder.com/15/0061a0/000000?text=+" width="100" height="100"> | 0, 163, 224 | <img src="https://via.placeholder.com/15/0060a0/000000?text=+" width="100" height="100"> | 0, 97, 160 |
 | Nat       | <img src="https://via.placeholder.com/15/43b02a/000000?text=+" width="100" height="100"> | 67, 176, 42 | <img src="https://via.placeholder.com/15/228848/000000?text=+" width="100" height="100"> | 34, 136, 72 |
 | Phil      | <img src="https://via.placeholder.com/15/ffb81c/000000?text=+" width="100" height="100"> | 255, 184, 28 | <img src="https://via.placeholder.com/15/e87722/000000?text=+" width="100" height="100"> | 232, 119, 34 |
