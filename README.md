@@ -1,4 +1,5 @@
-![TitleColor](https://user-images.githubusercontent.com/44805883/151393444-20ba6577-121c-44b9-bf77-6bf8682fd6e8.gif)
+![FAU_1-ANIMATION](https://user-images.githubusercontent.com/44805883/169285233-f2065c06-0dcc-49a3-9afe-242e1f2e6e05.gif)
+
 
 # :film_projector: fau-beamer
 
