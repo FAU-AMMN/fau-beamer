@@ -66,7 +66,7 @@ The template employs the color scheme as specified by the FAU style guide. Each 
 
 ## 🖼️ Logos
 
-The logo files for the title page are **not** provided in this repo, since we do not have the rights to distribute them. In order to download the logo files please visit the website of [FAU corporate](https://www.intern.fau.de/kommunikation-marketing-und-corporate-identity/corporate-identity/fau-logo/#collapse_58) and download the neccessary files there. This is only possible if you are connected to the university network.
+The logo files for the title page are **not** provided in this repo, since we do not have the rights to distribute them. In order to download the logo files please visit the website of [FAU corporate](https://www.intern.fau.de/kommunikation-marketing-und-corporate-identity/vorlagen/praesentationsvorlagen-powerpoint/) and download the neccessary files there. This is only possible if you are connected to the university network.
 
 Ther you find different .zip files for each insititute, containing the files
 
