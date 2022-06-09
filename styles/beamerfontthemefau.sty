@@ -10,6 +10,7 @@
 % ------------------------------------------------------------------------------
 
 \ProvidesPackage{styles/beamerfontthemefau}
+\RequirePackage{fp}
 
 % ..............................................................................
 % Font sizes.
@@ -28,7 +29,9 @@
 \RequirePackage{lmodern}
 \RequirePackage{textcomp}
 \RequirePackage{fix-cm}
-\RequirePackage[scaled=.92]{helvet}
+\RequirePackage[scaled=0.92]{helvet}
+
+
 
 \setbeamerfont{title}{size=\huge,series=\bfseries}
 \setbeamerfont{subtitle}{size=\Large,series=\mdseries}
@@ -38,7 +41,83 @@
 \setbeamerfont{footline}{size=\scriptsize}
 \setbeamerfont{subsection in toc}{size=\Large,series=\mdseries}
 
+% ..............................................................................
+% scalable vector fonts
+% ..............................................................................
+% this code is copied from the beamerposter package
+% ------------------------------------------------------------------------------
+
+\FPeval{\fontscale}{\fau@font@size/11}
+\FPupn{\fontscale}{0.442  fontscale * 2 round}
+\edef\fontSizeX{12}\edef\fontSizeY{14}
+\FPupn{\resulttinyX}{fontscale fontSizeX * 2 round}
+\FPupn{\resulttinyY}{fontscale fontSizeY * 2 round}
+\renewcommand*{\tiny}{\fontsize{\resulttinyX}{\resulttinyY}\selectfont}
+
+\edef\fontSizeX{14.4}\edef\fontSizeY{18}   
+\FPupn{\resultscriptsizeX}{fontscale fontSizeX * 2 round}
+\FPupn{\resultscriptsizeY}{fontscale fontSizeY * 2 round}
+\renewcommand*{\scriptsize}{\fontsize{\resultscriptsizeX}{\resultscriptsizeY}\selectfont}
+
+\edef\fontSizeX{17.28}\edef\fontSizeY{22}
+\FPupn{\resultfootnotesizeX}{fontscale fontSizeX * 2 round}
+\FPupn{\resultfootnotesizeY}{fontscale fontSizeY * 2 round}
+\renewcommand*{\footnotesize}{\fontsize{\resultfootnotesizeX}{\resultfootnotesizeY}\selectfont}
+
+\edef\fontSizeX{20.74}\edef\fontSizeY{25}
+\FPupn{\resultsmallX}{fontscale fontSizeX * 2 round}
+\FPupn{\resultsmallY}{fontscale fontSizeY * 2 round}
+\renewcommand*{\small}{\fontsize{\resultsmallX}{\resultsmallY}\selectfont}
+
+\edef\fontSizeX{24.88}\edef\fontSizeY{30}
+\FPupn{\resultnormalsizeX}{fontscale fontSizeX * 2 round}
+\FPupn{\resultnormalsizeY}{fontscale fontSizeY * 2 round}
+\renewcommand*{\normalsize}{\fontsize{\resultnormalsizeX}{\resultnormalsizeY}\selectfont}
+
+\edef\fontSizeX{29.86}\edef\fontSizeY{37}
+\FPupn{\resultlargeX}{fontscale fontSizeX * 2 round}
+\FPupn{\resultlargeY}{fontscale fontSizeY * 2 round}
+\renewcommand*{\large}{\fontsize{\resultlargeX}{\resultlargeY}\selectfont}
+
+\edef\fontSizeX{35.83}\edef\fontSizeY{45}
+\FPupn{\resultLargeX}{fontscale fontSizeX * 2 round}
+\FPupn{\resultLargeY}{fontscale fontSizeY * 2 round}
+\renewcommand*{\Large}{\fontsize{\resultLargeX}{\resultLargeY}\selectfont}
+
+\edef\fontSizeX{43}\edef\fontSizeY{54}
+\FPupn{\resultLARGEX}{fontscale fontSizeX * 2 round}
+\FPupn{\resultLARGEY}{fontscale fontSizeY * 2 round}
+\renewcommand*{\LARGE}{\fontsize{\resultLARGEX}{\resultLARGEY}\selectfont}
+
+\edef\fontSizeX{51.6}\edef\fontSizeY{64}
+\FPupn{\resulthugeX}{fontscale fontSizeX * 2 round}
+\FPupn{\resulthugeY}{fontscale fontSizeY * 2 round}
+\renewcommand*{\huge}{\fontsize{\resulthugeX}{\resulthugeY}\selectfont}
+
+\edef\fontSizeX{61.92}\edef\fontSizeY{77}
+\FPupn{\resultHugeX}{fontscale fontSizeX * 2 round}
+\FPupn{\resultHugeY}{fontscale fontSizeY * 2 round}
+\renewcommand*{\Huge}{\fontsize{\resultHugeX}{\resultHugeY}\selectfont}
+
+\edef\fontSizeX{74.3}\edef\fontSizeY{93}
+\FPupn{\resultveryHugeX}{fontscale fontSizeX * 2 round}
+\FPupn{\resultveryHugeY}{fontscale fontSizeY * 2 round}
+\newcommand*{\veryHuge}{\fontsize{\resultveryHugeX}{\resultveryHugeY}\selectfont}
+
+\edef\fontSizeX{89.16}\edef\fontSizeY{112}
+\FPupn{\resultVeryHugeX}{fontscale fontSizeX * 2 round}
+\FPupn{\resultVeryHugeY}{fontscale fontSizeY * 2 round}
+\newcommand*{\VeryHuge}{\fontsize{\resultVeryHugeX}{\resultVeryHugeY}\selectfont}
+
+\edef\fontSizeX{107}\edef\fontSizeY{134}
+\FPupn{\resultVERYHugeX}{fontscale fontSizeX * 2 round}
+\FPupn{\resultVERYHugeY}{fontscale fontSizeY * 2 round}
+\newcommand*{\VERYHuge}{\fontsize{\resultVERYHugeX}{\resultVERYHugeY}\selectfont}
+
 \AtBeginDocument{\fontsize{\fau@font@size}{\fau@font@baselineskip}\selectfont}
+
+% set the normalfont (default)
+\renewcommand*{\normalfont}{\normalsize}
 
 % ..............................................................................
 % equal font sizes for all levels
