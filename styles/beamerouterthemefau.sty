@@ -131,7 +131,7 @@
 %
 \hbox to \dimexpr\paperwidth-\fau@outer@SideBarWidthLeft{%
 \begin{beamercolorbox}[dp=0cm, sep=0.0cm,left,
-					   wd=\dimexpr.5\paperwidth-\fau@outer@SideBarWidthLeft,
+					   wd=\dimexpr.6\paperwidth-\fau@outer@SideBarWidthLeft,
 					   ht=\dimexpr\fau@outer@TitleHeight-\fau@outer@LineWidthThick]{#1}%
 \vbox to\dimexpr\dimexpr\fau@outer@TitleHeight-\fau@outer@LineWidthThick-#7{%
 \ifnum#4=0%
@@ -155,14 +155,14 @@
 % insert additional logo
 %
 \begin{beamercolorbox}[dp=0cm, sep=0.0cm,right,%
-					   wd=\dimexpr.5\paperwidth-\fau@outer@WordMarkBoxWidth-\fau@outer@TitleSkipLeft,%
+					   wd=\dimexpr.4\paperwidth-\fau@outer@WordMarkBoxWidth-\fau@outer@TitleSkipLeft,%
 					   ht=\dimexpr\fau@outer@TitleHeight-\fau@outer@LineWidthThick]{#1}%
 %
 \vbox to\dimexpr\fau@outer@TitleHeight-\fau@outer@LineWidthThick{%
 \iffau@outer@InsertExtraLogo%
 	\ifnum#4=0%
 	\else%
-	\includegraphicsdefault[width=0.9\dimexpr.5\paperwidth-
+	\includegraphicsdefault[width=0.9\dimexpr.4\paperwidth-
 								  \fau@outer@WordMarkBoxWidth-\fau@outer@TitleSkipLeft,%
 				 			height=0.9\dimexpr\fau@outer@TitleHeight-\fau@outer@LineWidthThick,%
 				 			keepaspectratio]{\fau@outer@ExtraLogo}%
