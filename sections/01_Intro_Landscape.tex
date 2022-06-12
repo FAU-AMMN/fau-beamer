@@ -297,6 +297,42 @@ This area can be filled on a true plain frame with removed margins.
 %
 %
 % ------------------------------------------------------------------------------
+\section{Equations and blocks}
+%
+%
+%
+%
+%
+% ..............................................................................
+\begin{frame}{Equations}{Label alignment}
+The \texttt{beamer} class unfortunately has some problems with the proper 
+alignment of equation labels.
+
+%
+\pause
+%
+In this template we try to patch some of these issues and therefore the label 
+below should be aligned exactly on the right margin
+%
+\begin{equation}\label{eq:pythagoras}
+a^2 + b^2 = c^2.
+\end{equation}
+%
+An \texttt{align} environment should yield the same alignment
+%
+\begin{align}\label{eq:euler}
+e^{i\pi} +1= 0.
+\end{align}
+
+This is especially important if we put such an environment in a block,
+
+\begin{block}{Gauss's Theorem}
+\begin{align}\label{eq:gauss}
+\int_\Omega \div F\ d\lambda^n = \int_{\partial\Omega} F\cdot \nu\ d\mathcal{H}^{n-1}.
+\end{align}
+\end{block}
+\end{frame}
+% ------------------------------------------------------------------------------
 \section{Citing and bibliography}
 %
 %

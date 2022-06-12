@@ -218,6 +218,12 @@
 \usepackage{styles/beamercolorthemefau}
 \usepackage{styles/beamerinnerthemefau}
 \usepackage{styles/beamerouterthemefau}
+
+% ..............................................................................
+% Patch for label alignment
+% -------
+\patchcmd{\beamer@inserttarget}
+{\hbox{#1}}{\ifmmode#1\else\hbox{#1}\fi}{}{}
 % ..............................................................................
 \mode<all>
 % ------------------------------------------------------------------------------
