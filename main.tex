@@ -1,16 +1,24 @@
+% ..............................................................................
+% Demo of the fau-beamer template.
+%
+% Copyright 2022 by Tim Roith <tim.roith@fau.de>
+%
+% This program can be redistributed and/or modified under the terms
+% of the GNU Public License, version 2.
+%
 % ------------------------------------------------------------------------------
-\documentclass[final, 12pt]{beamer}
+\documentclass[final]{beamer}
 
 
 % ========================================================================================
 % Theme: inner, outer, font and colors
 % ----------------------------------------------------------------------------------------
 \usepackage[institute=Nat,
-			%WordMark=None
 			%ExtraLogo = template-art/DepartMath.pdf,
-			size=a0,
-			signature=tim.roith@fau.de
-		   ]{styles/beamerposterthemefau}
+			%WordMark=None
+			aspectratio=169,
+			size=18
+		   ]{styles/beamerthemefau}
 % ----------------------------------------------------------------------------------------
 % Input and output encoding
 \usepackage[T1]{fontenc}
@@ -39,10 +47,10 @@
 % ========================================================================================
 % Setup for Titlepage
 % ----------------------------------------------------------------------------------------
-\title[fau-beamer]{The demo for fau-beamer-poster}
-\subtitle{The \LaTeX{} poster template according to the 2021 FAU corporate guide}
+\title[fau-beamer]{The NEW fau-beamer Template}
+\subtitle{The \LaTeX{} template according to the 2021 FAU corporate guide}
 \author[T. Roith]{Tim Roith}
-\institute[FAU]{Friedrich--Alexander Universität Erlangen--Nürnberg, Department Mathematik}
+\institute[FAU]{Friedrich-Alexander Universität Erlangen-Nürnberg, Department Mathematik}
 \date{\today}
 
 
@@ -106,42 +114,32 @@
 % Change color for cite locally
 \newcommand{\colorcite}[3]{{\hypersetup{citecolor=#1}{\cite[#2]{#3}}}} 
 % ----------------------------------------------------------------------------------------
+
+
 % ========================================================================================
 % The main document
 % ----------------------------------------------------------------------------------------
 \begin{document}
-\begin{frame}{-}{}
-%
-%
-%
-\begin{block}{Example Block}
-This is an example block with example text.\\
-It spans over multiple lines.
-\end{block}
-%
-%
-%
-\hbox to \textwidth{%
-\begin{minipage}{0.45\textwidth}
-\begin{block}{Use minipages}
-Use minipages to make smaller blocks.
-\end{block}
-\end{minipage}
-%
-\hfill%
-%
-\begin{minipage}{0.45\textwidth}
-\begin{block}{Itemize}
-\begin{itemize}
-\item Item A.
-\item Item B.
-\item Item C.
-\end{itemize}
-\end{block}
-\end{minipage}}
-%
-%
-%
-This is just text in the middle of nowhere.
+% Title page
+\begin{trueplainframe}{}
+\titlepage%
+\end{trueplainframe}
+
+% Introduction
+\begin{frame}[t]{Introduction}{What is this?}
+This file demonstrates the fau-beamer style, which is a style for the \LaTeX{} \texttt{beamer} class, which allows to create presentation slides in \LaTeX. The design is based on the FAU corporate \href{https://www.intern.fau.de/kommunikation-marketing-und-corporate-identity/corporate-identity/}{ style guide 2021}.
+
+This code for this template was written by \href{https://timroith.github.io/}{Tim Roith}. If you have questions about the template or found a mistake you can send an email to tim\{dot\}roith\{at\}fau\{dot\}de or open a issue at the \href{https://github.com/FAU-AMMN/fau-beamer}{GitHub repository}.
+
+\normalsize Test
 \end{frame}
+
+% Outline
+\begin{frame}[t]{Outline}
+\tableofcontents
+\end{frame}
+
+
+% input exmple sections
+\input{sections/01_Intro_Landscape}
 \end{document}

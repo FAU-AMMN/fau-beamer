@@ -1,11 +1,12 @@
 ![FAU_1-ANIMATION](https://user-images.githubusercontent.com/44805883/169285233-f2065c06-0dcc-49a3-9afe-242e1f2e6e05.gif)
 
+> :loudspeaker: **UPDATE:**  The logo files are now included in this repository.
 
 # :film_projector: fau-beamer
 
 A LaTeX beamer template according to the 2021 [style guide](https://www.intern.fau.de/kommunikation-marketing-und-corporate-identity/corporate-identity/) of [Friedrich-Alexander-Universität Erlangen-Nürnberg](https://www.fau.de/).
 
-The given template allows you to create LaTex presentations with the [beamer class](https://ctan.org/pkg/beamer?lang=en) in the corporate style of FAU.
+The given template allows you to create LaTeX presentations with the [beamer class](https://ctan.org/pkg/beamer?lang=en) in the corporate style of FAU.
 
 ## :gear: Usage and Most Important Options
 
@@ -48,7 +49,7 @@ This option influences
 
 2. the left word mark for the title page
 
-see the sections on [lolors](##Colors) and [logos](##Logos). The default option is ```[institute=FAU]```.
+see the sections on [colors](##Colors) and [logos](##Logos). The default option is ```[institute=FAU]```.
 
 ## :paintbrush: Colors
 
@@ -66,23 +67,25 @@ The template employs the color scheme as specified by the FAU style guide. Each 
 
 ## 🖼️ Logos
 
-The logo files for the title page are **not** provided in this repo, since we do not have the rights to distribute them. In order to download the logo files please visit the website of [FAU corporate](https://www.intern.fau.de/kommunikation-marketing-und-corporate-identity/vorlagen/praesentationsvorlagen-powerpoint/) and download the neccessary files there. This is only possible if you are connected to the university network.
+The logo files are now included in this repo!!! 
 
-Ther you find different .zip files for each insititute, containing the files
+The files and the version of the [FAU corporate](https://www.intern.fau.de/kommunikation-marketing-und-corporate-identity/vorlagen/praesentationsvorlagen-powerpoint/) website are outdated and are soon to be replaced.
+
+The following files
 
 * ```FAUWortmarkeBlau.pdf```
 * ```FAUWortmarkeWhite.pdf```
+
+are the same for every institute and are therefore placed directly in the ```/template-art``` folder. The files for each institute are now placed in the subfolder ```/<Institute>```, where you find
+
+
 * ```<Institute>Kennung.pdf```
 * ```<Institute>KennungWhite.pdf```
 * ```<Institute>Title.jpg```
 
-After you downloaded these files you simply put them in the folder ```/template-art``` where the package expects to find them.
-
 ## :paperclip: Questions or Remarks
-
 If you have questions about specific features or found an error you can either write an email to the author (see below) or raise an issue here.
 
 ## :beer: Credit
-
 This template was designed by [Tim Roith](https://timroith.github.io/) using the given style from the FAU corporate style guide 2021.
 
