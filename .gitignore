@@ -275,6 +275,9 @@ TSWLatexianTemp*
 # Makeindex log files
 *.lpz
 
+# vscode
+/.vscode
+
 #/template-art/**
 #!/template-art/**/
 #!/template-art/**/.gitkeep
