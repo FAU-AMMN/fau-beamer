@@ -1,19 +1,21 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.20)  9 JUN 2022 18:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.6.21)  4 SEP 2022 18:42
 entering extended mode
-**beamerfontthemefau.tex
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**beamerinnerthemefau.tex
 
 ! Emergency stop.
-<*> beamerfontthemefau.tex
-                          
+<*> beamerinnerthemefau.tex
+                           
 *** (job aborted, file error in nonstop mode)
 
  
 Here is how much of TeX's memory you used:
- 2 strings out of 478893
- 28 string characters out of 2847055
- 290412 words of memory out of 3000000
- 17983 multiletter control sequences out of 15000+600000
- 403430 words of font info for 27 fonts, out of 8000000 for 9000
+ 2 strings out of 478582
+ 29 string characters out of 2844344
+ 288951 words of memory out of 3000000
+ 18294 multiletter control sequences out of 15000+600000
+ 469259 words of font info for 28 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 0i,0n,0p,1b,6s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 0i,0n,0p,1b,6s stack positions out of 10000i,1000n,20000p,200000b,80000s
 !  ==> Fatal error occurred, no output PDF file produced!

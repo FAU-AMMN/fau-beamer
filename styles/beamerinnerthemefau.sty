@@ -174,9 +174,12 @@
 
 \setbeamertemplate{block begin}{%
 	\vspace*{1ex}%
+	\ifx\insertblocktitle\empty%
+	\else%
 	\begin{beamercolorbox}[sep=5pt]{block title}
 	\usebeamerfont*{block title}\insertblocktitle%
 	\end{beamercolorbox}%
+	\fi%
 	\nointerlineskip%
 	\usebeamerfont{block body}%
 	\begin{beamercolorbox}[%

@@ -129,8 +129,6 @@
 This file demonstrates the fau-beamer style, which is a style for the \LaTeX{} \texttt{beamer} class, which allows to create presentation slides in \LaTeX. The design is based on the FAU corporate \href{https://www.intern.fau.de/kommunikation-marketing-und-corporate-identity/corporate-identity/}{ style guide 2021}.
 
 This code for this template was written by \href{https://timroith.github.io/}{Tim Roith}. If you have questions about the template or found a mistake you can send an email to tim\{dot\}roith\{at\}fau\{dot\}de or open a issue at the \href{https://github.com/FAU-AMMN/fau-beamer}{GitHub repository}.
-
-\normalsize Test
 \end{frame}
 
 % Outline
@@ -138,6 +136,23 @@ This code for this template was written by \href{https://timroith.github.io/}{Ti
 \tableofcontents
 \end{frame}
 
+% Stylized outline
+{
+\setbeamertemplate{headline}[headline title]
+\setbeamertemplate{sidebar left}[sidebar title theme]
+\setbeamertemplate{frametitle}[frametitle title]
+\setbeamertemplate{footline}[footline title]
+\setbeamercolor{background canvas}{bg=BaseColor}
+\setbeamercolor{section in toc}{fg=TitleFont}
+\setbeamercolor{subsection in toc}{fg=TitleFont}
+
+% toc frame
+\begin{frame}{-}
+\usebeamerfont{title}%
+\hypersetup{linkcolor=TitleFont}
+\tableofcontents
+\end{frame}
+}
 
 % input exmple sections
 \input{sections/01_Intro_Landscape}
