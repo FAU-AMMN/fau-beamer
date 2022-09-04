@@ -116,7 +116,7 @@
 % ..............................................................................
 % Process options.
 % ------------------------------------------------------------------------------
-\ExecuteOptionsBeamer{url=www.fau.de}
+%\ExecuteOptionsBeamer{url=www.fau.de}
 \ExecuteOptionsBeamer{signature=}
 \ProcessOptionsBeamer
 \selectcolormodel{rgb}
@@ -337,21 +337,24 @@
 \setlength{\BoxHeight}{1.8\ht\AgBox}%
 
 \setbeamertemplate{block begin}{%
-	\vspace*{1ex}%
-	\begin{beamercolorbox}[dp=0pt, ht=\BoxHeight,
-	 					   rightskip=-0.2\BoxHeight, 
-	 					   leftskip=0.2\BoxHeight,]{block poster title}%
-	\vbox to \BoxHeight {%
-	\vfil%
-	\usebeamerfont*{block title}\insertblocktitle%
-	\vfil%
-	}%
-	\end{beamercolorbox}%
-	\nointerlineskip%
-	\usebeamerfont{block body}%
-	\begin{beamercolorbox}[%
-	sep=5pt%
-	]{block body}%
+\vspace*{1ex}%
+\ifx\insertblocktitle\empty%
+\else%
+\begin{beamercolorbox}[dp=0pt, ht=\BoxHeight,
+ 					   rightskip=-0.2\BoxHeight, 
+ 					   leftskip=0.2\BoxHeight,]{block poster title}%
+\vbox to \BoxHeight {%
+\vfil%
+\usebeamerfont*{block title}\insertblocktitle%
+\vfil%
+}%
+\end{beamercolorbox}%
+\fi%
+\nointerlineskip%
+\usebeamerfont{block body}%
+\begin{beamercolorbox}[%
+sep=5pt%
+]{block body}%
 }%
 
 \setbeamertemplate{block end}{%
@@ -359,6 +362,5 @@
 \vspace*{0.2ex}%
 }
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \mode<all>
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
