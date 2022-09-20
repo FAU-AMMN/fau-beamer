@@ -109,7 +109,11 @@
 % ========================================================================================
 % Various custom commands
 % ----------------------------------------------------------------------------------------
-\pdfsuppresswarningpagegroup=1 %solves the PDF inclusion problem
+\begingroup\expandafter\expandafter\expandafter\endgroup
+\expandafter\ifx\csname pdfsuppresswarningpagegroup\endcsname\relax
+\else
+  \pdfsuppresswarningpagegroup=1\relax
+\fi
 % Change color for cite locally
 \newcommand{\colorcite}[3]{{\hypersetup{citecolor=#1}{\cite[#2]{#3}}}} 
 % ----------------------------------------------------------------------------------------
