@@ -90,7 +90,7 @@
 \newcommand{\includegraphicsdefault}[2][width=\linewidth]{%
 \IfFileExists{#2}%
 {\includegraphics[#1]{#2}}%
-{\includegraphics[#1]{template-art/default-image}%
+{%\includegraphics[#1]{template-art/default-image}%
 \PackageWarning{beamerthemefau}{Warning: File #2 not found in includegraphicsdefault; used default-image instead.}%
 }%
 }%
