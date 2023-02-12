@@ -14,6 +14,7 @@
 \ProvidesPackage{styles/beamerinnerthemefau}
 
 \RequirePackage[percent]{overpic}
+\RequirePackage{fp}
 
 \newdimen\fau@inner@WordMarkTitleHeight
 \newdimen\fau@inner@WordMarkTitleWidth
@@ -33,7 +34,6 @@
 
 \DeclareOptionBeamer{WordMarkTitle}{\def\fau@inner@WordMarkTitle{#1}}
 \DeclareOptionBeamer{TitleArt}{\def\fau@inner@TitleArt{#1}}
-
 
 % ..............................................................................
 \ProcessOptionsBeamer
@@ -71,7 +71,7 @@
 % Frametitle
 %
 \nointerlineskip%
-\frametitlewrapper{frametitle title}{separation line title}{\fau@inner@WordMarkTitle}{1}{\fau@inner@WordMarkTitleWidth}{\fau@inner@WordMarkTitleHeight}{\fau@inner@TitleTitleSkip}{\fau@inner@TitleLineHeight}%
+\frametitlewrapper{frametitle title}{separation line title}{\fau@inner@WordMarkTitle}{1}{\fau@inner@WordMarkTitleWidth}{\fau@inner@WordMarkTitleHeight}{\fau@inner@TitleTitleSkip}{\fau@inner@TitleLineHeight}{.5}%
 }%
 }%
 \nointerlineskip%
@@ -85,30 +85,35 @@
 \begin{overpicdefault}[width=\dimexpr\paperwidth,%
 				height=\dimexpr\paperheight-\fau@inner@HeaderHeight-\fau@inner@TitleHeight-\fau@inner@TitleLineHeight]{\fau@inner@TitleArt}%
 %
-\put (5,\numexpr\fau@inner@TitleOverPicStart-2) {%
+\put (5,0) {%
 \parbox[b]{0.9\textwidth}{
-{\usebeamerfont{title}{\inserttitle}}\\
+\vbox to \dimexpr\paperheight-\fau@inner@HeaderHeight-\fau@inner@TitleHeight-\fau@inner@TitleLineHeight{%
+\vskip4em
+{\usebeamerfont{title}{\inserttitle}}\\[1em]
 % if a subtitle is given insert it here
-\ifx\insertsubtitle\empty\else
+\ifx\insertsubtitle\empty\else%
 {\usebeamerfont{subtitle}\parbox{0.9\textwidth}{\insertsubtitle}}%
-\fi}}%
+\fi\\[1em]%
 %
 %
 %
-\put (5,\numexpr\fau@inner@TitleOverPicStart-18) {%
-\parbox[b]{0.9\textwidth}{%
 % insert authors
-\ifx\insertauthor\empty\else
-	{\usebeamerfont{subtitle}\textbf{\insertauthor}}\\[1em]%
+\ifx\insertauthor\empty\else%
+{\parbox{0.9\textwidth}{\textbf{\insertauthor}}}\\[1em]%
 \fi%
 % insert institute name
 \ifx\insertinstitute\empty\else%
-    {\usebeamerfont{subtitle}\insertinstitute}\\[1em]%
-\fi
+    {\usebeamerfont{normal text}\insertinstitute}\\[3em]%
+\fi%
+%
+%
+%
 % insert date
 \ifx\insertdate\empty\else%
-	{\usebeamerfont{subtitle}\insertdate}%
+	{\usebeamerfont{block title}\insertdate}%
 \fi%
+\vfill%
+}%
 }%
 }%
 \end{overpicdefault}
@@ -134,7 +139,7 @@
 \setbeamercolor{section in toc}{fg=TitleFont}
 \setbeamercolor{subsection in toc}{fg=TitleFont}
 %\usebeamercolor[fg]{normal text}
-\begin{frame}{-}
+\begin{frame}[t]{-}
 \usebeamerfont{title}%
 \hypersetup{linkcolor=TitleFont}
 
@@ -174,12 +179,9 @@
 
 \setbeamertemplate{block begin}{%
 	\vspace*{1ex}%
-	\ifx\insertblocktitle\empty%
-	\else%
 	\begin{beamercolorbox}[sep=5pt]{block title}
 	\usebeamerfont*{block title}\insertblocktitle%
 	\end{beamercolorbox}%
-	\fi%
 	\nointerlineskip%
 	\usebeamerfont{block body}%
 	\begin{beamercolorbox}[%
