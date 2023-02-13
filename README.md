@@ -53,6 +53,10 @@ see the sections on [colors](##Colors) and [logos](##Logos). The default option 
 
 ## 🖼️ Frames
 
+The following image displays the appearance of a normal frame employing the fau theme.
+
+<img width="560" alt="image" src="https://user-images.githubusercontent.com/44805883/218480751-8da708ab-cd31-459a-922e-bedec704093d.png">
+
 Next to standard frame option of the ```beamer``` class, this theme 
 additionally provides the following option.
 
@@ -62,12 +66,17 @@ additionally provides the following option.
     \tableofcontents
     \end{frame}
     ```
+<img width="560" alt="image" src="https://user-images.githubusercontent.com/44805883/218480308-7ba438b1-e749-4672-a890-d2bc9b4a6028.png">
+
 - ```begin{frame}[titleimage] ... \end{frame}```: This option yields the same behavior as the option above, where additionally the title art is placed in the background, as displayed below. This can be, e.g., employed for the title page.
     ```
     \begin{frame}[t,titleimage]{-}
     \titlepage%
     \end{frame}
     ```
+<img width="560" alt="image" src="https://user-images.githubusercontent.com/44805883/218480600-d4a643c6-cd2e-4066-8567-27debff4f2b9.png">
+   
+ 
 - ```begin{truplainframe}...\end{trueplainframe}```: This option yields a frame, where the sidebar, headline and footer are completely turned off. This will be implemented as a normal frame option in future versions.
 
 
