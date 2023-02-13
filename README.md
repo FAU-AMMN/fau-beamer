@@ -51,6 +51,26 @@ This option influences
 
 see the sections on [colors](##Colors) and [logos](##Logos). The default option is ```[institute=FAU]```.
 
+## 🖼️ Frames
+
+Next to standard frame option of the ```beamer``` class, this theme 
+additionally provides the following option.
+
+- ```begin{frame}[title] ... \end{frame}```: This option changes the appearance of the frame to a title theme. It will change the background color the font size, the font color and the headline, as displayed below. This can be useful when you want to employ an outline in the same style as the overview at the begin of each section: 
+    ```
+    \begin{frame}[title]{-}
+    \tableofcontents
+    \end{frame}
+    ```
+- ```begin{frame}[titleimage] ... \end{frame}```: This option yields the same behavior as the option above, where additionally the title art is placed in the background, as displayed below. This can be, e.g., employed for the title page.
+    ```
+    \begin{frame}[t,titleimage]{-}
+    \titlepage%
+    \end{frame}
+    ```
+- ```begin{truplainframe}...\end{trueplainframe}```: This option yields a frame, where the sidebar, headline and footer are completely turned off. This will be implemented as a normal frame option in future versions.
+
+
 ## :paintbrush: Colors
 
 The template employs the color scheme as specified by the FAU style guide. Each institute has two colors a base color and a dark base color. These colors are available via the commands ```\BaseColor``` and ```\BaseDarkColor```
@@ -65,7 +85,7 @@ The template employs the color scheme as specified by the FAU style guide. Each 
 | Tech      | <img src="https://user-images.githubusercontent.com/44805883/169273976-d9cd9890-883f-4a1a-9994-b6eae1333492.png" width="100" height="100"> | 119, 159, 181 | <img src="https://user-images.githubusercontent.com/44805883/169274039-0e0f4f96-8f2d-4191-96cd-641332769acb.png" width="100" height="100"> | 65, 116, 141 |
 
 
-## 🖼️ Logos
+## :copyright: Logos
 
 The logo files are now included in this repo!!! 
 
