@@ -52,9 +52,12 @@
 %
 % Sidebar
 %
-\begin{beamercolorbox}[dp=0pt,sep=0pt,%
-					   wd=\beamer@leftsidebar,%
-					   ht=\dimexpr\fau@inner@HeaderHeight+\fau@inner@TitleHeight+\fau@inner@TitleLineHeight]{sidebar title}%
+\begin{beamercolorbox}[
+	dp=0pt,sep=0pt,%
+	wd=\beamer@leftsidebar,%
+	ht=\dimexpr\fau@inner@HeaderHeight+
+			   \fau@inner@TitleHeight +
+			   \fau@inner@TitleLineHeight]{sidebar title}%
 %
 \end{beamercolorbox}%
 %
@@ -71,7 +74,12 @@
 % Frametitle
 %
 \nointerlineskip%
-\frametitlewrapper{frametitle title}{separation line title}{\fau@inner@WordMarkTitle}{1}{\fau@inner@WordMarkTitleWidth}{\fau@inner@WordMarkTitleHeight}{\fau@inner@TitleTitleSkip}{\fau@inner@TitleLineHeight}{.5}%
+\frametitlewrapper{frametitle title}{separation line title}%
+				  {\fau@inner@WordMarkTitle}{1}%
+				  {\fau@inner@WordMarkTitleWidth}%
+				  {\fau@inner@WordMarkTitleHeight}%
+				  {\fau@inner@TitleTitleSkip}%
+				  {\fau@inner@TitleLineHeight}{.5}%
 }%
 }%
 \nointerlineskip%
@@ -110,7 +118,7 @@
 %
 % insert date
 \ifx\insertdate\empty\else%
-	{\usebeamerfont{block title}\insertdate}%
+	{\usebeamerfont{normal text}\insertdate}%
 \fi%
 \vfill%
 }%
@@ -135,15 +143,14 @@
 \setbeamertemplate{sidebar left}[sidebar title theme]
 \setbeamertemplate{frametitle}[frametitle title]
 \setbeamertemplate{footline}[footline title]
-\setbeamercolor{background canvas}{bg=BaseColor}
-\setbeamercolor{section in toc}{fg=TitleFont}
-\setbeamercolor{subsection in toc}{fg=TitleFont}
+\setbeamercolor{background canvas}{bg=BaseColor}%
+\setbeamercolor{section in toc}{fg=TitleFont}%
+\setbeamercolor{subsection in toc}{fg=TitleFont}%
 %\usebeamercolor[fg]{normal text}
 \begin{frame}[t]{-}
 \usebeamerfont{title}%
-\hypersetup{linkcolor=TitleFont}
-
-\tableofcontents[currentsection]
+\hypersetup{linkcolor=TitleFont}%
+\tableofcontents[currentsection]%
 \end{frame}
 }%
 }%

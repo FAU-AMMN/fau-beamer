@@ -1,3 +1,5 @@
+
+
 % ..............................................................................
 % The outer beamer theme accoridng to the FAU corporate style guide 2021, see 
 %
@@ -13,7 +15,6 @@
 
 \ProvidesPackage{styles/beamerouterthemefau}
 % ..............................................................................
-
 \newdimen\fau@outer@SideBarWidthLeft % width of the left sidbar
 \newdimen\fau@outer@HeaderHeight % header height without separation line
 \newdimen\fau@outer@HeaderTitleHeight
@@ -118,7 +119,7 @@
 %
 % ------------------------------------------------------------------------------
 
-\newcommand{\frametitlewrapper}[8]{%
+\newcommand{\frametitlewrapper}[9]{%
 \nointerlineskip%
 \begin{beamercolorbox}[dp=0cm, sep=0.0cm,left,
 					   wd=\dimexpr\paperwidth-\fau@outer@SideBarWidthLeft,
@@ -131,7 +132,7 @@
 %
 \hbox to \dimexpr\paperwidth-\fau@outer@SideBarWidthLeft{%
 \begin{beamercolorbox}[dp=0cm, sep=0.0cm,left,
-					   wd=\dimexpr.6\paperwidth-\fau@outer@SideBarWidthLeft,
+					   wd=\dimexpr#9\paperwidth-\fau@outer@SideBarWidthLeft,
 					   ht=\dimexpr\fau@outer@TitleHeight-\fau@outer@LineWidthThick]{#1}%
 \vbox to\dimexpr\dimexpr\fau@outer@TitleHeight-\fau@outer@LineWidthThick-#7{%
 \ifnum#4=0%
@@ -142,9 +143,11 @@
 	\fi%
 	\vfil%
 \else%
-	\includegraphicsdefault[width=\fau@outer@WordMarkLeftWidth,%
-					 height=\fau@outer@WordMarkLeftHeight,%
-					 keepaspectratio]{\fau@outer@WordMarkTitleLeft}%
+	\includegraphicsdefault[
+		width=2\fau@outer@WordMarkLeftWidth,%
+		height=2\fau@outer@WordMarkLeftHeight,%
+		keepaspectratio
+	]{\fau@outer@WordMarkTitleLeft}%
 	\vfil%
 \fi%
 %
@@ -154,28 +157,40 @@
 %
 % insert additional logo
 %
-\begin{beamercolorbox}[dp=0cm, sep=0.0cm,right,%
-					   wd=\dimexpr.4\paperwidth-\fau@outer@WordMarkBoxWidth-\fau@outer@TitleSkipLeft,%
-					   ht=\dimexpr\fau@outer@TitleHeight-\fau@outer@LineWidthThick]{#1}%
+\FPeval{\fau@LogoFactor}{1-#9}%
+\ifnum#4=0%
+    \FPeval{\fau@WMBFactor}{0.5}%
+\else%
+    \FPeval{\fau@WMBFactor}{1.0}%
+\fi%
+%
+%
+\begin{beamercolorbox}[
+	dp=0cm, sep=0.0cm,right,%
+	wd=\dimexpr\fau@LogoFactor\paperwidth-%
+	   \fau@WMBFactor\fau@outer@WordMarkBoxWidth-%
+	   \fau@outer@TitleSkipLeft,%\fau@WMBFactor\fau@outer@WordMarkBoxWidth,%
+	ht=\dimexpr\fau@outer@TitleHeight-\fau@outer@LineWidthThick]{#1}%
 %
 \vbox to\dimexpr\fau@outer@TitleHeight-\fau@outer@LineWidthThick{%
 \iffau@outer@InsertExtraLogo%
-	\ifnum#4=0%
-	\else%
-	\includegraphicsdefault[width=0.9\dimexpr.4\paperwidth-
-								  \fau@outer@WordMarkBoxWidth-\fau@outer@TitleSkipLeft,%
-				 			height=0.9\dimexpr\fau@outer@TitleHeight-\fau@outer@LineWidthThick,%
-				 			keepaspectratio]{\fau@outer@ExtraLogo}%
-	\fi%
+	\includegraphicsdefault[
+		width=#5,%
+		height=#6,%
+		keepaspectratio
+	]{\fau@outer@ExtraLogo}%
+	%\fi%
 \fi%
 \vfil%
 }%	 
 \end{beamercolorbox}%
 %
+\hfil%
+%
 % insert fau word mark
 %
 \begin{beamercolorbox}[dp=0cm, sep=0.0cm,right,%
-					   wd=\fau@outer@WordMarkBoxWidth,%
+					   wd=\fau@WMBFactor\fau@outer@WordMarkBoxWidth,%
 					   ht=\dimexpr\fau@outer@TitleHeight-\fau@outer@LineWidthThick]{#1}%
 \vbox to\dimexpr\dimexpr\fau@outer@TitleHeight-\fau@outer@LineWidthThick{%
 %
@@ -213,11 +228,16 @@
 }%
 
 \setbeamertemplate{frametitle}{%
-\frametitlewrapper{}{separation line}{\fau@outer@WordMark}{0}{\fau@outer@WordMarkWidth}{\fau@outer@WordMarkHeight}{\fau@outer@TitleSkip}{0pt}%
+\frametitlewrapper{}{separation line}{\fau@outer@WordMark}{0}{\fau@outer@WordMarkWidth}{\fau@outer@WordMarkHeight}{\fau@outer@TitleSkip}{0pt}{0.7}%
 }%
 
 \defbeamertemplate{frametitle}{frametitle title}{%
-\frametitlewrapper{frametitle title}{separation line title}{\fau@outer@WordMarkTitle}{1}{\fau@outer@WordMarkTitleWidth}{\fau@outer@WordMarkTitleHeight}{\fau@outer@TitleTitleSkip}{\fau@outer@TitleLineHeight}%
+\frametitlewrapper{frametitle title}{separation line title}%
+				  {\fau@outer@WordMarkTitle}{1}%
+				  {\fau@outer@WordMarkTitleWidth}%
+				  {\fau@outer@WordMarkTitleHeight}%
+				  {\fau@outer@TitleTitleSkip}%
+				  {\fau@outer@TitleLineHeight}{.5}%
 }%
 % ------------------------------------------------------------------------------
 
