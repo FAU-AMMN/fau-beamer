@@ -100,9 +100,13 @@
 %
 % This section specifies the behaviour of the frame headline.
 % ------------------------------------------------------------------------------
-\setbeamertemplate{headline}{%
-\begin{beamercolorbox}[wd=\paperwidth,
-					   ht=\fau@outer@HeaderHeight, dp=0ex,sep=0pt]{headline}%
+
+
+\defbeamertemplate{headline}{headline default}{%
+\begin{beamercolorbox}[%
+	wd=\paperwidth,%
+	ht=\fau@outer@HeaderHeight,%
+	dp=0ex,sep=0pt]{headline}%
 \end{beamercolorbox}%
 }%
 
@@ -112,7 +116,7 @@
 \end{beamercolorbox}%
 %
 }%
-
+\setbeamertemplate{headline}[headline default]
 % ..............................................................................
 % Frame title
 % -----------
@@ -226,11 +230,17 @@
 }%
 \end{beamercolorbox}%
 }%
-
-\setbeamertemplate{frametitle}{%
-\frametitlewrapper{}{separation line}{\fau@outer@WordMark}{0}{\fau@outer@WordMarkWidth}{\fau@outer@WordMarkHeight}{\fau@outer@TitleSkip}{0pt}{0.7}%
+%
+%
+\defbeamertemplate{frametitle}{frametitle default}{%
+\frametitlewrapper{}{separation line}%
+				  {\fau@outer@WordMark}{0}%
+				  {\fau@outer@WordMarkWidth}
+				  {\fau@outer@WordMarkHeight}%
+				  {\fau@outer@TitleSkip}%
+				  {0pt}{0.7}%
 }%
-
+%
 \defbeamertemplate{frametitle}{frametitle title}{%
 \frametitlewrapper{frametitle title}{separation line title}%
 				  {\fau@outer@WordMarkTitle}{1}%
@@ -239,7 +249,9 @@
 				  {\fau@outer@TitleTitleSkip}%
 				  {\fau@outer@TitleLineHeight}{.5}%
 }%
-% ------------------------------------------------------------------------------
+%
+\setbeamertemplate{frametitle}[frametitle default]%
+%------------------------------------------------------------------------------
 
 
 
@@ -317,15 +329,19 @@
 }%
 \end{beamercolorbox}%
 }%
-
-\setbeamertemplate{footline}{%
+%
+\defbeamertemplate{footline}{footline default}{%
 \footwrapper{}{separation line}
 }%
+
+\defbeamertemplate{footline}{footline off}{}%
 
 % shaded footline for title/section page
 \defbeamertemplate{footline}{footline title}{%
 \footwrapper{footline title}{separation line title}
 }%
+%
+\setbeamertemplate{footline}[footline default]
 % ------------------------------------------------------------------------------
 
 

@@ -13,7 +13,7 @@
 % Theme: inner, outer, font and colors
 % ----------------------------------------------------------------------------------------
 \usepackage[institute=FAU,
-			ExtraLogo = template-art/FAUWortmarkeBlau.pdf,
+			%ExtraLogo = template-art/FAUWortmarkeBlau.pdf,
 			%WordMark=None
 			aspectratio=169,
 			size=18
@@ -48,18 +48,32 @@
 % ----------------------------------------------------------------------------------------
 \title[fau-beamer]{The NEW fau-beamer Template}
 \subtitle{The \LaTeX{} template according to the 2021 FAU corporate guide}
-\author[T. Roith]{Tim Roith\inst{1} \and Second Author\inst{2}}
-\institute[FAU]{%
-\inst{1} Friedrich-Alexander Universität Erlangen-Nürnberg, Department Mathematik%
-\and
-\inst{2} Another Insitute
+\author[T. Roith]{
+Tim Roith\inst{1}\and%
+Second Author\inst{2}\and%
+Third Author\inst{3}%
 }
+%
+\institute[FAU]{%
+\inst{1} Friedrich-Alexander Universität Erlangen-Nürnberg, Department Mathematik \and%
+\inst{2} Second Insitute \and%
+\inst{3} Third Insitute \and%
+}
+
+% Instead of \institute you can also use the \thanks command
+% ------------------------------------------------
+%\author[T. Roith]{
+%Tim Roith\thanks{Friedrich-Alexander Universität Erlangen-Nürnberg, Department Mathematik}\and%
+%Second Author\thanks{Second Insitute}\and%
+%Third Author\thanks{Third Insitute}%
+%}
+
 \date{\today}
 
 
-% ========================================================================================
+% ================================================
 % Bibliography
-% ----------------------------------------------------------------------------------------
+% ------------------------------------------------
 \usepackage{csquotes}
 \usepackage[style=alphabetic, %alternatively: numeric, numeric-comp, and other from biblatex
 			defernumbers=true,
@@ -81,9 +95,9 @@
 \setbeamertemplate{bibliography item}[text]
 
 
-% ========================================================================================
+% ================================================
 % Hyperref and setup
-% ----------------------------------------------------------------------------------------
+% ------------------------------------------------
 \usepackage{hyperref}
 \hypersetup{
 	colorlinks = true,
@@ -104,15 +118,15 @@
 }
 
 
-% ========================================================================================
+% ================================================
 % Additional packages
-% ----------------------------------------------------------------------------------------
+% ------------------------------------------------
 
 
 
-% ========================================================================================
+% ================================================
 % Various custom commands
-% ----------------------------------------------------------------------------------------
+% ------------------------------------------------
 \begingroup\expandafter\expandafter\expandafter\endgroup
 \expandafter\ifx\csname pdfsuppresswarningpagegroup\endcsname\relax
 \else
@@ -120,15 +134,15 @@
 \fi
 % Change color for cite locally
 \newcommand{\colorcite}[3]{{\hypersetup{citecolor=#1}{\cite[#2]{#3}}}} 
-% ----------------------------------------------------------------------------------------
-% ========================================================================================
+% ------------------------------------------------
+% ================================================
 % The main document
-% ----------------------------------------------------------------------------------------
+% ------------------------------------------------
 \begin{document}
 % Title page
-\begin{trueplainframe}{}
+\begin{frame}[t,titleimage]{-}
 \titlepage%
-\end{trueplainframe}
+\end{frame}
 
 % Introduction
 \begin{frame}[t]{Introduction}{What is this?}
@@ -137,28 +151,12 @@ This file demonstrates the fau-beamer style, which is a style for the \LaTeX{} \
 This code for this template was written by \href{https://timroith.github.io/}{Tim Roith}. If you have questions about the template or found a mistake you can send an email to tim\{dot\}roith\{at\}fau\{dot\}de or open a issue at the \href{https://github.com/FAU-AMMN/fau-beamer}{GitHub repository}.
 \end{frame}
 
-% Outline
-\begin{frame}[t]{Outline}
-\tableofcontents
-\end{frame}
+
 
 % Stylized outline
-{
-\setbeamertemplate{headline}[headline title]
-\setbeamertemplate{sidebar left}[sidebar title theme]
-\setbeamertemplate{frametitle}[frametitle title]
-\setbeamertemplate{footline}[footline title]
-\setbeamercolor{background canvas}{bg=BaseColor}
-\setbeamercolor{section in toc}{fg=TitleFont}
-\setbeamercolor{subsection in toc}{fg=TitleFont}
-
-% toc frame
-\begin{frame}{-}
-\usebeamerfont{title}%
-\hypersetup{linkcolor=TitleFont}
+\begin{frame}[title]{-}
 \tableofcontents
 \end{frame}
-}
 
 % input exmple sections
 \input{sections/01_Intro_Landscape}

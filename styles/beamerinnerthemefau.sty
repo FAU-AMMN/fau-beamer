@@ -45,88 +45,81 @@
 % ..............................................................................
 % Title page
 % ------------------------------------------------------------------------------
+\define@key{beamerframe}{titleimage}[true]{%
+  \setbeamertemplate{background}{
+  	\vbox to \paperheight{%
+  	\vfill%
+    \includegraphics[%
+    	width=\paperwidth,%
+    	height=\dimexpr\paperheight-%
+    		   \fau@inner@HeaderHeight-%
+    		   \fau@inner@TitleHeight-%
+    		   \fau@inner@TitleLineHeight]{\fau@inner@TitleArt}%
+    }%
+  }%
+  \setbeamertemplate{headline}[headline title]
+  %\setbeamertemplate{sidebar left}[sidebar title theme]
+  \setbeamertemplate{sidebar left}{}
+  \setbeamertemplate{frametitle}[frametitle title]
+  \setbeamertemplate{footline}[footline off]
+  \setbeamercolor{background canvas}{bg=BaseColor}%
+  \setbeamercolor{section in toc}{fg=TitleFont}%
+  \setbeamercolor{subsection in toc}{fg=TitleFont}%
+  \hypersetup{linkcolor=TitleFont}%
+  \usebeamerfont{title}%
+  \setbeamercolor{footnote}{fg=TitleFont}%
+  \setbeamercolor{footnote mark}{fg=TitleFont}%
+}
+
+\define@key{beamerframe}{title}[true]{%
+  \setbeamertemplate{headline}[headline title]
+  \setbeamertemplate{sidebar left}[sidebar title theme]
+  \setbeamertemplate{frametitle}[frametitle title]
+  \setbeamertemplate{footline}[footline off]
+  \setbeamercolor{background canvas}{bg=BaseColor}%
+  \setbeamercolor{section in toc}{fg=TitleFont}%
+  \setbeamercolor{subsection in toc}{fg=TitleFont}%
+  \hypersetup{linkcolor=TitleFont}%
+  \usebeamerfont{title}%
+  \setbeamercolor{footnote}{fg=TitleFont}%
+  \setbeamercolor{footnote mark}{fg=TitleFont}%
+}
+
+\BeforeBeginEnvironment{frame}{%
+  \setbeamertemplate{background}{}
+  \setbeamertemplate{headline}[headline default]%
+  \setbeamertemplate{frametitle}[frametitle default]%
+  \setbeamertemplate{sidebar left}{}%
+  \setbeamercolor{background canvas}{bg=white}%
+  \setbeamertemplate{footline}[footline default]%
+  \setbeamertemplate{footline}[footline default]
+  \hypersetup{linkcolor=BaseColor}%
+  \usebeamerfont{default}%
+}
 
 \setbeamertemplate{title page}{%
-\vbox to \paperheight{%
-\hbox to \paperwidth{%
-%
-% Sidebar
-%
-\begin{beamercolorbox}[
-	dp=0pt,sep=0pt,%
-	wd=\beamer@leftsidebar,%
-	ht=\dimexpr\fau@inner@HeaderHeight+
-			   \fau@inner@TitleHeight +
-			   \fau@inner@TitleLineHeight]{sidebar title}%
-%
-\end{beamercolorbox}%
-%
-\vbox to \dimexpr\fau@inner@HeaderHeight+\fau@inner@TitleHeight+\fau@inner@TitleLineHeight{%
-%
-% Headline
-%
-\begin{beamercolorbox}[dp=0pt,sep=0pt,%
-					   wd=\dimexpr\paperwidth-\beamer@leftsidebar,%
-					   ht=\fau@inner@HeaderHeight]{headline title}%
-%
-\end{beamercolorbox}%
-%
-% Frametitle
-%
-\nointerlineskip%
-\frametitlewrapper{frametitle title}{separation line title}%
-				  {\fau@inner@WordMarkTitle}{1}%
-				  {\fau@inner@WordMarkTitleWidth}%
-				  {\fau@inner@WordMarkTitleHeight}%
-				  {\fau@inner@TitleTitleSkip}%
-				  {\fau@inner@TitleLineHeight}{.5}%
-}%
-}%
-\nointerlineskip%
-%
-% Main Body
-%
-\begin{beamercolorbox}[dp=0pt,sep=0pt,%
-					   wd=\dimexpr\paperwidth,%
-					   ht=\dimexpr\paperheight-\fau@inner@HeaderHeight-\fau@inner@TitleHeight-\fau@inner@TitleLineHeight]{}%
-% 
-\begin{overpicdefault}[width=\dimexpr\paperwidth,%
-				height=\dimexpr\paperheight-\fau@inner@HeaderHeight-\fau@inner@TitleHeight-\fau@inner@TitleLineHeight]{\fau@inner@TitleArt}%
-%
-\put (5,0) {%
-\parbox[b]{0.9\textwidth}{
-\vbox to \dimexpr\paperheight-\fau@inner@HeaderHeight-\fau@inner@TitleHeight-\fau@inner@TitleLineHeight{%
-\vskip4em
-{\usebeamerfont{title}{\inserttitle}}\\[1em]
+{\usebeamerfont{title}{\inserttitle}}\\
 % if a subtitle is given insert it here
 \ifx\insertsubtitle\empty\else%
 {\usebeamerfont{subtitle}\parbox{0.9\textwidth}{\insertsubtitle}}%
-\fi\\[1em]%
-%
-%
+\fi\\[.5em]%
 %
 % insert authors
 \ifx\insertauthor\empty\else%
-{\parbox{0.9\textwidth}{\textbf{\insertauthor}}}\\[1em]%
+{\parbox{0.9\textwidth}{
+	\usebeamerfont{default}\textbf{\insertauthor}}%
+}\\[.5em]%
 \fi%
 % insert institute name
 \ifx\insertinstitute\empty\else%
-    {\usebeamerfont{normal text}\insertinstitute}\\[3em]%
+    {\usebeamerfont{default}\insertinstitute}
 \fi%
-%
-%
 %
 % insert date
 \ifx\insertdate\empty\else%
-	{\usebeamerfont{normal text}\insertdate}%
+	{\usebeamerfont{default}\insertdate}%
 \fi%
-\vfill%
-}%
-}%
-}%
-\end{overpicdefault}
-\end{beamercolorbox}%
-}%
+%}%
 }%
 
 
@@ -139,15 +132,8 @@
 
 \AtBeginSection{%
 {%
-\setbeamertemplate{headline}[headline title]
-\setbeamertemplate{sidebar left}[sidebar title theme]
-\setbeamertemplate{frametitle}[frametitle title]
-\setbeamertemplate{footline}[footline title]
-\setbeamercolor{background canvas}{bg=BaseColor}%
-\setbeamercolor{section in toc}{fg=TitleFont}%
-\setbeamercolor{subsection in toc}{fg=TitleFont}%
 %\usebeamercolor[fg]{normal text}
-\begin{frame}[t]{-}
+\begin{frame}[title]{-}
 \usebeamerfont{title}%
 \hypersetup{linkcolor=TitleFont}%
 \tableofcontents[currentsection]%
