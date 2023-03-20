@@ -87,31 +87,18 @@
   \usebeamercolor[fg]{title page}%
 }
 
-\BeforeBeginEnvironment{frame}{%
-  \setbeamertemplate{background}{}
-  \setbeamertemplate{headline}[headline default]%
-  \setbeamertemplate{frametitle}[frametitle default]%
-  \setbeamertemplate{sidebar left}{}%
-  \setbeamercolor{background canvas}{bg=white}%
-  \setbeamertemplate{footline}[footline default]%
-  \setbeamertemplate{footline}[footline default]
-  \hypersetup{linkcolor=BaseColor}%
-  \usebeamerfont{default}%
-  \usebeamercolor[fg]{default}%
-}
-
 \setbeamertemplate{title page}{%
 {\usebeamerfont{title}{\inserttitle}}\\
 % if a subtitle is given insert it here
 \ifx\insertsubtitle\empty\else%
 {\usebeamerfont{subtitle}\parbox{0.9\textwidth}{\insertsubtitle}}%
-\fi\\[.5em]%
+\fi\leavevmode\\[.5em]
 %
 % insert authors
 \ifx\insertauthor\empty\else%
 {\parbox{0.9\textwidth}{
-	\usebeamerfont{default}\textbf{\insertauthor}}%
-}\\[.5em]%
+\usebeamerfont{default}\textbf{\insertauthor}}%
+}\leavevmode\newline
 \fi%
 % insert institute name
 \ifx\insertinstitute\empty\else%

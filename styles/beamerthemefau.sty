@@ -207,6 +207,22 @@
 % ------------------------------------------------------------------------------
 
 % ..............................................................................
+% Default options for frame
+% -------------------------
+\BeforeBeginEnvironment{frame}{%
+  \setbeamertemplate{background}{}
+  \setbeamertemplate{headline}[headline default]%
+  \setbeamertemplate{frametitle}[frametitle default]%
+  \setbeamertemplate{sidebar left}{}%
+  \setbeamercolor{background canvas}{bg=white}%
+  \setbeamertemplate{footline}[footline default]%
+  \setbeamertemplate{footline}[footline default]
+  \hypersetup{linkcolor=BaseColor}%
+  \usebeamerfont{default}%
+  \usebeamercolor[fg]{default}%
+}
+
+% ..............................................................................
 % Geometry of the layout
 % -------
 \ifthenelse{\equal{\aspectratio }{169}}{%
