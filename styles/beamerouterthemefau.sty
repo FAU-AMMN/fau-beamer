@@ -49,6 +49,10 @@
 %
 % We define the relevant dimensions for this template.
 % ------------------------------------------------------------------------------
+\def\fau@inner@XScale{1.}
+\def\fau@inner@YScale{1.}
+\DeclareOptionBeamer{XScale}{\def\fau@inner@XScale{#1}} % scale factor for x dimension
+\DeclareOptionBeamer{YScale}{\def\fau@inner@YScale{#1}} % scale factor for y dimension
 
 \DeclareOptionBeamer{SideBarWidthLeft}{\fau@outer@SideBarWidthLeft=#1}
 \DeclareOptionBeamer{HeaderHeight}{\fau@outer@HeaderHeight=#1}
@@ -69,7 +73,6 @@
 \DeclareOptionBeamer{WordMarkLeftHeight}{\fau@outer@WordMarkLeftHeight=#1}
 \DeclareOptionBeamer{WordMarkLeftWidth}{\fau@outer@WordMarkLeftWidth=#1}
 \DeclareOptionBeamer{WordMarkBoxWidth}{\fau@outer@WordMarkBoxWidth=#1}
-
 %
 \DeclareOptionBeamer{InsertTotalFoot}{\fau@outer@InsertTotalFoottrue}
 \DeclareOptionBeamer{WordMark}{\def\fau@outer@WordMark{#1}}
@@ -84,6 +87,27 @@
 % ..............................................................................
 \ProcessOptionsBeamer
 \mode<presentation>
+% ..............................................................................
+% Scale the dimensions
+% -------------------
+\fau@outer@SideBarWidthLeft=\fau@inner@XScale\dimexpr\fau@outer@SideBarWidthLeft
+\fau@outer@HeaderHeight=\fau@inner@YScale\dimexpr\fau@outer@HeaderHeight
+\fau@outer@HeaderTitleHeight=\fau@inner@YScale\dimexpr\fau@outer@HeaderTitleHeight
+\fau@outer@LineWidthThick=\fau@inner@YScale\dimexpr\fau@outer@LineWidthThick
+\fau@outer@LineWidthThin=\fau@inner@YScale\dimexpr\fau@outer@LineWidthThin
+\fau@outer@TitleHeight=\fau@inner@YScale\dimexpr\fau@outer@TitleHeight
+\fau@outer@TitleSkip=\fau@inner@YScale\dimexpr\fau@outer@TitleSkip
+\fau@outer@TitleLineHeight=\fau@inner@YScale\dimexpr\fau@outer@TitleLineHeight
+\fau@outer@TitleTitleSkip=\fau@inner@YScale\dimexpr\fau@outer@TitleTitleSkip
+\fau@outer@FootHeight=\fau@inner@YScale\dimexpr\fau@outer@FootHeight
+\fau@outer@FootLineSkip=\fau@inner@YScale\dimexpr\fau@outer@FootLineSkip
+\fau@outer@WordMarkHeight=\fau@inner@YScale\dimexpr\fau@outer@WordMarkHeight
+\fau@outer@WordMarkWidth=\fau@inner@XScale\dimexpr\fau@outer@WordMarkWidth
+\fau@outer@WordMarkTitleHeight=\fau@inner@YScale\dimexpr\fau@outer@WordMarkTitleHeight
+\fau@outer@WordMarkTitleWidth=\fau@inner@XScale\dimexpr\fau@outer@WordMarkTitleWidth
+\fau@outer@WordMarkLeftHeight=\fau@inner@YScale\dimexpr\fau@outer@WordMarkLeftHeight
+\fau@outer@WordMarkLeftWidth=\fau@inner@XScale\dimexpr\fau@outer@WordMarkLeftWidth
+\fau@outer@WordMarkBoxWidth=\fau@inner@XScale\dimexpr\fau@outer@WordMarkBoxWidth
 % ..............................................................................
 %
 %

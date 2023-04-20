@@ -16,8 +16,10 @@
 % Font sizes.
 % ------------------------------------------------------------------------------
 \def\fau@font@size{18}
+\def\fau@font@scale{1.}
 \def\fau@font@baselineskip{20}
 \DeclareOptionBeamer{Size}{\def\fau@font@size{#1}}
+\DeclareOptionBeamer{Scale}{\def\fau@font@scale{#1}}
 \DeclareOptionBeamer{BaseLineSkip}{\def\fau@font@baselineskip{#1}}
 
 % ..............................................................................
@@ -30,7 +32,6 @@
 \RequirePackage{textcomp}
 \RequirePackage{fix-cm}
 \RequirePackage[scaled=0.92]{helvet}
-
 
 
 \setbeamerfont{title}{size=\huge,series=\bfseries}
@@ -47,8 +48,11 @@
 % ..............................................................................
 % this code is copied from the beamerposter package
 % ------------------------------------------------------------------------------
-
+%\FPeval{\globscale}{\fau@font@scale}
+\FProot{\globscale}{\fau@font@scale}{2}
+\FPeval{\fau@font@baselineskip}{\fau@font@scale * \fau@font@baselineskip}
 \FPeval{\fontscale}{\fau@font@size/11}
+%\FPeval{\fontscale}{fontscale * globscale}
 \FPupn{\fontscale}{0.442  fontscale * 2 round}
 \edef\fontSizeX{12}\edef\fontSizeY{14}
 \FPupn{\resulttinyX}{fontscale fontSizeX * 2 round}

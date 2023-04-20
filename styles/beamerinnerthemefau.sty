@@ -12,8 +12,6 @@
 % ------------------------------------------------------------------------------
 
 \ProvidesPackage{styles/beamerinnerthemefau}
-
-\RequirePackage[percent]{overpic}
 \RequirePackage{fp}
 
 \newdimen\fau@inner@WordMarkTitleHeight
@@ -24,13 +22,19 @@
 \newdimen\fau@inner@TitleLineHeight
 
 % ------------------------------------------------------------------------------
+% Dimensions
+\def\fau@inner@XScale{1.}
+\def\fau@inner@YScale{1.}
+\DeclareOptionBeamer{XScale}{\def\fau@inner@XScale{#1}} % scale factor for x dimension
+\DeclareOptionBeamer{YScale}{\def\fau@inner@YScale{#1}} % scale factor for y dimension
+
+
 \DeclareOptionBeamer{WordMarkTitleHeight}{\fau@inner@WordMarkTitleHeight=#1}
 \DeclareOptionBeamer{WordMarkTitleWidth}{\fau@inner@WordMarkTitleWidth=#1}
 \DeclareOptionBeamer{TitleTitleSkip}{\fau@inner@TitleTitleSkip=#1}
 \DeclareOptionBeamer{HeaderHeight}{\fau@inner@HeaderHeight=#1}
 \DeclareOptionBeamer{TitleHeight}{\fau@inner@TitleHeight=#1}
 \DeclareOptionBeamer{TitleLineHeight}{\fau@inner@TitleLineHeight=#1}
-\DeclareOptionBeamer{TitleOverPicStart}{\def\fau@inner@TitleOverPicStart{#1}}
 
 \DeclareOptionBeamer{WordMarkTitle}{\def\fau@inner@WordMarkTitle{#1}}
 \DeclareOptionBeamer{TitleArt}{\def\fau@inner@TitleArt{#1}}
@@ -41,6 +45,13 @@
 \RequirePackage{graphicx}
 \mode<presentation>
 % ------------------------------------------------------------------------------
+% Scale the dimensions
+\fau@inner@WordMarkTitleHeight=\fau@inner@YScale\dimexpr\fau@inner@WordMarkTitleHeight
+\fau@inner@WordMarkTitleWidth=\fau@inner@XScale\dimexpr\fau@inner@WordMarkTitleWidth
+\fau@inner@TitleTitleSkip=\fau@inner@YScale\dimexpr\fau@inner@TitleTitleSkip
+\fau@inner@HeaderHeight=\fau@inner@YScale\dimexpr\fau@inner@HeaderHeight
+\fau@inner@TitleHeight=\fau@inner@YScale\dimexpr\fau@inner@TitleHeight
+\fau@inner@TitleLineHeight=\fau@inner@YScale\dimexpr\fau@inner@TitleLineHeight
 
 % ..............................................................................
 % Title page
