@@ -139,8 +139,8 @@
 	\PassOptionsToPackage{WordMarkBoxWidth=60mm}{styles/beamerouterthemefau}
 	\PassOptionsToPackage{WordMarkSkip=12mm}{styles/beamerouterthemefau}
 	%
-	\PassOptionsToPackage{XScale=\scale}{styles/beamerinnerthemefau}
-	\PassOptionsToPackage{YScale=\scale}{styles/beamerinnerthemefau}
+	\PassOptionsToPackage{XScale=\scale}{styles/beamerouterthemefau}
+	\PassOptionsToPackage{YScale=\scale}{styles/beamerouterthemefau}
 }{}%
 % Aspect ratio: 4:3
 \ifthenelse{\equal{\aspectratio }{43}}{%
@@ -237,7 +237,7 @@
 % Geometry of the layout
 % -------
 \ifthenelse{\equal{\aspectratio }{169}}{%
-	\geometry{paperwidth=338.7mm,paperheight=190.5mm}% for 16:9
+	\geometry{paperwidth=\scale\dimexpr338.7mm,paperheight=\scale\dimexpr190.5mm}% for 16:9
 }{}%
 \ifthenelse{\equal{\aspectratio }{43}}{%
 	\geometry{paperwidth=\scale\dimexpr720pt,paperheight=\scale\dimexpr540pt}% for 4:3
