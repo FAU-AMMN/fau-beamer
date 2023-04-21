@@ -41,8 +41,8 @@
 \newdimen\TitleHeight
 %
 \newif\iffau@outer@InsertTotalFoot\fau@outer@InsertTotalFootfalse
-\newif\iffau@outer@InsertExtraLogo\fau@outer@InsertExtraLogofalse
-
+\newif\iffau@outer@InsertSecondLogo\fau@outer@InsertSecondLogofalse
+\newif\iffau@outer@InsertThirdLogo\fau@outer@InsertThirdLogofalse
 % ..............................................................................
 % Dimensions
 % -------
@@ -78,9 +78,13 @@
 \DeclareOptionBeamer{WordMark}{\def\fau@outer@WordMark{#1}}
 \DeclareOptionBeamer{WordMarkTitle}{\def\fau@outer@WordMarkTitle{#1}}
 \DeclareOptionBeamer{WordMarkTitleLeft}{\def\fau@outer@WordMarkTitleLeft{#1}}
-\DeclareOptionBeamer{ExtraLogo}{%
-	\def\fau@outer@ExtraLogo{#1}%
-	\fau@outer@InsertExtraLogotrue%
+\DeclareOptionBeamer{SecondLogo}{%
+	\def\fau@outer@SecondLogo{#1}%
+	\fau@outer@InsertSecondLogotrue%
+}
+\DeclareOptionBeamer{ThirdLogo}{%
+	\def\fau@outer@ThirdLogo{#1}%
+	\fau@outer@InsertThirdLogotrue%
 }
 % ------------------------------------------------------------------------------
 
@@ -195,36 +199,37 @@
 %
 \begin{beamercolorbox}[
 	dp=0cm, sep=0.0cm,right,%
-	wd=\dimexpr\fau@LogoFactor\paperwidth-%
-	   \fau@WMBFactor\fau@outer@WordMarkBoxWidth-%
-	   \fau@outer@TitleSkipLeft,%\fau@WMBFactor\fau@outer@WordMarkBoxWidth,%
+	wd=\dimexpr\fau@LogoFactor\paperwidth-\fau@outer@TitleSkipLeft,
 	ht=\dimexpr\fau@outer@TitleHeight-\fau@outer@LineWidthThick]{#1}%
 %
 \vbox to\dimexpr\fau@outer@TitleHeight-\fau@outer@LineWidthThick{%
-\iffau@outer@InsertExtraLogo%
-	\includegraphicsdefault[
+\hbox to\dimexpr\fau@LogoFactor\paperwidth-\fau@outer@TitleSkipLeft{%
+\iffau@outer@InsertThirdLogo%
+	\includegraphics[
 		width=#5,%
 		height=#6,%
-		keepaspectratio
-	]{\fau@outer@ExtraLogo}%
+		keepaspectratio%
+	]{\fau@outer@ThirdLogo}%
 	%\fi%
 \fi%
-\vfil%
-}%	 
-\end{beamercolorbox}%
 %
-\hfil%
+\hfil
+%
+\iffau@outer@InsertSecondLogo%
+	\includegraphics[
+		width=#5,%
+		height=#6,%
+		keepaspectratio%
+	]{\fau@outer@SecondLogo}%
+	\hfil%
+\fi%
 %
 % insert fau word mark
-%
-\begin{beamercolorbox}[dp=0cm, sep=0.0cm,right,%
-					   wd=\fau@WMBFactor\fau@outer@WordMarkBoxWidth,%
-					   ht=\dimexpr\fau@outer@TitleHeight-\fau@outer@LineWidthThick]{#1}%
-\vbox to\dimexpr\dimexpr\fau@outer@TitleHeight-\fau@outer@LineWidthThick{%
 %
 \includegraphicsdefault[width=#5,%
 				        height=#6,%
 				        keepaspectratio]{#3}%
+}%
 \vfil%
 }%
 %
@@ -265,14 +270,22 @@
 				  {0pt}{0.7}%
 }%
 %
+%
+%
+%
+%
 \defbeamertemplate{frametitle}{frametitle title}{%
-\frametitlewrapper{frametitle title}{separation line title}%
-				  {\fau@outer@WordMarkTitle}{1}%
-				  {\fau@outer@WordMarkTitleWidth}%
-				  {\fau@outer@WordMarkTitleHeight}%
-				  {\fau@outer@TitleTitleSkip}%
-				  {\fau@outer@TitleLineHeight}{.5}%
+\frametitlewrapper{frametitle title}%1
+				  {separation line title}%2
+				  {\fau@outer@WordMarkTitle}%3
+				  {1}%4
+				  {\fau@outer@WordMarkTitleWidth}%5
+				  {\fau@outer@WordMarkTitleHeight}%6
+				  {\fau@outer@TitleTitleSkip}%7
+				  {\fau@outer@TitleLineHeight}%8
+				  {.5}%#9
 }%
+%
 %
 \setbeamertemplate{frametitle}[frametitle default]%
 %------------------------------------------------------------------------------
