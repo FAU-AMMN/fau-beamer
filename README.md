@@ -112,6 +112,19 @@ are the same for every institute and are therefore placed directly in the ```/te
 * ```<Institute>KennungWhite.pdf```
 * ```<Institute>Title.jpg```
 
+You can add additional logos to the title of the frames via the options
+
+* ```SecondLogo=<path/to/image>```
+* ```ThirdLogo=<path/to/image>```
+
+## :wrench: Misc
+
+You can use the option ```[scale=<value>]``` to scale the canvas size. 
+By default the canvas dimensions are
+
+* 338.7 mm x 238.1 mm for 16:9
+* 254 mm x 190.5 mm for 4:3
+
 ## :paperclip: Questions or Remarks
 If you have questions about specific features or found an error you can either write an email to the author (see below) or raise an issue here.
 
