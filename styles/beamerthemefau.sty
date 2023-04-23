@@ -57,17 +57,26 @@
 \def\scale{1}% default
 \DeclareOptionBeamer{scale}{%
   \def\scale{#1}%
-  \PassOptionsToPackage{Scale=#1}{styles/beamerfontthemefau}
+  \PassOptionsToPackage{scale=#1}{styles/beamerfontthemefau}
 }%
 
 % ..............................................................................
 % FontSize
 % ------------------------------------------------------------------------------
 \DeclareOptionBeamer{fontsize}{%
-  \PassOptionsToPackage{Size=#1}{styles/beamerfontthemefau}
+  \PassOptionsToPackage{fontsize=#1}{styles/beamerfontthemefau}
 }%
+
+\DeclareOptionBeamer{fontbaselineskip}{%
+  \PassOptionsToPackage{fontbaselineskip=#1}{styles/beamerfontthemefau}
+}%
+
+\DeclareOptionBeamer{fontscale}{%
+  \PassOptionsToPackage{fontscale=#1}{styles/beamerfontthemefau}
+}%
+%
 \DeclareOptionBeamer{BaseLineSkip}{%
-  \PassOptionsToPackage{BaseLineSkip=#1}{styles/beamerfontthemefau}
+  \PassOptionsToPackage{baselinescale=#1}{styles/beamerfontthemefau}
 }%
 
 % ..............................................................................
@@ -119,9 +128,9 @@
 % Aspect ratio: 16:9
 \ifthenelse{\equal{\aspectratio }{169}}{%
 	\PassOptionsToPackage{SideBarWidthLeft=14.4mm}{styles/beamerouterthemefau}
-	\PassOptionsToPackage{HeaderHeight=5mm}{styles/beamerouterthemefau}
+	\PassOptionsToPackage{HeaderHeight=2.mm}{styles/beamerouterthemefau}
 	\PassOptionsToPackage{HeaderTitleHeight=4mm}{styles/beamerouterthemefau}
-	\PassOptionsToPackage{TitleHeight=30mm}{styles/beamerouterthemefau}
+	\PassOptionsToPackage{TitleHeight=33mm}{styles/beamerouterthemefau}
 	\PassOptionsToPackage{TitleLineHeight=10mm}{styles/beamerouterthemefau}
 	\PassOptionsToPackage{TitleTitleSkip=3.5mm}{styles/beamerouterthemefau}
 	\PassOptionsToPackage{TitleSkip=5mm}{styles/beamerouterthemefau}

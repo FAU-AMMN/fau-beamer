@@ -166,26 +166,26 @@
 \setbeamersize
 {
     text margin left=0cm,
-    text margin right=1.5cm
+    text margin right=\fau@inner@XScale\dimexpr1.5cm
 }
 % ------------------------------------------------------------------------------
 
 
 \setbeamertemplate{block begin}{%
-	\vspace*{1ex}%
-	\begin{beamercolorbox}[sep=5pt]{block title}
+	\vspace*{\fau@inner@YScale\dimexpr1ex}%
+	\begin{beamercolorbox}[sep=\fau@inner@YScale\dimexpr5pt]{block title}
 	\usebeamerfont*{block title}\insertblocktitle%
 	\end{beamercolorbox}%
 	\nointerlineskip%
 	\usebeamerfont{block body}%
 	\begin{beamercolorbox}[%
-	sep=5pt
+	sep=\fau@inner@YScale\dimexpr5pt
 	]{block body}%
 }%
 
 \setbeamertemplate{block end}{%
 \end{beamercolorbox}
-\vspace*{0.2ex}
+\vspace*{\fau@inner@YScale\dimexpr0.2ex}
 }
 
 

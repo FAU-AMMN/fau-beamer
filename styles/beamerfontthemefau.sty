@@ -15,12 +15,16 @@
 % ..............................................................................
 % Font sizes.
 % ------------------------------------------------------------------------------
-\def\fau@font@size{18}
-\def\fau@font@scale{1.}
-\def\fau@font@baselineskip{20}
-\DeclareOptionBeamer{Size}{\def\fau@font@size{#1}}
-\DeclareOptionBeamer{Scale}{\def\fau@font@scale{#1}}
-\DeclareOptionBeamer{BaseLineSkip}{\def\fau@font@baselineskip{#1}}
+\def\fau@font@fontscale{1.}
+\def\fau@font@fontsize{11}
+\def\fau@font@baselineskip{13}
+\def\fau@font@baselinescale{1.}
+\def\fau@font@globalscale{1.}
+\DeclareOptionBeamer{fontsize}{\def\fau@font@fontsize{#1}}
+\DeclareOptionBeamer{fontbaselineskip}{\def\fau@font@baselineskip{#1}}
+\DeclareOptionBeamer{fontscale}{\def\fau@font@fontscale{#1}}
+\DeclareOptionBeamer{scale}{\def\fau@font@globalscale{#1}}
+\DeclareOptionBeamer{baselinescale}{\def\fau@font@baselinescale{#1}}
 
 % ..............................................................................
 \ProcessOptionsBeamer
@@ -48,15 +52,24 @@
 % ..............................................................................
 % this code is copied from the beamerposter package
 % ------------------------------------------------------------------------------
-\FPeval{\globscale}{\fau@font@scale}
-%\FProot{\globscale}{\fau@font@scale}{2}
-\FPeval{\fau@font@baselineskip}{\fau@font@scale * \fau@font@baselineskip}
-\FPeval{\fontscale}{\fau@font@size/11}
-\FPeval{\fontscale}{fontscale * globscale}
+\FPeval{\globalscale}{\fau@font@globalscale}
+% define baselinescale
+\FPeval{\baselinescale}{\fau@font@baselineskip/13} % normalize
+\FPeval{\baselinescale}{baselinescale * 1.7} % adjust to larger canvas
+\FPeval{\baselinescale}{globalscale * baselinescale} % apply global scale
+\FPupn{\baselinescale}{0.442  baselinescale * 2 round}
+% define fontscale
+\FPeval{\fontscale}{\fau@font@fontsize/11} % normalize
+\FPeval{\fontscale}{fontscale * 1.9} % adjust to larger canvas
+\FPeval{\fontscale}{globalscale * fontscale} % apply global scale
 \FPupn{\fontscale}{0.442  fontscale * 2 round}
-\edef\fontSizeX{12}\edef\fontSizeY{14}
+
+
+% --------------------------
+\edef\fontSizeX{12}
+\edef\fontSizeY{14}
 \FPupn{\resulttinyX}{fontscale fontSizeX * 2 round}
-\FPupn{\resulttinyY}{fontscale fontSizeY * 2 round}
+\FPupn{\resulttinyY}{baselinescale fontSizeY * 2 round}
 \renewcommand*{\tiny}{\fontsize{\resulttinyX}{\resulttinyY}\selectfont}
 
 \edef\fontSizeX{14.4}\edef\fontSizeY{18}   
@@ -66,63 +79,63 @@
 
 \edef\fontSizeX{17.28}\edef\fontSizeY{22}
 \FPupn{\resultfootnotesizeX}{fontscale fontSizeX * 2 round}
-\FPupn{\resultfootnotesizeY}{fontscale fontSizeY * 2 round}
+\FPupn{\resultfootnotesizeY}{baselinescale fontSizeY * 2 round}
 \renewcommand*{\footnotesize}{\fontsize{\resultfootnotesizeX}{\resultfootnotesizeY}\selectfont}
 
 \edef\fontSizeX{20.74}\edef\fontSizeY{25}
 \FPupn{\resultsmallX}{fontscale fontSizeX * 2 round}
-\FPupn{\resultsmallY}{fontscale fontSizeY * 2 round}
+\FPupn{\resultsmallY}{baselinescale fontSizeY * 2 round}
 \renewcommand*{\small}{\fontsize{\resultsmallX}{\resultsmallY}\selectfont}
 
 \edef\fontSizeX{24.88}\edef\fontSizeY{30}
 \FPupn{\resultnormalsizeX}{fontscale fontSizeX * 2 round}
-\FPupn{\resultnormalsizeY}{fontscale fontSizeY * 2 round}
+\FPupn{\resultnormalsizeY}{baselinescale fontSizeY * 2 round}
 \renewcommand*{\normalsize}{\fontsize{\resultnormalsizeX}{\resultnormalsizeY}\selectfont}
 
 \edef\fontSizeX{29.86}\edef\fontSizeY{37}
 \FPupn{\resultlargeX}{fontscale fontSizeX * 2 round}
-\FPupn{\resultlargeY}{fontscale fontSizeY * 2 round}
+\FPupn{\resultlargeY}{baselinescale fontSizeY * 2 round}
 \renewcommand*{\large}{\fontsize{\resultlargeX}{\resultlargeY}\selectfont}
 
 \edef\fontSizeX{35.83}\edef\fontSizeY{45}
 \FPupn{\resultLargeX}{fontscale fontSizeX * 2 round}
-\FPupn{\resultLargeY}{fontscale fontSizeY * 2 round}
+\FPupn{\resultLargeY}{baselinescale fontSizeY * 2 round}
 \renewcommand*{\Large}{\fontsize{\resultLargeX}{\resultLargeY}\selectfont}
 
 \edef\fontSizeX{43}\edef\fontSizeY{54}
 \FPupn{\resultLARGEX}{fontscale fontSizeX * 2 round}
-\FPupn{\resultLARGEY}{fontscale fontSizeY * 2 round}
+\FPupn{\resultLARGEY}{baselinescale fontSizeY * 2 round}
 \renewcommand*{\LARGE}{\fontsize{\resultLARGEX}{\resultLARGEY}\selectfont}
 
 \edef\fontSizeX{51.6}\edef\fontSizeY{64}
 \FPupn{\resulthugeX}{fontscale fontSizeX * 2 round}
-\FPupn{\resulthugeY}{fontscale fontSizeY * 2 round}
+\FPupn{\resulthugeY}{baselinescale fontSizeY * 2 round}
 \renewcommand*{\huge}{\fontsize{\resulthugeX}{\resulthugeY}\selectfont}
 
 \edef\fontSizeX{61.92}\edef\fontSizeY{77}
 \FPupn{\resultHugeX}{fontscale fontSizeX * 2 round}
-\FPupn{\resultHugeY}{fontscale fontSizeY * 2 round}
+\FPupn{\resultHugeY}{baselinescale fontSizeY * 2 round}
 \renewcommand*{\Huge}{\fontsize{\resultHugeX}{\resultHugeY}\selectfont}
 
 \edef\fontSizeX{74.3}\edef\fontSizeY{93}
 \FPupn{\resultveryHugeX}{fontscale fontSizeX * 2 round}
-\FPupn{\resultveryHugeY}{fontscale fontSizeY * 2 round}
+\FPupn{\resultveryHugeY}{baselinescale fontSizeY * 2 round}
 \def\veryHuge{}
 \renewcommand*{\veryHuge}{\fontsize{\resultveryHugeX}{\resultveryHugeY}\selectfont}
 
 \edef\fontSizeX{89.16}\edef\fontSizeY{112}
 \FPupn{\resultVeryHugeX}{fontscale fontSizeX * 2 round}
-\FPupn{\resultVeryHugeY}{fontscale fontSizeY * 2 round}
+\FPupn{\resultVeryHugeY}{baselinescale fontSizeY * 2 round}
 \def\VeryHuge{}
 \renewcommand*{\VeryHuge}{\fontsize{\resultVeryHugeX}{\resultVeryHugeY}\selectfont}
 
 \edef\fontSizeX{107}\edef\fontSizeY{134}
 \FPupn{\resultVERYHugeX}{fontscale fontSizeX * 2 round}
-\FPupn{\resultVERYHugeY}{fontscale fontSizeY * 2 round}
+\FPupn{\resultVERYHugeY}{baselinescale fontSizeY * 2 round}
 \def\VERYHuge{}
 \renewcommand*{\VERYHuge}{\fontsize{\resultVERYHugeX}{\resultVERYHugeY}\selectfont}
 
-\AtBeginDocument{\fontsize{\fau@font@size}{\fau@font@baselineskip}\selectfont}
+\AtBeginDocument{\normalsize\selectfont}
 
 % set the normalfont (default)
 \renewcommand*{\normalfont}{\normalsize}
