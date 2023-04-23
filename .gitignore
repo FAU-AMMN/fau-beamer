@@ -281,3 +281,6 @@ TSWLatexianTemp*
 #/template-art/**
 #!/template-art/**/
 #!/template-art/**/.gitkeep
+
+main.pdf
+main-poster.pdf
