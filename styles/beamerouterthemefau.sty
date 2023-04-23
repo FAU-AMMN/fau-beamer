@@ -130,6 +130,7 @@
 % ------------------------------------------------------------------------------
 
 
+
 \defbeamertemplate{headline}{headline default}{%
 \begin{beamercolorbox}[%
 	wd=\paperwidth,%
@@ -150,13 +151,14 @@
 % -----------
 %
 % ------------------------------------------------------------------------------
+\newlength{\titlelength}
+\newsavebox{\titlebox}
 
 \newcommand{\frametitlewrapper}[9]{%
 \nointerlineskip%
 \begin{beamercolorbox}[dp=0cm, sep=0.0cm,left,
 					   wd=\dimexpr\paperwidth-\fau@outer@SideBarWidthLeft,
 					   ht=\dimexpr\fau@outer@TitleHeight+#8]{frametitle}%
-\usebeamerfont{frametitle}%
 %
 \vbox to\dimexpr\fau@outer@TitleHeight+#8{%
 %
@@ -168,20 +170,20 @@
 					   ht=\dimexpr\fau@outer@TitleHeight-\fau@outer@LineWidthThick]{#1}%
 \vbox to\dimexpr\dimexpr\fau@outer@TitleHeight-\fau@outer@LineWidthThick-#7{%
 \ifnum#4=0%
-	\insertframetitle\\%
+	\usebeamerfont{frametitle}\insertframetitle\\%
+	%\baselineskip=.3\fau@outer@TitleHeight%
 	%
 	\ifx\insertframesubtitle\empty\else%
-	{\usebeamerfont{subtitle}\insertframesubtitle}\\%
+	{\usebeamerfont{framesubtitle}\insertframesubtitle}%
 	\fi%
-	\vfil%
 \else%
 	\includegraphicsdefault[
 		width=2\fau@outer@WordMarkLeftWidth,%
 		height=2\fau@outer@WordMarkLeftHeight,%
 		keepaspectratio
 	]{\fau@outer@WordMarkTitleLeft}%
-	\vfil%
 \fi%
+\vfil%
 %
 }%
 \end{beamercolorbox}%
@@ -262,12 +264,15 @@
 %
 %
 \defbeamertemplate{frametitle}{frametitle default}{%
-\frametitlewrapper{}{separation line}%
-				  {\fau@outer@WordMark}{0}%
-				  {\fau@outer@WordMarkWidth}
-				  {\fau@outer@WordMarkHeight}%
-				  {\fau@outer@TitleSkip}%
-				  {0pt}{0.7}%
+\frametitlewrapper{}%1
+				  {separation line}%2
+				  {\fau@outer@WordMark}%3
+				  {0}%4
+				  {\fau@outer@WordMarkWidth}%5
+				  {\fau@outer@WordMarkHeight}%6
+				  {\fau@outer@TitleSkip}%7
+				  {0pt}%8
+				  {0.65}%9
 }%
 %
 %

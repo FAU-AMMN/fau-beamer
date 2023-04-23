@@ -20,6 +20,7 @@
 \newdimen\fau@inner@HeaderHeight
 \newdimen\fau@inner@TitleHeight
 \newdimen\fau@inner@TitleLineHeight
+\newdimen\fau@inner@RightMargin
 
 % ------------------------------------------------------------------------------
 % Dimensions
@@ -35,6 +36,7 @@
 \DeclareOptionBeamer{HeaderHeight}{\fau@inner@HeaderHeight=#1}
 \DeclareOptionBeamer{TitleHeight}{\fau@inner@TitleHeight=#1}
 \DeclareOptionBeamer{TitleLineHeight}{\fau@inner@TitleLineHeight=#1}
+\DeclareOptionBeamer{RightMargin}{\fau@inner@RightMargin=#1}
 
 \DeclareOptionBeamer{WordMarkTitle}{\def\fau@inner@WordMarkTitle{#1}}
 \DeclareOptionBeamer{TitleArt}{\def\fau@inner@TitleArt{#1}}
@@ -52,6 +54,7 @@
 \fau@inner@HeaderHeight=\fau@inner@YScale\dimexpr\fau@inner@HeaderHeight
 \fau@inner@TitleHeight=\fau@inner@YScale\dimexpr\fau@inner@TitleHeight
 \fau@inner@TitleLineHeight=\fau@inner@YScale\dimexpr\fau@inner@TitleLineHeight
+\fau@inner@RightMargin=\fau@inner@YScale\dimexpr\fau@inner@RightMargin
 
 % ..............................................................................
 % Title page
@@ -166,7 +169,7 @@
 \setbeamersize
 {
     text margin left=0cm,
-    text margin right=\fau@inner@XScale\dimexpr1.5cm
+    text margin right=\fau@inner@RightMargin
 }
 % ------------------------------------------------------------------------------
 
