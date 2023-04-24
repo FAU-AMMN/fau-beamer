@@ -389,25 +389,5 @@
 
 
 
-
-% ..............................................................................
-% trueplainframe
-% ---------
-% Actual plain environment
-% This removes the left sidbar of a plain frame
-% ------------------------------------------------------------------------------
-\newenvironment{trueplainframe}[1][]{%
-\setlength{\hoffset}{-\beamer@leftsidebar}
-%
-\addtolength{\textwidth}{\beamer@leftsidebar}
-\addtolength{\textwidth}{\beamer@rightmargin}
-\setlength{\hsize}{\textwidth}
-\setlength{\columnwidth}{\textwidth}
-\typeout{Teco sad \the\textwidth, right margin \the\beamer@rightmargin, left side bar \the\beamer@leftsidebar, hoffset \the\hoffset}
-%
-\begin{frame}[plain,#1]%
-}{%
-\end{frame}%
-}%
 % ------------------------------------------------------------------------------
 \mode<all>

@@ -100,6 +100,29 @@
   \setbeamercolor{footnote mark}{fg=TitleFont}%
   \usebeamercolor[fg]{title page}%
 }
+% ..............................................................................
+% Actual plain environment
+% This removes the left sidbar of a plain frame
+% ------------------------------------------------------------------------------
+\providebool{fau@blank}
+\define@key{beamerframe}{blank}[true]{%
+	\booltrue{fau@blank}
+	\begingroup
+	\beamer@plainframetrue%
+	\def\beamer@frametemplate{\beamer@frametemplate@plain}
+	\setlength{\hoffset}{-\beamer@leftsidebar}
+	\addtolength{\textwidth}{\beamer@leftsidebar}
+	\addtolength{\textwidth}{\beamer@rightmargin}
+	\setlength{\hsize}{\textwidth}
+	\setlength{\columnwidth}{\textwidth}
+}
+
+\apptocmd{\beamer@reseteecodes}{%
+  \ifbool{fau@blank}{
+    \endgroup
+    \boolfalse{fau@blank}}{}
+}
+
 
 \setbeamertemplate{title page}{%
 {\usebeamerfont{title}{\inserttitle}}\\
