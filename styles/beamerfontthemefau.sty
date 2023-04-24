@@ -37,16 +37,6 @@
 \RequirePackage{fix-cm}
 \RequirePackage[scaled=0.92]{helvet}
 
-
-\setbeamerfont{title}{size=\huge,series=\bfseries}
-\setbeamerfont{subtitle}{size=\Large,series=\mdseries}
-\setbeamerfont{frametitle}{size=\LARGE,series=\bfseries}
-\setbeamerfont{framesubtitle}{size=\large,series=\mdseries}
-\setbeamerfont{block title}{size=\large,series=\bfseries}
-\setbeamerfont{footline}{size=\scriptsize}
-\setbeamerfont{subsection in toc}{size=\Large,series=\mdseries}
-\setbeamerfont{default}{size=\normalsize, series=\mdseries}
-
 % ..............................................................................
 % scalable vector fonts
 % ..............................................................................
@@ -139,7 +129,18 @@
 
 % set the normalfont (default)
 \renewcommand*{\normalfont}{\normalsize}
+\newcommand{\LARGELarge}{\fontsize{\resultLARGEX}{\resultLargeY}\selectfont}
+% 
 
+\setbeamerfont{title}{size=\huge,series=\bfseries}
+\setbeamerfont{subtitle}{size=\Large,series=\mdseries}
+%\setbeamerfont{frametitle}{size=\LARGELarge, series=\bfseries}
+\setbeamerfont{frametitle}{size=\LARGE, series=\bfseries}
+\setbeamerfont{framesubtitle}{size=\large,series=\mdseries}
+\setbeamerfont{block title}{size=\large,series=\bfseries}
+\setbeamerfont{footline}{size=\scriptsize}
+\setbeamerfont{subsection in toc}{size=\Large,series=\mdseries}
+\setbeamerfont{default}{size=\normalsize, series=\mdseries}
 % ..............................................................................
 % equal font sizes for all levels
 \setbeamerfont{itemize/enumerate body}{size=\normalsize}
