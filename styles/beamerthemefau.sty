@@ -79,6 +79,10 @@
   \PassOptionsToPackage{baselinescale=#1}{styles/beamerfontthemefau}
 }%
 
+\DeclareOptionBeamer{InsertTotalFoot}{%
+	\PassOptionsToPackage{InsertTotalFoot}{styles/beamerouterthemefau}
+}%
+
 % ..............................................................................
 % File paths for template art
 % -------
@@ -180,7 +184,6 @@
 	\PassOptionsToPackage{YScale=\scale}{styles/beamerouterthemefau}
 }{}%
 %
-\PassOptionsToPackage{InsertTotalFoot}{styles/beamerouterthemefau}
 \PassOptionsToPackage{WordMark=\WordMark}{styles/beamerouterthemefau}
 \PassOptionsToPackage{WordMarkTitle=\WordMarkTitle}{styles/beamerouterthemefau}
 \PassOptionsToPackage{WordMarkTitleLeft=\WordMarkTitleLeft}{styles/beamerouterthemefau}
