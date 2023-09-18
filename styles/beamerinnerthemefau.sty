@@ -125,26 +125,24 @@
 
 
 \setbeamertemplate{title page}{%
-{\usebeamerfont{title}{\inserttitle}}\\
+\usebeamerfont{title}\inserttitle\\
 % if a subtitle is given insert it here
 \ifx\insertsubtitle\empty\else%
-{\usebeamerfont{subtitle}\parbox{0.9\textwidth}{\insertsubtitle}}%
-\fi\leavevmode\\[.5em]
+    \usebeamerfont{subtitle}\insertsubtitle\\[1em]
+\fi%
 %
 % insert authors
 \ifx\insertauthor\empty\else%
-{\parbox{0.9\textwidth}{
-\usebeamerfont{default}\textbf{\insertauthor}}%
-}\leavevmode\newline
+    \usebeamerfont{default}\textbf{\insertauthor}\\[1em]
 \fi%
 % insert institute name
 \ifx\insertinstitute\empty\else%
-    {\usebeamerfont{default}\insertinstitute}
+    \small\insertinstitute\\[1em]
 \fi%
 %
 % insert date
 \ifx\insertdate\empty\else%
-	{\usebeamerfont{default}\insertdate}%
+    \usebeamerfont{default}\insertdate%
 \fi%
 %}%
 }%
