@@ -106,6 +106,7 @@
 \DeclareOptionBeamer{TitleArt}{\def\TitleArt{#1}}
 \DeclareOptionBeamer{SecondLogo}{\PassOptionsToPackage{SecondLogo=#1}{styles/beamerouterthemefau}}
 \DeclareOptionBeamer{ThirdLogo}{\PassOptionsToPackage{ThirdLogo=#1}{styles/beamerouterthemefau}}
+\DeclareOptionBeamer{AdjustTheme}{\edef\adjustment{\noexpand#1}}
 % fall back to default image, if the images are not in the folder
 \newcommand{\includegraphicsdefault}[2][width=\linewidth]{%
 \IfFileExists{#2}%
@@ -257,6 +258,10 @@
 	\geometry{paperwidth=\scale\dimexpr720pt,paperheight=\scale\dimexpr540pt}% for 4:3
 }{}%
 
+\ifdefined\adjustment
+	\PassOptionsToPackage{\adjustment}{styles/beamerouterthemefau}
+	\PassOptionsToPackage{\adjustment}{styles/beamerinnerthemefau}
+\fi
 
 \usepackage{styles/beamerfontthemefau}
 \usepackage{styles/beamercolorthemefau}
