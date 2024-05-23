@@ -1,7 +1,5 @@
 ![FAU_1-ANIMATION](https://user-images.githubusercontent.com/44805883/169285233-f2065c06-0dcc-49a3-9afe-242e1f2e6e05.gif)
 
-> :loudspeaker: **UPDATE:**  The logo files are now included in this repository.
-
 # :film_projector: fau-beamer
 
 A LaTeX beamer template according to the 2021 [style guide](https://www.intern.fau.de/kommunikation-marketing-und-corporate-identity/corporate-identity/) of [Friedrich-Alexander-Universität Erlangen-Nürnberg](https://www.fau.de/).
@@ -95,10 +93,6 @@ The template employs the color scheme as specified by the FAU style guide. Each 
 
 
 ## :copyright: Logos
-
-The logo files are now included in this repo!!! 
-
-The files and the version of the [FAU corporate](https://www.intern.fau.de/kommunikation-marketing-und-corporate-identity/vorlagen/praesentationsvorlagen-powerpoint/) website are outdated and are soon to be replaced.
 
 The following files
 
