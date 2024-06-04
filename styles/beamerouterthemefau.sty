@@ -272,7 +272,7 @@
 				  {\fau@outer@WordMarkHeight}%6
 				  {\fau@outer@TitleSkip}%7
 				  {0pt}%8
-				  {0.65}%9
+				  {\iffau@outer@InsertThirdLogo0.65\else0.75\fi}%9
 }%
 %
 %
@@ -340,15 +340,9 @@
 					   leftskip= -\fau@outer@FootLineSkip,%
 					   wd=\dimexpr.5\paperwidth-\fau@outer@SideBarWidthLeft,%
   					   ht=\dimexpr\fau@outer@FootHeight-\fau@outer@LineWidthThin]{footline}%
-\ifx\insertshortinstitute\empty\else%
-	\insertshortinstitute\quad%
-\fi%
-\ifx\insertshortauthor\empty\else%
-	\insertshortauthor\quad%
-\fi%
-\ifx\insertshorttitle\empty\else%
-	\insertshorttitle%
-\fi%
+\expandafter\ifblank\expandafter{\beamer@shortinstitute}{}{\insertshortinstitute\quad}%
+\expandafter\ifblank\expandafter{\beamer@shortauthor}{}{\insertshortauthor\quad}%
+\insertshorttitle%
 %
 \end{beamercolorbox}%
 \hfil%
