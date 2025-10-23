@@ -19,7 +19,8 @@
 \newif\iffau@isnat\fau@isnatfalse
 \newif\iffau@istech\fau@istechfalse
 \newif\iffau@poster@InsertExtraLogo\fau@poster@InsertExtraLogofalse
-\newcount\fau@dina
+\newcounter{fau@dina}
+\setcounter{fau@dina}{0}
 
 \newdimen\pageheight
 \newdimen\pagewidth
@@ -95,11 +96,11 @@
 
 \DeclareOptionBeamer{size}{%
   \PassOptionsToPackage{size=#1,scale=\scale}{beamerposter}%
-  \ifthenelse{\equal{#1}{a0}}{\fau@dina=0}{}%
-  \ifthenelse{\equal{#1}{a1}}{\fau@dina=1}{}%
-  \ifthenelse{\equal{#1}{a2}}{\fau@dina=2}{}%
-  \ifthenelse{\equal{#1}{a3}}{\fau@dina=3}{}%
-  \ifthenelse{\equal{#1}{a4}}{\fau@dina=4}{}%
+  \ifthenelse{\equal{#1}{a0}}{\setcounter{fau@dina}{0}\def\scale{1.4}}{}%
+  \ifthenelse{\equal{#1}{a1}}{\setcounter{fau@dina}{1}\def\scale{1.}}{}%
+  \ifthenelse{\equal{#1}{a2}}{\setcounter{fau@dina}{2}\def\scale{0.7}}{}%
+  \ifthenelse{\equal{#1}{a3}}{\setcounter{fau@dina}{3}\def\scale{0.49}}{}%
+  \ifthenelse{\equal{#1}{a4}}{\setcounter{fau@dina}{4}\def\scale{0.35}}{}%
 }
 
 \DeclareOptionBeamer{scale}{%
@@ -135,14 +136,22 @@
 % ------------------------------------------------------------------------------
 \RequirePackage{beamerposter}
 
-
-\ifcase\fau@dina %a0
+\PassOptionsToPackage{scale=\scale}{styles/beamerfontthemefau}
+\ifcase\value{fau@dina} %a0
 	\def\factor{3.31}
-	% ..............................................................................
-	% Font size.
-	% ------------------------------------------------------------------------------
-	\PassOptionsToPackage{Size=38}{styles/beamerfontthemefau}
 	\PassOptionsToPackage{BaseLineSkip=45}{styles/beamerfontthemefau}
+\or %a1
+	\def\factor{2.34}
+	\PassOptionsToPackage{BaseLineSkip=32}{styles/beamerfontthemefau}
+\or %a2
+	\def\factor{1.65}
+	\PassOptionsToPackage{BaseLineSkip=22.5}{styles/beamerfontthemefau}
+\or %a3
+	\def\factor{1.17}
+	\PassOptionsToPackage{BaseLineSkip=16}{styles/beamerfontthemefau}
+\or %a4
+	\def\factor{0.83}
+	\PassOptionsToPackage{BaseLineSkip=11}{styles/beamerfontthemefau}
 \else
   \PackageError{beamerposterthemefau}{Option 'size' must be one of 'a0', 'a1', 'a2', 'a3', or 'a4'.}{}
 \fi
