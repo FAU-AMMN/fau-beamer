@@ -90,8 +90,11 @@
 % Declare the poster size, which is later passed to the beamerposter package.
 % Addionally we pass the portrait option. 
 % ------------------------------------------------------------------------------
+
+\providecommand{\scale}{1.0}
+
 \DeclareOptionBeamer{size}{%
-  \PassOptionsToPackage{size=#1,scale=1.4}{beamerposter}%
+  \PassOptionsToPackage{size=#1,scale=\scale}{beamerposter}%
   \ifthenelse{\equal{#1}{a0}}{\fau@dina=0}{}%
   \ifthenelse{\equal{#1}{a1}}{\fau@dina=1}{}%
   \ifthenelse{\equal{#1}{a2}}{\fau@dina=2}{}%
@@ -99,7 +102,13 @@
   \ifthenelse{\equal{#1}{a4}}{\fau@dina=4}{}%
 }
 
+\DeclareOptionBeamer{scale}{%
+  \def\scale{#1}%
+  \PassOptionsToPackage{scale=#1}{beamerposter}%
+}
+
 \PassOptionsToPackage{orientation=portrait}{beamerposter}
+
 
 % ..............................................................................
 % Url and Signature for footer.
