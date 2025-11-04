@@ -96,8 +96,11 @@
 \def\WordMarkTitle{template-art/FAUWortmarkeWhite.pdf}
 
 % The following are dependent on the institute
-\def\WordMarkTitleLeft{template-art/\inst /\inst KennungWhite.pdf}
-\def\TitleArt{template-art/\inst /\inst Title.jpg}
+\newcommand{\selectart}[1]{
+	\def\WordMarkTitleLeft{template-art/#1/#1KennungWhite.pdf}
+	\def\TitleArt{template-art/#1/#1Title.jpg}
+}
+\selectart{\inst}
 
 % Declare options for user specification
 \DeclareOptionBeamer{WordMark}{\def\WordMark{#1}}%
@@ -122,6 +125,15 @@
 \selectcolormodel{rgb}
 \mode<presentation>
 % ------------------------------------------------------------------------------
+
+% ..............................................................................
+% Switch theme command
+% -------
+\newcommand{\switchinstitute}[1]{%
+	\switchcolors{#1}%
+	\selectart{#1}%
+}%
+
 
 
 % ..............................................................................

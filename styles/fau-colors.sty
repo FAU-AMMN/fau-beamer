@@ -16,6 +16,7 @@
 
 \ProvidesPackage{styles/fau-colors}
 \RequirePackage{xcolor}
+\RequirePackage{ifthen}
 
 \newcounter{faucolors@institutecounter}\setcounter{faucolors@institutecounter}{-1}
 \newif\iffaucolors@isFAU\faucolors@isFAUtrue
@@ -91,53 +92,87 @@
 % ------------------------------------------------------------------------------
 \colorlet{TitleFont}{white}
 
+\def\fausetcolor@FAU{%
+	\colorlet{BaseColor}{FAUBlue}%
+	\colorlet{BaseDarkColor}{FAUDarkBlue}%
+	\colorlet{SeparationLineColor}{BaseColor!62.5}%
+}
+\def\fausetcolor@Phil{%
+	\colorlet{BaseColor}{PhilYellow}
+	\colorlet{BaseDarkColor}{PhilOrange}
+	\colorlet{SeparationLineColor}{PhilOrange}
+	\colorlet{TitleFont}{black}
+}
+\def\fausetcolor@RW{%
+	\colorlet{BaseColor}{RWRed}%
+	\colorlet{BaseDarkColor}{RWDarkRed}%
+	\colorlet{SeparationLineColor}{RWDarkRed}%
+}
+\def\fausetcolor@Med{%
+	\colorlet{BaseColor}{MedBlue}
+	\colorlet{BaseDarkColor}{MedDarkBlue}
+	\colorlet{SeparationLineColor}{MedDarkBlue}
+}%
+\def\fausetcolor@Nat{%
+	\colorlet{BaseColor}{NatGreen}%
+	\colorlet{BaseDarkColor}{NatDarkGreen}%
+	\colorlet{SeparationLineColor}{NatDarkGreen}%
+}
+\def\fausetcolor@Tech{%
+	\colorlet{BaseColor}{TechMetallic}
+	\colorlet{BaseDarkColor}{TechDarkMetallic}
+	\colorlet{SeparationLineColor}{TechDarkMetallic}
+}
+
+% ..............................................................................
+% Select the right colors.
+% ..............................................................................
+
+
+\newcommand{\switchcolors}[1]{%
+	\ifthenelse{\equal{#1}{FAU}}{\fausetcolor@FAU{}}{}%
+	\ifthenelse{\equal{#1}{Phil}}{\fausetcolor@Phil{}}{}%
+	\ifthenelse{\equal{#1}{RW}}{\fausetcolor@RW{}}{}%
+	\ifthenelse{\equal{#1}{Med}}{\fausetcolor@Med{}}{}%
+	\ifthenelse{\equal{#1}{Nat}}{\fausetcolor@Nat{}}{}%
+	\ifthenelse{\equal{#1}{Tech}}{\fausetcolor@Tech{}}{}%
+	% ..............................................................................
+	% Define different shades for BaseColor and BaseDarkColor
+	% ------------------------------------------------------------------------------
+	%
+	\colorlet{BaseColorA}{BaseColor!62.5}
+	\colorlet{BaseColorB}{BaseColor!37.5}
+	\colorlet{BaseColorC}{BaseColor!25.0}
+	\colorlet{BaseColorD}{BaseColor!12.5}
+	
+	\colorlet{BaseDarkColorA}{BaseDarkColor!62.5}
+	\colorlet{BaseDarkColorB}{BaseDarkColor!37.5}
+	\colorlet{BaseDarkColorC}{BaseDarkColor!25.0}
+	\colorlet{BaseDarkColorD}{BaseDarkColor!12.5}
+}
+
+
+
 \iffaucolors@isFAU
-  \colorlet{BaseColor}{FAUBlue}
-  \colorlet{BaseDarkColor}{FAUDarkBlue}
-  \colorlet{SeparationLineColor}{BaseColor!62.5}
+  \switchcolors{FAU}
 \fi
 
 \iffaucolors@isPhil
-  \colorlet{BaseColor}{PhilYellow}
-  \colorlet{BaseDarkColor}{PhilOrange}
-  \colorlet{SeparationLineColor}{PhilOrange}
-  \colorlet{TitleFont}{black}
+  \switchcolors{Phil}
 \fi
 
 \iffaucolors@isRW
-  \colorlet{BaseColor}{RWRed}
-  \colorlet{BaseDarkColor}{RWDarkRed}
-  \colorlet{SeparationLineColor}{RWDarkRed}
+	\switchcolors{RW}
 \fi
 
 \iffaucolors@isMed
-  \colorlet{BaseColor}{MedBlue}
-  \colorlet{BaseDarkColor}{MedDarkBlue}
-  \colorlet{SeparationLineColor}{MedDarkBlue}
+  \switchcolors{Med}
 \fi
 
 \iffaucolors@isNat
-  \colorlet{BaseColor}{NatGreen}
-  \colorlet{BaseDarkColor}{NatDarkGreen}
-  \colorlet{SeparationLineColor}{NatDarkGreen}
+  \switchcolors{Nat}
 \fi
 
 \iffaucolors@isTech
-  \colorlet{BaseColor}{TechMetallic}
-  \colorlet{BaseDarkColor}{TechDarkMetallic}
-  \colorlet{SeparationLineColor}{TechDarkMetallic}
+  \switchcolors{Tech}
 \fi
-
-% ..............................................................................
-% Define different shades for BaseColor and BaseDarkColor
-% ------------------------------------------------------------------------------
-%
-\colorlet{BaseColorA}{BaseColor!62.5}
-\colorlet{BaseColorB}{BaseColor!37.5}
-\colorlet{BaseColorC}{BaseColor!25.0}
-\colorlet{BaseColorD}{BaseColor!12.5}
-
-\colorlet{BaseDarkColorA}{BaseDarkColor!62.5}
-\colorlet{BaseDarkColorB}{BaseDarkColor!37.5}
-\colorlet{BaseDarkColorC}{BaseDarkColor!25.0}
-\colorlet{BaseDarkColorD}{BaseDarkColor!12.5}
