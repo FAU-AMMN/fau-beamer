@@ -2,7 +2,7 @@
 
 # :film_projector: fau-beamer
 
-A LaTeX beamer template according to the 2021 [style guide](https://www.intern.fau.de/kommunikation-marketing-und-corporate-identity/corporate-identity/) of [Friedrich-Alexander-Universität Erlangen-Nürnberg](https://www.fau.de/).
+A LaTeX beamer template according to the 2021 [style guide](https://www.intern.fau.de/kommunikation-und-marke/corporate-design/) of [Friedrich-Alexander-Universität Erlangen-Nürnberg](https://www.fau.de/).
 
 The given template allows you to create LaTeX presentations with the [beamer class](https://ctan.org/pkg/beamer?lang=en) in the corporate style of FAU.
 
